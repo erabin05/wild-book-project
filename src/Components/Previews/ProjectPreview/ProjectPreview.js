@@ -5,14 +5,14 @@ import StudentNamePreview from '../StudentNamePreview/StudentNamePreview'
 
 const projectStudents = ['Etienne RABIN','Thomas CULDAUT','Clement BECHETOILLE']
 
-const ProjetcPreview = () => (
+const ProjetcPreview = ({title, students}) => (
         <article className='user-project-preview'>
             <figure><img src='' alt=''/></figure>
             <div>
-                <h3>My project's title</h3>
+                <h3>{title}</h3>
                 <div></div>
                 <section>
-                    {projectStudents.map((student, id) => <StudentNamePreview key={id} name={student}/>)}
+                    {students.map((student, id) => <StudentNamePreview key={id} name={student}/>)}
                 </section>
             </div> 
         </article>
