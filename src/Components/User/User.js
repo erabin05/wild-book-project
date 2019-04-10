@@ -1,8 +1,8 @@
 import React from 'react'
 import './user.scss'
 
-import ProjetcPreview from './ProjectPreview'
+import ProjetcDisplay from './ProjectsDisplay'
 
-const User = () => <ProjetcPreview/>
+const User = () => <ProjetcDisplay/>
 
 export default User

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './App.scss'
 
 import User from './Components/User/User'
