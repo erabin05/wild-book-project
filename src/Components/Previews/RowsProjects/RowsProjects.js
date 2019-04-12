@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './_rows-projects.scss'
 
 import  ProjectPreview from '../ProjectPreview/ProjectPreview'
@@ -8,12 +8,9 @@ const projectsInRowByFour = projects => {
     let projectsInRows = []
     let projectByfour = []
 
-    console.log()
-
     projects.map((project, id) => {
         projectByfour = [...projectByfour, project]
         if ((id+1)%4 === 0 || (id+1) > Math.floor(projects.length/4)*4 && (id+1) === projects.length) {
-            console.log(projectByfour)
             projectsInRows = [...projectsInRows, projectByfour]
             projectByfour = []
         } 
@@ -22,15 +19,15 @@ const projectsInRowByFour = projects => {
     return projectsInRows
 }
 
-const RowsProjects = ({categorie, projects}) => {
-
-    projectsInRowByFour(projects);
-
-    return (
-        <article className='rows-projects'>
-            {projects.map((project, id) => <ProjectPreview key={id} {...project}/>)}
-        </article> 
-    )
-}
+const RowsProjects = ({categorie, projects}) => (
+    <article className='rows-projects'>
+        {projectsInRowByFour(projects).map((projectsByfour, i) => (
+                <div className='project-by-four' key={i}>
+                    {projectsByfour.map((project, j) => <ProjectPreview key={j} {...project}/>)}
+                </div>
+            )
+        )}
+    </article> 
+)
 
 export default RowsProjects
