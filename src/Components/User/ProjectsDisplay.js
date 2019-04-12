@@ -1,7 +1,11 @@
 import React from 'react'
 
-import ProjectPreview from '../Previews/ProjectPreview/ProjectPreview'
+import RowsProjects from '../Previews/RowsProjects/RowsProjects'
 
-const ProjectDisplay = ({projects}) => (<section className='project-display'>{projects.map((project, id) => <ProjectPreview key={id} {...project}/>)}</section>)
+const ProjectDisplay = ({projectsRows}) => (
+    <section className='project-display'>
+        {projectsRows.map((project, id) => <RowsProjects key={id} {...project}/>)}
+    </section>
+    )
 
 export default ProjectDisplay
