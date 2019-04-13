@@ -1,9 +1,13 @@
 
 .rows-projects {
     width: 100%;
+    height: 10px;
+    position: relative;
 }
 
 .project-by-four {
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
+    position: absolute;
 }

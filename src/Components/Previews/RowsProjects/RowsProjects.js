@@ -22,7 +22,7 @@ const projectsInRowByFour = projects => {
 const RowsProjects = ({categorie, projects}) => (
     <article className='rows-projects'>
         {projectsInRowByFour(projects).map((projectsByfour, i) => (
-                <div className='project-by-four' key={i}>
+                <div className='project-by-four' key={i} style={{marginLeft : `${10 + (i*80)}%`}}>
                     {projectsByfour.map((project, j) => <ProjectPreview key={j} {...project}/>)}
                 </div>
             )
