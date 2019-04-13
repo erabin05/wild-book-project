@@ -1,8 +1,42 @@
+@import '../../../Style/color.scss';
+
 
 .rows-projects {
     width: 100%;
     height: 10px;
     position: relative;
+}
+
+.rows-projects > h2 {
+    margin-left: 11%;
+    margin-bottom: 10px
+}
+
+.rows-projects > .left{
+    float: left;
+}
+.rows-projects > .right{
+    float: right;
+}
+
+.rows-projects > button {
+    position: relative;
+    z-index: 5;
+    margin: 4vw 8% 0 8%;
+    background: $red;
+    border: none;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    box-shadow: 3px 6px 19px -12px rgba(0,0,0,0.1);
+}
+
+.rows-projects > button:hover {
+    cursor: pointer;
+}
+
+.rows-projects > button:focus {
+    outline: none;
 }
 
 .project-by-four {

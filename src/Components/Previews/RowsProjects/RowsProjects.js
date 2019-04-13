@@ -23,9 +23,23 @@ const RowsProjects = ({categorie, projects}) => {
     const [isFocusedOn, setIsFocusedOn] = useState(0)
     const [rowPosition, SetRowPosition] = useState(0)
 
+    const projectsInRow = projectsInRowByFour(projects)
+
     return (
     <article className='rows-projects'>
-        {projectsInRowByFour(projects).map((projectsByfour, i) => (
+        <h2>{categorie}</h2>
+        {/* Row navigation */}
+        <button className='left' 
+                onClick={()=> {SetRowPosition(rowPosition + 80); setIsFocusedOn(isFocusedOn-1)}}
+                style={{display : isFocusedOn === 0 ? 'none' : 'block'}}
+        >left</button>
+        <button className='right' 
+                onClick={()=> {SetRowPosition(rowPosition - 80); setIsFocusedOn(isFocusedOn+1)}} 
+                style={{display : isFocusedOn === projectsInRow.length-1 ? 'none' : 'block'}}
+        >right</button>
+        
+        {/* Projects */}
+        {projectsInRow.map((projectsByfour, i) => (
                 <div    className='project-by-four' 
                         key={i} 
                         style={{marginLeft : `${10 + (i*80) + rowPosition}%`, 
@@ -35,8 +49,6 @@ const RowsProjects = ({categorie, projects}) => {
                 </div>
             )
         )}
-        <button onClick={()=> {SetRowPosition(rowPosition - 80); setIsFocusedOn(isFocusedOn+1)}} >left</button>
-        <button onClick={()=> {SetRowPosition(rowPosition + 80); setIsFocusedOn(isFocusedOn-1)}}>rigth</button>
     </article> 
     )
 }
