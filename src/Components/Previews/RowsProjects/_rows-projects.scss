@@ -1,4 +1,5 @@
 @import '../../../Style/color.scss';
+@import '../../../Style/breakpoints.scss';
 
 
 .rows-projects {
@@ -13,6 +14,17 @@
 .rows-projects > h2 {
     margin-left: 11%;
     margin-bottom: 10px
+}
+@media screen and (max-width: $tablet) {
+    .rows-projects > h2 {
+        margin-left: 8%;
+        margin-bottom: 20px
+    }
+}
+@media screen and (max-width: $phone) {
+    .rows-projects > h2 {
+        margin-left: 9%;
+    }
 }
 
 .rows-projects > div > .left{
@@ -42,10 +54,21 @@
     outline: none;
 }
 
+@media screen and (min-width: $tablet) {
+    .project-by-four {
+        width: 80%;
+        position: absolute;
+        transition: 1s;
+    }
+}
+@media screen and (max-width: $tablet) {
+    .project-by-four {
+        width: 90%;
+        margin: auto;
+    }
+}
+
 .project-by-four {
-    width: 80%;
+    
     display: flex;
-    flex-wrap: wrap;
-    position: absolute;
-    transition: 1s;
 }

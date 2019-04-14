@@ -1,17 +1,11 @@
 @import "../../../Style/color.scss";
-
+@import "../../../Style/breakpoints.scss";
 
 // .project-preview 
-
-.project-preview {
-    width: 23%;
-    margin: 0 1% 0 1%;
-}
 
 .project-preview > figure {
     margin: 0;
     width: 100%;
-    height: 11vw;
     background: $light-grey;
     border: 1px solid $grey;
     border-radius: 12px;
@@ -19,6 +13,37 @@
 
 .project-preview > div {
     padding: 10px 10px 10px 10px;
+}
+
+@media screen and (min-width: $tablet) {
+    .project-preview {
+        width: 23%;
+        margin: 0 1% 0 1%;
+    }
+    .project-preview > figure {
+        height: 11vw;
+    }
+}
+@media screen and (min-width: $phone) and (max-width: $tablet){
+    .project-preview {
+        width: 33%;
+        margin: 0 2% 10px 2%;
+    }
+    .project-preview > figure {
+        height: 16vw;
+    }
+}
+@media screen and (max-width: $phone) {
+    .project-preview {
+        width: 50%;
+        margin: 0 3% 10px 3%;
+    }
+    .project-preview > figure {
+        height: 23vw;
+    }
+    .project-preview > div {
+        padding: 10px 5px 10px 5px;
+    }
 }
 
 .project-preview > div > h3 {
