@@ -4,7 +4,7 @@ import './ProjectPreview.scss'
 import StudentNamePreview from '../StudentNamePreview/StudentNamePreview'
 
 const ProjetcPreview = ({title, students}) => (
-        <article className='user-project-preview'>
+        <article className='project-preview'>
             <figure><img src='' alt=''/></figure>
             <div>
                 <h3>{title}</h3>
