@@ -4,7 +4,7 @@ import './_rows-projects.scss'
 import  ProjectPreview from '../ProjectPreview/ProjectPreview'
 
 
-const projectsInRowByFour = projects => {
+const projectsInRowOfFour = projects => {
     let projectsInRows = []
     let projectByfour = []
 
@@ -20,15 +20,17 @@ const projectsInRowByFour = projects => {
 
 
 const RowsProjects = ({categorie, projects}) => {
+
+    // Animation right left position
     const [isFocusedOn, setIsFocusedOn] = useState(0)
     const [rowPosition, SetRowPosition] = useState(0)
 
+    // Row height adjust depending on its content
     const [rowHeight,setRowHeight] = useState(0)
     const projectHeight = useRef(null)
 
-    const projectsInRow = projectsInRowByFour(projects)
-
-    
+    // All projects in rows of four
+    const projectsInRow = projectsInRowOfFour(projects)
 
     useEffect(() => {
         setRowHeight(projectHeight.current.clientHeight)
