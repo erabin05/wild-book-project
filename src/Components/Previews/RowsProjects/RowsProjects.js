@@ -1,30 +1,11 @@
 import React, {useState, useRef, useEffect} from 'react'
+import { connect } from "react-redux";
 import './_rows-projects.scss'
 
 import  ProjectPreview from '../ProjectPreview/ProjectPreview'
 
-// screen size ==> FOR ALL APP
-const useWindowBreakpoints = () => {
-    const [width, setWidth] = useState(window.innerWidth)
-    useEffect(() => {
-        const handleresize = () => setWidth(window.innerWidth)
-        window.addEventListener('resize', handleresize)
-        return () => window.removeEventListener('resize', handleresize)
-    })
-    
-    if (width >= 960) {
-        return  'desktop'
-    } else if (width < 960 && width >= 768) {
-        return 'tablet'
-    } else {
-        return 'phone'
-    }
-}
-
-const useNumberOfprojectByRow = () => {
-    const windowWidth = useWindowBreakpoints();
-
-    switch (windowWidth) {
+const useNumberOfprojectByRow = screenSize => {
+    switch (screenSize) {
         case 'desktop': 
             return 4
         case 'tablet': 
@@ -48,7 +29,7 @@ const projectsInRowOfNumber = (projects, number) => {
     return projectsInRows
 }
 
-const RowsProjects = ({categorie, projects}) => {
+const RowsProjects = ({categorie, projects, screenSize}) => {
 
     // Animation right left position
     const [isFocusedOn, setIsFocusedOn] = useState(0)
@@ -56,15 +37,15 @@ const RowsProjects = ({categorie, projects}) => {
 
     // Row height adjust depending on its content
     const [rowHeight,setRowHeight] = useState(0)
-    const projectHeight = useRef(null)
+    const projectHeight = useRef(undefined)
 
     // All projects in rows of 4 or 3 or 2
-    const numberOfProjectsInRow = useNumberOfprojectByRow()
+    const numberOfProjectsInRow = useNumberOfprojectByRow(screenSize)
     const projectsInRow = projectsInRowOfNumber(projects, numberOfProjectsInRow)
     const isOnDesktop = numberOfProjectsInRow === 4 
 
     useEffect(() => {
-        setRowHeight( isOnDesktop ? projectHeight.current.clientHeight : null)
+        isOnDesktop && setRowHeight(projectHeight.current.clientHeight)
     })
 
     return (
@@ -100,4 +81,10 @@ const RowsProjects = ({categorie, projects}) => {
     )
 }
 
-export default RowsProjects
+const mapStateToProps = state => ({
+    screenSize: state.screenSize
+  });
+
+export default connect(
+    mapStateToProps
+    )(RowsProjects)
