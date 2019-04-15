@@ -1,10 +1,16 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import './ProjectPreview.scss'
 
 import StudentNamePreview from '../StudentNamePreview/StudentNamePreview'
 
-const ProjetcPreview = ({title, students}) => (
-        <article className='project-preview'>
+const ProjetcPreview = ({title, students, setRowHeight}) => {
+    const projectPreviewHeight = useRef()
+
+    useEffect(()=> {setRowHeight(projectPreviewHeight.current.clientHeight)},[])
+    return (
+        <article    className='project-preview'
+                    ref = {projectPreviewHeight}
+        >
             <figure><img src='' alt=''/></figure>
             <div>
                 <h3>{title}</h3>
@@ -14,6 +20,7 @@ const ProjetcPreview = ({title, students}) => (
                 </section>
             </div> 
         </article>
-)
+    )
+}
 
 export default ProjetcPreview

@@ -1,33 +1,12 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState} from 'react'
 import { connect } from "react-redux";
 import './_rows-projects.scss'
 
 import  ProjectPreview from '../ProjectPreview/ProjectPreview'
 
-const useNumberOfprojectByRow = screenSize => {
-    switch (screenSize) {
-        case 'desktop': 
-            return 4
-        case 'tablet': 
-            return 3
-        case 'phone': 
-            return 2
-    }
-}
-
-const projectsInRowOfNumber = (projects, number) => {
-    let projectsInRows = []
-    let projectByfour = []
-
-    projects.map((project, id) => {
-        projectByfour = [...projectByfour, project]
-        if ((id+1)%number === 0 || (id+1)%number !== 0 && (id+1) === projects.length) {
-            projectsInRows = [...projectsInRows, projectByfour]
-            projectByfour = []
-        } 
-    })
-    return projectsInRows
-}
+const mapStateToProps = state => ({
+    screenSize: state.screenSize
+  });
 
 const RowsProjects = ({categorie, projects, screenSize}) => {
 
@@ -35,18 +14,15 @@ const RowsProjects = ({categorie, projects, screenSize}) => {
     const [isFocusedOn, setIsFocusedOn] = useState(0)
     const [rowPosition, SetRowPosition] = useState(0)
 
-    // Row height adjust depending on its content
-    const [rowHeight,setRowHeight] = useState(0)
-    const projectHeight = useRef(undefined)
+
+    const [rowHeight, setRowHeight] = useState(0)
 
     // All projects in rows of 4 or 3 or 2
-    const numberOfProjectsInRow = useNumberOfprojectByRow(screenSize)
+    const numberOfProjectsInRow = numberOfprojectByRow(screenSize)
     const projectsInRow = projectsInRowOfNumber(projects, numberOfProjectsInRow)
     const isOnDesktop = numberOfProjectsInRow === 4 
 
-    useEffect(() => {
-        isOnDesktop && setRowHeight(projectHeight.current.clientHeight)
-    })
+    const setRowHeightFromProjectPreview =  projectPreviewHeight => setRowHeight(projectPreviewHeight + 30)
 
     return (
     <article className='rows-projects'>
@@ -70,9 +46,8 @@ const RowsProjects = ({categorie, projects, screenSize}) => {
                             key={i} 
                             style={{marginLeft : isOnDesktop && `${10 + (i*80) + rowPosition}%`, 
                                     opacity : isOnDesktop && isFocusedOn !== i ? '0.3': '1'}}
-                            ref={projectHeight}
                     >
-                        {projectsByfour.map((project, j) => <ProjectPreview key={j} {...project}/>)}
+                        {projectsByfour.map((project, j) => <ProjectPreview key={j} {...project} setRowHeight={setRowHeightFromProjectPreview}/>)}
                     </div>
                 )
             )}
@@ -81,9 +56,30 @@ const RowsProjects = ({categorie, projects, screenSize}) => {
     )
 }
 
-const mapStateToProps = state => ({
-    screenSize: state.screenSize
-  });
+const numberOfprojectByRow = screenSize => {
+    switch (screenSize) {
+        case 'desktop': 
+            return 4
+        case 'tablet': 
+            return 3
+        case 'phone': 
+            return 2
+    }
+}
+
+const projectsInRowOfNumber = (projects, number) => {
+    let projectsInRows = []
+    let projectByfour = []
+
+    projects.map((project, id) => {
+        projectByfour = [...projectByfour, project]
+        if ((id+1)%number === 0 || (id+1)%number !== 0 && (id+1) === projects.length) {
+            projectsInRows = [...projectsInRows, projectByfour]
+            projectByfour = []
+        } 
+    })
+    return projectsInRows
+}
 
 export default connect(
     mapStateToProps
