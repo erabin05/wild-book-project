@@ -16,3 +16,9 @@ code {
 h1, h2, h3, h4, p {
   margin: 0;
 }
+
+button {
+  text-transform: uppercase;
+  font-family: 'Varela Round', sans-serif;
+  border: none;
+}

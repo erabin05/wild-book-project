@@ -19,14 +19,17 @@ const RowsProjects = ({categorie, projects, screenSize}) => {
 
     // All projects in rows of 4 or 3 or 2
     const numberOfProjectsInRow = numberOfprojectByRow(screenSize)
-    const projectsInRow = projectsInRowOfNumber(projects, numberOfProjectsInRow)
-    const isOnDesktop = numberOfProjectsInRow === 4 
+    const projectsInRow = projectsInRowOfNumber(numberOfProjectByScreenSize(projects, screenSize), numberOfProjectsInRow)
+    const isOnDesktop = screenSize === 'desktop' 
 
     const setRowHeightFromProjectPreview =  projectPreviewHeight => setRowHeight(projectPreviewHeight + 30)
 
     return (
     <article className='rows-projects'>
-        <h2>{categorie}</h2>
+        <div className='row-title'>
+            <h2>{categorie}</h2>
+            {!isOnDesktop && <button>Voir plus ></button>}
+        </div>
         <div style={{height : isOnDesktop && rowHeight}}>
             {/* Row navigation */}
             { isOnDesktop && 
@@ -64,6 +67,17 @@ const numberOfprojectByRow = screenSize => {
             return 3
         case 'phone': 
             return 2
+    }
+}
+
+const numberOfProjectByScreenSize = (projects, screenSize) => {
+    switch (screenSize) {
+        case 'desktop': 
+            return projects
+        case 'tablet': 
+            return [projects[0], projects[1] , projects[2]]
+        case 'phone': 
+            return [projects[0], projects[1] , projects[2], projects[3]]
     }
 }
 

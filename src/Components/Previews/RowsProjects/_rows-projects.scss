@@ -4,25 +4,39 @@
 
 .rows-projects {
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .rows-projects > div{
     position: relative;
 }
 
-.rows-projects > h2 {
+.row-title {
+    display: flex;
+}
+
+.row-title > button {
+    background: none;
+    border : solid $red 1px;
+    color: $red;
+    height: 1.5rem;
+    border-radius: 2em;
+    padding: 0 1.2rem 0 1.2rem;
+    margin-left: 1rem;
+}
+
+.rows-projects > .row-title > h2 {
     margin-left: 11%;
     margin-bottom: 10px
 }
 @media screen and (max-width: $tablet) {
-    .rows-projects > h2 {
+    .rows-projects > .row-title > h2 {
         margin-left: 8%;
         margin-bottom: 20px
     }
 }
 @media screen and (max-width: $phone) {
-    .rows-projects > h2 {
+    .rows-projects > .row-title > h2 {
         margin-left: 9%;
     }
 }
@@ -34,7 +48,7 @@
     float: right;
 }
 
-.rows-projects > div > button {
+.rows-projects > div > .left, .rows-projects > div > .right {
     position: relative;
     z-index: 5;
     margin: 4vw 8% 0 8%;
