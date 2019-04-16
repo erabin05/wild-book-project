@@ -9,3 +9,18 @@ h2 {
     font-size: 1.2rem;
     text-transform: uppercase;
 }
+
+
+// Buttons
+
+.outline-button {
+    background : #fff;
+    color : $red;
+    padding : 0 1.5rem 0 1.5rem;
+    border : solid 1px $red;
+    transition: 0.3s ease-in;
+ }
+ .outline-button:hover {
+    color : #fff;
+    background : $red;
+ }

@@ -28,7 +28,7 @@ const RowsProjects = ({categorie, projects, screenSize}) => {
     <article className='rows-projects'>
         <div className='row-title'>
             <h2>{categorie}</h2>
-            {!isOnDesktop && <button>Voir plus ></button>}
+            {!isOnDesktop && <button className='outline-button'>Voir plus ></button>}
         </div>
         <div style={{height : isOnDesktop && rowHeight}}>
             {/* Row navigation */}

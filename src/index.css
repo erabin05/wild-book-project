@@ -22,3 +22,11 @@ button {
   font-family: 'Varela Round', sans-serif;
   border: none;
 }
+
+button:hover {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
