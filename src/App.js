@@ -7,6 +7,13 @@ import User from './Components/User/User'
 
 import {setScreenSize} from './Reducers/screenSize/action'
 
+const mapStateToProps = state => ({
+  screenSize: state.screenSize
+});
+
+const mapDispatchToProps = dispatch => ({
+  setScreenSize: () => dispatch( setScreenSize(window.innerWidth) )
+});
 
 const App = ({screenSize, setScreenSize}) => {
 
@@ -21,14 +28,6 @@ const App = ({screenSize, setScreenSize}) => {
     </main>
   )
 }
-
-const mapStateToProps = state => ({
-  screenSize: state.screenSize
-});
-
-const mapDispatchToProps = dispatch => ({
-  setScreenSize: () => dispatch( setScreenSize(window.innerWidth) )
-});
 
 export default connect(
   mapStateToProps,

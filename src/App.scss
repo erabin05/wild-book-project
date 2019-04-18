@@ -22,5 +22,18 @@ h2 {
  }
  .outline-button:hover {
     color : #fff;
-    background : $red;
+    background : $red-hover;
  }
+
+ .inline-button {
+    background : $red;
+    color : #fff;
+    padding : 0 1.5rem 0 1.5rem;
+    border : solid 1px $red;
+    transition: 0.3s ease-in;
+ }
+ .inline-button:hover {
+    color : #fff;
+    background : $red-hover;
+ }
+ 

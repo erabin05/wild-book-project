@@ -21,3 +21,4 @@ const screenSize = (state = initialState, action) => {
 }
 
 export default screenSize
+

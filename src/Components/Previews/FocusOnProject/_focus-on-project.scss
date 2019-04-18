@@ -1,0 +1,55 @@
+@import '../../../Style/color.scss';
+
+.focus-on-project {
+    background : $light-grey;
+    height: 250px;
+    margin-bottom: 1rem;
+    inset : 0px 0px 20px rgba(0,0,0,1);
+    display: flex;
+    padding: 25px 5% 25px 5%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.focus-on-project > section, .focus-on-project > figure {
+    height: 15vw;
+}
+
+.focus-on-project > figure {
+    margin: 0;
+    width: 27%;
+    background: #fff;
+    border: 1px solid $grey;
+    border-radius: 12px;
+}
+
+.focus-on-project > section {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.focus-on-project > section > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.focus-on-project > section > div > a {
+    height: 1.8rem;
+    border-radius: 0.9rem;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+.focus-on-project > section > div > h2{
+    margin-bottom: 0.5rem;
+}
+
+.focus-on-project > section > div > p{
+    font-size: 0.8rem;
+}

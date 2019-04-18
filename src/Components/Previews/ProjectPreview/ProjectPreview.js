@@ -2,14 +2,21 @@ import React, {useRef, useEffect} from 'react'
 import { connect } from "react-redux";
 import './ProjectPreview.scss'
 
+import { setProjectSelectedForFocus } from '../../../Reducers/projectSelectedForFocus/action'
+
 import StudentNamePreview from '../StudentNamePreview/StudentNamePreview'
 
 const mapStateToProps = state => ({
-    screenSize: state.screenSize
+    screenSize: state.screenSize,
+    projectSelectedForFocus: state.projectSelectedForFocus
   });
 
-const ProjetcPreview = ({title, students, setRowHeight, screenSize}) => {
-    
+  const mapDispatchToProps = dispatch => ({
+    setProjectSelectedForFocus: project => dispatch( setProjectSelectedForFocus(project) )
+  });
+
+const ProjetcPreview = ({id, title, description, websiteLink, githubLink, students, screenSize, setRowHeight, projectSelectedForFocus, setProjectSelectedForFocus}) => {
+
     // get height of element for row
     const projectPreviewHeight = useRef()
     useEffect(()=> {setRowHeight(projectPreviewHeight.current.clientHeight)},[])
@@ -17,8 +24,16 @@ const ProjetcPreview = ({title, students, setRowHeight, screenSize}) => {
     return (
         <article    className='project-preview'
                     ref = {projectPreviewHeight}
+                    onClick={()=> setProjectSelectedForFocus({
+                        id,
+                        title,
+                        description,
+                        students,
+                        websiteLink,
+                        githubLink
+                    })}
         >
-            <figure><img src='' alt=''/></figure>
+            <figure style={{borderColor: projectSelectedForFocus.id === id && '#F37173'}}><img src='' alt=''/></figure>
             <div>
                 <h3>{title}</h3>
                 < div></div>
@@ -33,5 +48,6 @@ const ProjetcPreview = ({title, students, setRowHeight, screenSize}) => {
 }
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
     )(ProjetcPreview)

@@ -3,6 +3,15 @@
 
 // .project-preview 
 
+.project-preview {
+    transition: 0.2s;
+}
+
+.project-preview:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
 .project-preview > figure {
     margin: 0;
     width: 100%;

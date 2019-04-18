@@ -41,8 +41,15 @@
 .rows-projects > div > .left{
     float: left;
 }
+.rows-projects > div > .left > img{
+    width: 80%;
+}
 .rows-projects > div > .right{
     float: right;
+}
+.rows-projects > div > .right > img{
+    width: 80%;
+    transform: rotate(180deg);
 }
 
 .rows-projects > div > .left, .rows-projects > div > .right {
@@ -55,6 +62,10 @@
     width: 3rem;
     border-radius: 50%;
     box-shadow: 3px 6px 19px -12px rgba(0,0,0,0.1);
+    transition : 0.5s ease;
+}
+.rows-projects > div > .left:hover, .rows-projects > div > .right:hover {
+    background : $red-hover;
 }
 
 

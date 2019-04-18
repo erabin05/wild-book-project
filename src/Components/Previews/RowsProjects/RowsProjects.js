@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
-import { connect } from "react-redux";
 import './_rows-projects.scss'
 
+import { connect } from "react-redux";
+
+import FocusOnProject from '../FocusOnProject/FocusOnProject'
 import  ProjectPreview from '../ProjectPreview/ProjectPreview'
 
 const mapStateToProps = state => ({
@@ -26,35 +28,44 @@ const RowsProjects = ({categorie, projects, screenSize}) => {
 
     return (
     <article className='rows-projects'>
+        {/* TITLE */}
         <div className='row-title'>
             <h2>{categorie}</h2>
             {!isOnDesktop && <button className='outline-button'>Voir plus ></button>}
         </div>
+        {/* ROW */}
         <div style={{height : isOnDesktop && rowHeight}}>
-            {/* Row navigation */}
+
+            {/* Navigation arrows*/}
             { isOnDesktop && 
             <button className='left' 
                     onClick={()=> {SetRowPosition(rowPosition + 80); setIsFocusedOn(isFocusedOn-1)}}
                     style={{display : isFocusedOn === 0 ? 'none' : 'block'}}
-            >left</button>}
+            ><img src={require('./arrow.png')} alt='arrow left'/></button>}
             { isOnDesktop && 
             <button className='right' 
                     onClick={()=> {SetRowPosition(rowPosition - 80); setIsFocusedOn(isFocusedOn+1)}} 
                     style={{display : isFocusedOn === projectsInRow.length-1 ? 'none' : 'block'}}
-            >right</button> }
-            
-            {/* Projects */}
+            ><img src={require('./arrow.png')} alt='arrow right'/></button> }
+
+            {/* List of projects */}
             {projectsInRow.map((projectsByfour, i) => (
+                <div key={i}>
                     <div    className='project-by-four' 
-                            key={i} 
                             style={{marginLeft : isOnDesktop && `${10 + (i*80) + rowPosition}%`, 
                                     opacity : isOnDesktop && isFocusedOn !== i ? '0.3': '1'}}
                     >
-                        {projectsByfour.map((project, j) => <ProjectPreview key={j} {...project} setRowHeight={setRowHeightFromProjectPreview}/>)}
+                        {projectsByfour.map((project, j) => (
+                            <ProjectPreview key={j} {...project} setRowHeight={setRowHeightFromProjectPreview}/>
+                        ))}
                     </div>
+                    { screenSize === 'phone' && <FocusOnProject/>}
+                </div>
                 )
             )}
-        </div>
+        </div> 
+        { screenSize !== 'phone' && <FocusOnProject/>}
+
     </article> 
     )
 }
@@ -95,6 +106,5 @@ const projectsInRowOfNumber = (projects, number) => {
     return projectsInRows
 }
 
-export default connect(
-    mapStateToProps
-    )(RowsProjects)
+export default connect(mapStateToProps)(RowsProjects)
+    
