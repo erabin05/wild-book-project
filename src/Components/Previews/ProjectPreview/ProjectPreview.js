@@ -39,7 +39,7 @@ const ProjetcPreview = ({id, title, description, websiteLink, githubLink, studen
                 < div></div>
                 { screenSize !== 'phone' &&
                 <section>
-                    {students.map((student, id) => <StudentNamePreview key={id} name={student}/>)}
+                    {students.map((student, id) => <StudentNamePreview key={id} {...student}/>)}
                 </section>
                 }
             </div> 

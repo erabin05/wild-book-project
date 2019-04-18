@@ -3,6 +3,8 @@ import './_focus-on-project.scss'
 
 import { connect } from "react-redux"
 
+import StudentPreview from '../StudentPreview/StudentPreview'
+
 const mapStateToProps = state => ({
     projectSelectedForFocus: state.projectSelectedForFocus
   });
@@ -12,8 +14,8 @@ const FocusOnProject = ({projectSelectedForFocus}) => {
     return(
     <article className='focus-on-project'>
         <figure></figure>
-        <section>
-            <div>
+        <section className='focus-project-descritpion'>
+            <div className='focus-project-text'>
                 <h2>{title} </h2>
                 <p>{description}</p>
             </div>
@@ -30,7 +32,9 @@ const FocusOnProject = ({projectSelectedForFocus}) => {
                 >Go to Github</a>}
             </div>
         </section>
-        <section></section>
+        <section className='focus-students'>
+            {students.map((student, i) => <StudentPreview key={i} {...student}/>)}
+        </section>
     </article>
 )}
 

@@ -11,10 +11,26 @@ const projectsRows = [
                 id : 511,
                 title : 'A project of my own making',
                 students : [
-                    'Mathieu RABIN',
-                    'samuel GILLES',
-                    'justine DUBOIS',
-                    'sebastien JOLLY'
+                    {
+                        name : 'Mathieu RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'samuel GILLES',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'justine DUBOIS',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'sebastien JOLLY',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'http://localhost:3000/',
@@ -24,9 +40,21 @@ const projectsRows = [
                 id : 512,
                 title : 'My other project Title',
                 students : [
-                    'Julien RABIN',
-                    'Maxime CORNIAU',
-                    'Edouard METZ'
+                    {
+                        name : 'Julien RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Maxime CORNIAU',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Edouard METZ',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -36,10 +64,26 @@ const projectsRows = [
                 id : 513,
                 title : 'A project of my own making',
                 students : [
-                    'Mathieu RABIN',
-                    'samuel GILLES',
-                    'justine DUBOIS',
-                    'sebastien JOLLY'
+                    {
+                        name : 'Mathieu RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'samuel GILLES',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'justine DUBOIS',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'sebastien JOLLY',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -49,9 +93,21 @@ const projectsRows = [
                 id : 514,
                 title : 'My project Title',
                 students : [
-                    'Etienne RABIN',
-                    'Clement BECHETOILLE',
-                    'Thomas CULDAUT'
+                    {
+                        name : 'Etienne RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Clement BECHETOILLE',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Thomas CULDAUT',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : '',
@@ -61,9 +117,21 @@ const projectsRows = [
                 id : 515,
                 title : 'My project Title',
                 students : [
-                    'Etienne RABIN',
-                    'Clement BECHETOILLE',
-                    'Thomas CULDAUT'
+                    {
+                        name : 'Etienne RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Clement BECHETOILLE',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Thomas CULDAUT',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : '',
@@ -73,9 +141,21 @@ const projectsRows = [
                 id : 516,
                 title : 'My other project Title',
                 students : [
-                    'Julien RABIN',
-                    'Maxime CORNIAU',
-                    'Edouard METZ'
+                    {
+                        name : 'Julien RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Maxime CORNIAU',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Edouard METZ',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -85,10 +165,26 @@ const projectsRows = [
                 id : 517,
                 title : 'A project of my own making',
                 students : [
-                    'Mathieu RABIN',
-                    'samuel GILLES',
-                    'justine DUBOIS',
-                    'sebastien JOLLY'
+                    {
+                        name : 'Mathieu RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'samuel GILLES',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'justine DUBOIS',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'sebastien JOLLY',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -98,9 +194,21 @@ const projectsRows = [
                 id : 518,
                 title : 'My other project Title',
                 students : [
-                    'Julien RABIN',
-                    'Maxime CORNIAU',
-                    'Edouard METZ'
+                    {
+                        name : 'Julien RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Maxime CORNIAU',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Edouard METZ',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : '',
@@ -110,10 +218,26 @@ const projectsRows = [
                 id : 519,
                 title : 'A project of my own making',
                 students : [
-                    'Mathieu RABIN',
-                    'samuel GILLES',
-                    'justine DUBOIS',
-                    'sebastien JOLLY'
+                    {
+                        name : 'Mathieu RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'samuel GILLES',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'justine DUBOIS',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'sebastien JOLLY',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -123,9 +247,21 @@ const projectsRows = [
                 id : 5110,
                 title : 'My project Title',
                 students : [
-                    'Etienne RABIN',
-                    'Clement BECHETOILLE',
-                    'Thomas CULDAUT'
+                    {
+                        name : 'Etienne RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Clement BECHETOILLE',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Thomas CULDAUT',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : '',
@@ -135,10 +271,26 @@ const projectsRows = [
                 id : 5111,
                 title : 'A project of my own making',
                 students : [
-                    'Mathieu RABIN',
-                    'samuel GILLES',
-                    'justine DUBOIS',
-                    'sebastien JOLLY'
+                    {
+                        name : 'Mathieu RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'samuel GILLES',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'justine DUBOIS',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'sebastien JOLLY',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -148,9 +300,21 @@ const projectsRows = [
                 id : 5112,
                 title : 'My project Title',
                 students : [
-                    'Etienne RABIN',
-                    'Clement BECHETOILLE',
-                    'Thomas CULDAUT'
+                    {
+                        name : 'Etienne RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Clement BECHETOILLE',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Thomas CULDAUT',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -160,9 +324,21 @@ const projectsRows = [
                 id : 5113,
                 title : 'My project Title',
                 students : [
-                    'Etienne RABIN',
-                    'Clement BECHETOILLE',
-                    'Thomas CULDAUT'
+                    {
+                        name : 'Etienne RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Clement BECHETOILLE',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Thomas CULDAUT',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -177,9 +353,21 @@ const projectsRows = [
                 id : 671,
                 title : 'My project Title',
                 students : [
-                    'Etienne RABIN',
-                    'Clement BECHETOILLE',
-                    'Thomas CULDAUT'
+                    {
+                        name : 'Etienne RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Clement BECHETOILLE',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Thomas CULDAUT',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : '',
@@ -189,9 +377,21 @@ const projectsRows = [
                 id : 672,
                 title : 'My other project Title',
                 students : [
-                    'Julien RABIN',
-                    'Maxime CORNIAU',
-                    'Edouard METZ'
+                    {
+                        name : 'Julien RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Maxime CORNIAU',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Edouard METZ',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : '',
@@ -201,10 +401,26 @@ const projectsRows = [
                 id : 673,
                 title : 'A project of my own making',
                 students : [
-                    'Mathieu RABIN',
-                    'samuel GILLES',
-                    'justine DUBOIS',
-                    'sebastien JOLLY'
+                    {
+                        name : 'Mathieu RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'samuel GILLES',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'justine DUBOIS',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'sebastien JOLLY',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -214,9 +430,21 @@ const projectsRows = [
                 id : 674,
                 title : 'My other project Title',
                 students : [
-                    'Julien RABIN',
-                    'Maxime CORNIAU',
-                    'Edouard METZ'
+                    {
+                        name : 'Julien RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Maxime CORNIAU',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Edouard METZ',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -226,10 +454,26 @@ const projectsRows = [
                 id : 675,
                 title : 'A project of my own making',
                 students : [
-                    'Mathieu RABIN',
-                    'samuel GILLES',
-                    'justine DUBOIS',
-                    'sebastien JOLLY'
+                    {
+                        name : 'Mathieu RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'samuel GILLES',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'justine DUBOIS',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'sebastien JOLLY',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -239,9 +483,21 @@ const projectsRows = [
                 id : 676,
                 title : 'My project Title',
                 students : [
-                    'Etienne RABIN',
-                    'Clement BECHETOILLE',
-                    'Thomas CULDAUT'
+                    {
+                        name : 'Etienne RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Clement BECHETOILLE',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Thomas CULDAUT',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -251,9 +507,21 @@ const projectsRows = [
                 id : 677,
                 title : 'My project Title',
                 students : [
-                    'Etienne RABIN',
-                    'Clement BECHETOILLE',
-                    'Thomas CULDAUT'
+                    {
+                        name : 'Etienne RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Clement BECHETOILLE',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Thomas CULDAUT',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -263,9 +531,21 @@ const projectsRows = [
                 id : 678,
                 title : 'My other project Title',
                 students : [
-                    'Julien RABIN',
-                    'Maxime CORNIAU',
-                    'Edouard METZ'
+                    {
+                        name : 'Julien RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Maxime CORNIAU',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Edouard METZ',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : '',
@@ -275,10 +555,26 @@ const projectsRows = [
                 id : 679,
                 title : 'A project of my own making',
                 students : [
-                    'Mathieu RABIN',
-                    'samuel GILLES',
-                    'justine DUBOIS',
-                    'sebastien JOLLY'
+                    {
+                        name : 'Mathieu RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'samuel GILLES',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'justine DUBOIS',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'sebastien JOLLY',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -288,9 +584,21 @@ const projectsRows = [
                 id : 6710,
                 title : 'My other project Title',
                 students : [
-                    'Julien RABIN',
-                    'Maxime CORNIAU',
-                    'Edouard METZ'
+                    {
+                        name : 'Julien RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Maxime CORNIAU',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Edouard METZ',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : '',
@@ -300,10 +608,26 @@ const projectsRows = [
                 id : 6711,
                 title : 'A project of my own making',
                 students : [
-                    'Mathieu RABIN',
-                    'samuel GILLES',
-                    'justine DUBOIS',
-                    'sebastien JOLLY'
+                    {
+                        name : 'Mathieu RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'samuel GILLES',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'justine DUBOIS',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'sebastien JOLLY',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -313,9 +637,21 @@ const projectsRows = [
                 id : 6712,
                 title : 'My project Title',
                 students : [
-                    'Etienne RABIN',
-                    'Clement BECHETOILLE',
-                    'Thomas CULDAUT'
+                    {
+                        name : 'Etienne RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Clement BECHETOILLE',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Thomas CULDAUT',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
@@ -325,10 +661,26 @@ const projectsRows = [
                 id : 6713,
                 title : 'A project of my own making',
                 students : [
-                    'Mathieu RABIN',
-                    'samuel GILLES',
-                    'justine DUBOIS',
-                    'sebastien JOLLY'
+                    {
+                        name : 'Mathieu RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'samuel GILLES',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'justine DUBOIS',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'sebastien JOLLY',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : '',
@@ -338,9 +690,21 @@ const projectsRows = [
                 id : 6714,
                 title : 'My project Title',
                 students : [
-                    'Etienne RABIN',
-                    'Clement BECHETOILLE',
-                    'Thomas CULDAUT'
+                    {
+                        name : 'Etienne RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Clement BECHETOILLE',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Thomas CULDAUT',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : '',
@@ -350,9 +714,21 @@ const projectsRows = [
                 id : 6715,
                 title : 'My project Title',
                 students : [
-                    'Etienne RABIN',
-                    'Clement BECHETOILLE',
-                    'Thomas CULDAUT'
+                    {
+                        name : 'Etienne RABIN',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Clement BECHETOILLE',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
+                    {
+                        name : 'Thomas CULDAUT',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : '',

@@ -23,18 +23,21 @@
     border-radius: 12px;
 }
 
-.focus-on-project > section {
-    width: 30%;
+.focus-on-project > .focus-project-descritpion {
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.focus-on-project > section > div {
+.focus-on-project > .focus-project-descritpion > div {
     display: flex;
+    justify-content: space-between;
+}
+.focus-project-text {
     flex-direction: column;
 }
 
-.focus-on-project > section > div > a {
+.focus-on-project > .focus-project-descritpion > div > a {
     height: 1.8rem;
     border-radius: 0.9rem;
     margin-top: 0.5rem;
@@ -44,12 +47,18 @@
     text-transform: uppercase;
     text-decoration: none;
     font-size: 0.8rem;
+    width: 50%;
+    margin:0 1% 0 1%;
 }
 
-.focus-on-project > section > div > h2{
+.focus-on-project > .focus-project-descritpion > div > h2{
     margin-bottom: 0.5rem;
 }
 
-.focus-on-project > section > div > p{
+.focus-on-project > .focus-project-descritpion > div > p{
     font-size: 0.8rem;
+}
+
+.focus-on-project > .focus-students {
+    width: 20%;
 }
