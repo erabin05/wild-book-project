@@ -7,60 +7,72 @@ import { connect } from "react-redux"
 import StudentPreview from '../StudentPreview/StudentPreview'
 
 const mapStateToProps = state => ({
-    projectSelectedForFocus: state.projectSelectedForFocus
+    projectSelectedForFocus: state.projectSelectedForFocus,
+    rowIdOfSelectedProject: state.rowIdOfSelectedProject
   });
 
-const FocusOnProject = ({projectSelectedForFocus}) => {
+const FocusOnProject = ({rowId, projectSelectedForFocus, rowIdOfSelectedProject}) => {
+
     const { title, description, students, websiteLink, githubLink } = projectSelectedForFocus
     const [studentsCarouselPosition, setStudentsCarouselPosition] = useState(0)
     const studentsByRowsOfThree = byRowsOfThree(students)
 
     useEffect(()=>setStudentsCarouselPosition(0), [projectSelectedForFocus])
+
+    useEffect(()=>console.log(rowIdOfSelectedProject))
     
     return(
-    <article className='focus-on-project'>
-        <figure></figure>
-        <section className='focus-project-descritpion'>
-            <div className='focus-project-text'>
-                <h2>{title} </h2>
-                <p>{description}</p>
-            </div>
-            <div>
-                {websiteLink && <a  className='inline-button' 
-                                    href={websiteLink}
-                                    rel='noreferrer noopener'
-                                    target='_blank'
-                >Go to website</a>}
-                {githubLink && <a   className='outline-button'
-                                    href={githubLink}
-                                    rel='noreferrer noopener'
-                                    target='_blank'
-                >Go to Github</a>}
-            </div>
-        </section>
-        <section className='focus-students'>
-            <p>{students.length} contributors</p>
-            {/* Button Up */}
-            <div className='focus-arrow-up'>
-                { studentsCarouselPosition < 0 && 
-                    <div onClick={()=>setStudentsCarouselPosition(studentsCarouselPosition + 150)}>{ArrowUp()}</div>
-                }
-            </div>
-            {/* Students */}
-            <section>
-                    {studentsByRowsOfThree.map( (studentByThree, i) => (
-                        <div key={i} style={{marginTop : `${(i * 150) + studentsCarouselPosition}px`}}>
-                            {studentByThree.map((student, j) => <StudentPreview key={j} {...student}/>)}
-                        </div>
-                    ))}
+    <article    className='focus-on-project-container' 
+                style={{
+                height : projectSelectedForFocus !== 0
+                && rowIdOfSelectedProject === rowId
+                && '300px'
+                }}
+    >
+        <div className='focus-on-project'>
+            <figure></figure>
+            <section className='focus-project-descritpion'>
+                <div className='focus-project-text'>
+                    <h2>{title} </h2>
+                    <p>{description}</p>
+                </div>
+                <div>
+                    {websiteLink && <a  className='inline-button' 
+                                        href={websiteLink}
+                                        rel='noreferrer noopener'
+                                        target='_blank'
+                    >Go to website</a>}
+                    {githubLink && <a   className='outline-button'
+                                        href={githubLink}
+                                        rel='noreferrer noopener'
+                                        target='_blank'
+                    >Go to Github</a>}
+                </div>
             </section>
-            {/* Button Down */}
-            <div className='focus-arrow-down' >
-                { studentsCarouselPosition !== (studentsByRowsOfThree.length-1)*-150 && 
-                    <div onClick={()=>setStudentsCarouselPosition(studentsCarouselPosition - 150)}>{ArrowDown()}</div>
-                }
-            </div>
-        </section>
+            <section className='focus-students'>
+                <p>{students.length} contributors</p>
+                {/* Button Up */}
+                <div className='focus-arrow-up'>
+                    { studentsCarouselPosition < 0 && 
+                        <div onClick={()=>setStudentsCarouselPosition(studentsCarouselPosition + 150)}>{ArrowUp()}</div>
+                    }
+                </div>
+                {/* Students */}
+                <section>
+                        {studentsByRowsOfThree.map( (studentByThree, i) => (
+                            <div key={i} style={{marginTop : `${(i * 150) + studentsCarouselPosition}px`}}>
+                                {studentByThree.map((student, j) => <StudentPreview key={j} {...student}/>)}
+                            </div>
+                        ))}
+                </section>
+                {/* Button Down */}
+                <div className='focus-arrow-down' >
+                    { studentsCarouselPosition !== (studentsByRowsOfThree.length-1)*-150 && 
+                        <div onClick={()=>setStudentsCarouselPosition(studentsCarouselPosition - 150)}>{ArrowDown()}</div>
+                    }
+                </div>
+            </section>
+        </div>
     </article>
 )}
 

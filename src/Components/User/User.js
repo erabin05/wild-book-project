@@ -6,6 +6,7 @@ import ProjetcDisplay from './ProjectsDisplay'
 const projectsRows = [
     {
         categorie : 'Fevrier 2018',
+        categorId : 51,
         projects : [
             {
                 id : 511,
@@ -353,6 +354,7 @@ const projectsRows = [
     },
     {
         categorie : 'Septembre 2018',
+        categorId : 67,
         projects : [
             {
                 id : 671,

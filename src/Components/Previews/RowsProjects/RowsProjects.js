@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
     screenSize: state.screenSize
   });
 
-const RowsProjects = ({categorie, projects, screenSize}) => {
+const RowsProjects = ({categorie, categorId, projects, screenSize}) => {
 
     // Animation right left position
     const [isFocusedOn, setIsFocusedOn] = useState(0)
@@ -56,15 +56,15 @@ const RowsProjects = ({categorie, projects, screenSize}) => {
                                     opacity : isOnDesktop && isFocusedOn !== i ? '0.3': '1'}}
                     >
                         {projectsByfour.map((project, j) => (
-                            <ProjectPreview key={j} {...project} setRowHeight={setRowHeightFromProjectPreview}/>
+                            <ProjectPreview key={j} {...project} rowId={categorId} setRowHeight={setRowHeightFromProjectPreview}/>
                         ))}
                     </div>
-                    { screenSize === 'phone' && <FocusOnProject/>}
+                    { screenSize === 'phone' && <FocusOnProject rowId={categorId} rowPhoneId={i}/>}
                 </div>
                 )
             )}
         </div> 
-        { screenSize !== 'phone' && <FocusOnProject/>}
+        { screenSize !== 'phone' && <FocusOnProject rowId={categorId}/>}
 
     </article> 
     )
