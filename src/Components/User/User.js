@@ -31,6 +31,11 @@ const projectsRows = [
                         linkedinLink : '',
                         githubLink : ''
                     },
+                    {
+                        name : 'Romain GUILLEMOT',
+                        linkedinLink : '',
+                        githubLink : ''
+                    },
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'http://localhost:3000/',
@@ -651,7 +656,7 @@ const projectsRows = [
                         name : 'Thomas CULDAUT',
                         linkedinLink : '',
                         githubLink : ''
-                    },
+                    }
                 ],
                 description : 'little description to present my project, and for everybody to understand what we try to do when we develop this website.',
                 websiteLink : 'a',
