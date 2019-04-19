@@ -3,6 +3,7 @@ import './_focus-on-project.scss'
 import {ArrowUp, ArrowDown} from './Arrow'
 
 import { connect } from "react-redux"
+import { setProjectSelectedForFocus } from '../../../Reducers/projectSelectedForFocus/action'
 
 import StudentPreview from '../StudentPreview/StudentPreview'
 
@@ -11,24 +12,34 @@ const mapStateToProps = state => ({
     rowIdOfSelectedProject: state.rowIdOfSelectedProject
   });
 
-const FocusOnProject = ({rowId, projectSelectedForFocus, rowIdOfSelectedProject}) => {
+const mapDispatchToProps = dispatch => ({
+    setProjectSelectedForFocus: project => dispatch( setProjectSelectedForFocus(project) )
+});
+
+const FocusOnProject = ({rowId, projectSelectedForFocus, rowIdOfSelectedProject, setProjectSelectedForFocus}) => {
 
     const { title, description, students, websiteLink, githubLink } = projectSelectedForFocus
     const [studentsCarouselPosition, setStudentsCarouselPosition] = useState(0)
     const studentsByRowsOfThree = byRowsOfThree(students)
 
     useEffect(()=>setStudentsCarouselPosition(0), [projectSelectedForFocus])
-
-    useEffect(()=>console.log(rowIdOfSelectedProject))
     
     return(
     <article    className='focus-on-project-container' 
                 style={{
                 height : projectSelectedForFocus !== 0
                 && rowIdOfSelectedProject === rowId
+                && projectSelectedForFocus.id
                 && '300px'
                 }}
     >
+        <div    className='focus-on-projetc-exit'
+                onClick={()=>setProjectSelectedForFocus({
+                    title : projectSelectedForFocus.title, 
+                    description :projectSelectedForFocus.title,
+                    students : projectSelectedForFocus.students
+                })}
+        ></div>
         <div className='focus-on-project'>
             <figure></figure>
             <section className='focus-project-descritpion'>
@@ -90,4 +101,7 @@ const byRowsOfThree = students => {
     return studentsInRows
 }
 
-export default connect(mapStateToProps)(FocusOnProject)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(FocusOnProject)
