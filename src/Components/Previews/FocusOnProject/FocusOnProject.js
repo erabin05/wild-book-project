@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './_focus-on-project.scss'
 import {ArrowUp, ArrowDown} from './Arrow'
 
@@ -14,6 +14,8 @@ const FocusOnProject = ({projectSelectedForFocus}) => {
     const { title, description, students, websiteLink, githubLink } = projectSelectedForFocus
     const [studentsCarouselPosition, setStudentsCarouselPosition] = useState(0)
     const studentsByRowsOfThree = byRowsOfThree(students)
+
+    useEffect(()=>setStudentsCarouselPosition(0), [projectSelectedForFocus])
     
     return(
     <article className='focus-on-project'>
