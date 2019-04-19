@@ -1,9 +1,10 @@
 import React from 'react'
 import './_student-preview.scss'
+import wildProfilPic from './wildProfilPic'
 
 const StudentPreview = ({name}) => (
     <a className='student-preview'>
-        <span></span>
+        <span>{wildProfilPic()}</span>
         {name}
     </a>
 )

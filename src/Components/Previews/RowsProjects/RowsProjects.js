@@ -24,7 +24,7 @@ const RowsProjects = ({categorie, projects, screenSize}) => {
     const projectsInRow = projectsInRowOfNumber(numberOfProjectByScreenSize(projects, screenSize), numberOfProjectsInRow)
     const isOnDesktop = screenSize === 'desktop' 
 
-    const setRowHeightFromProjectPreview =  projectPreviewHeight => setRowHeight(projectPreviewHeight + 50)
+    const setRowHeightFromProjectPreview =  projectPreviewHeight => setRowHeight(projectPreviewHeight + 40)
 
     return (
     <article className='rows-projects'>

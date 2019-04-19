@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './_focus-on-project.scss'
+import {ArrowUp, ArrowDown} from './Arrow'
 
 import { connect } from "react-redux"
 
@@ -40,7 +41,7 @@ const FocusOnProject = ({projectSelectedForFocus}) => {
             {/* Button Up */}
             <div className='focus-arrow-up'>
                 { studentsCarouselPosition < 0 && 
-                    <div onClick={()=>setStudentsCarouselPosition(studentsCarouselPosition + 150)}></div>
+                    <div onClick={()=>setStudentsCarouselPosition(studentsCarouselPosition + 150)}>{ArrowUp()}</div>
                 }
             </div>
             {/* Students */}
@@ -54,7 +55,7 @@ const FocusOnProject = ({projectSelectedForFocus}) => {
             {/* Button Down */}
             <div className='focus-arrow-down' >
                 { studentsCarouselPosition !== (studentsByRowsOfThree.length-1)*-150 && 
-                    <div onClick={()=>setStudentsCarouselPosition(studentsCarouselPosition - 150)}></div>
+                    <div onClick={()=>setStudentsCarouselPosition(studentsCarouselPosition - 150)}>{ArrowDown()}</div>
                 }
             </div>
         </section>

@@ -85,7 +85,18 @@
 }
 
 .focus-on-project > .focus-students > div > div {
-    width: 100%;
+    width: 30%;
     height: 100%;
-    background: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    transition: 0.5s;
+    margin: auto;
+}
+
+.focus-on-project > .focus-students > div > div:hover {
+    background: $light-grey-hover;
+    cursor:pointer;
+    
 }
