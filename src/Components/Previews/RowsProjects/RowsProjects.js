@@ -3,6 +3,7 @@ import './_rows-projects.scss'
 
 import { connect } from "react-redux";
 
+import { ArrowLeft, ArrowRight } from './Arrows'
 import FocusOnProject from '../FocusOnProject/FocusOnProject'
 import  ProjectPreview from '../ProjectPreview/ProjectPreview'
 
@@ -41,12 +42,12 @@ const RowsProjects = ({categorie, categorId, projects, screenSize}) => {
             <button className='left' 
                     onClick={()=> {SetRowPosition(rowPosition + 80); setIsFocusedOn(isFocusedOn-1)}}
                     style={{display : isFocusedOn === 0 ? 'none' : 'block'}}
-            ><img src={require('./arrow.png')} alt='arrow left'/></button>}
+            ><ArrowLeft/></button>}
             { isOnDesktop && 
             <button className='right' 
                     onClick={()=> {SetRowPosition(rowPosition - 80); setIsFocusedOn(isFocusedOn+1)}} 
                     style={{display : isFocusedOn === projectsInRow.length-1 ? 'none' : 'block'}}
-            ><img src={require('./arrow.png')} alt='arrow right'/></button> }
+            ><ArrowRight/></button> }
 
             {/* List of projects */}
             {projectsInRow.map((projectsByfour, i) => (

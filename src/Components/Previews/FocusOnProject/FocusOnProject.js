@@ -5,6 +5,7 @@ import {ArrowUp, ArrowDown} from './Arrow'
 import { connect } from "react-redux"
 import { setProjectSelectedForFocus } from '../../../Reducers/projectSelectedForFocus/action'
 
+import { Cross } from './Cross'
 import StudentPreview from '../StudentPreview/StudentPreview'
 
 const mapStateToProps = state => ({
@@ -36,10 +37,10 @@ const FocusOnProject = ({rowId, projectSelectedForFocus, rowIdOfSelectedProject,
         <div    className='focus-on-projetc-exit'
                 onClick={()=>setProjectSelectedForFocus({
                     title : projectSelectedForFocus.title, 
-                    description :projectSelectedForFocus.title,
+                    description :projectSelectedForFocus.description,
                     students : projectSelectedForFocus.students
                 })}
-        ></div>
+        ><Cross/></div>
         <div className='focus-on-project'>
             <figure></figure>
             <section className='focus-project-descritpion'>
