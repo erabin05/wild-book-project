@@ -1,10 +1,12 @@
 @import '../../../Style/color.scss';
+@import '../../../Style/breakpoints.scss';
 
 .focus-on-project-container{
     height: 0;
     overflow: hidden;
     transition: 0.5s ease;
     position: relative;
+    margin-bottom: 1rem;
 }
 
 .focus-on-projetc-exit {
@@ -28,6 +30,7 @@
     padding: 25px 5% 25px 5%;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .focus-on-project > section, .focus-on-project > figure {
@@ -42,13 +45,13 @@
     border-radius: 12px;
 }
 
-.focus-on-project > .focus-project-descritpion {
+.focus-on-project > .focus-project-description {
     width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.focus-on-project > .focus-project-descritpion > div {
+.focus-on-project > .focus-project-description > div {
     display: flex;
     justify-content: space-between;
 }
@@ -56,7 +59,7 @@
     flex-direction: column;
 }
 
-.focus-on-project > .focus-project-descritpion > div > a {
+.focus-on-project > .focus-project-description > div > a {
     height: 1.8rem;
     border-radius: 0.9rem;
     margin-top: 0.5rem;
@@ -70,11 +73,11 @@
     margin:0 1% 0 1%;
 }
 
-.focus-on-project > .focus-project-descritpion > div > h2{
+.focus-on-project > .focus-project-description > div > h2{
     margin-bottom: 0.5rem;
 }
 
-.focus-on-project > .focus-project-descritpion > div > p{
+.focus-on-project > .focus-project-description > div > p{
     font-size: 0.8rem;
 }
 
@@ -119,4 +122,41 @@
     background: $light-grey-hover;
     cursor:pointer;
     
+}
+@media screen and (max-width : $phone) {
+
+    .focus-on-project {
+        height :750px;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .focus-on-project > figure, .focus-on-project > .focus-project-description {
+        width: 90%;
+        margin: auto;
+        margin : 0;
+    }
+    .focus-on-project > figure {
+        width: 90%;
+        height: 45vw;
+        margin : 2rem 0 1rem 0;
+    }
+    .focus-on-project > .focus-project-description {
+        justify-content: flex-start;
+        height: auto;
+    }
+    .focus-on-project > .focus-project-description > .focus-project-text {
+        margin-bottom: 30px;
+    }
+    .focus-on-project > .focus-project-description > .focus-project-buttons {
+        flex-direction: column;
+    }
+    .focus-on-project > .focus-project-description > .focus-project-buttons > a{
+        margin : auto;
+        width: 80%;
+        margin-bottom: 10px;
+    }
+    .focus-on-project > .focus-students {
+        margin-top: 20px;
+        width: 90%;
+    }
 }

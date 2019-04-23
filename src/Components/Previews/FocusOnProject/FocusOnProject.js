@@ -9,6 +9,7 @@ import { Cross } from './Cross'
 import StudentPreview from '../StudentPreview/StudentPreview'
 
 const mapStateToProps = state => ({
+    screenSize : state.screenSize,
     projectSelectedForFocus: state.projectSelectedForFocus,
     rowIdOfSelectedProject: state.rowIdOfSelectedProject
   });
@@ -17,38 +18,42 @@ const mapDispatchToProps = dispatch => ({
     setProjectSelectedForFocus: project => dispatch( setProjectSelectedForFocus(project) )
 });
 
-const FocusOnProject = ({rowId, projectSelectedForFocus, rowIdOfSelectedProject, setProjectSelectedForFocus}) => {
+const FocusOnProject = ({rowId, projectSelectedForFocus, rowIdOfSelectedProject, screenSize, setProjectSelectedForFocus}) => {
 
     const { title, description, students, websiteLink, githubLink } = projectSelectedForFocus
     const [studentsCarouselPosition, setStudentsCarouselPosition] = useState(0)
+    const [focusHeight, setFocusHeight] = useState(screenSize)
     const studentsByRowsOfThree = byRowsOfThree(students)
 
     useEffect(()=>setStudentsCarouselPosition(0), [projectSelectedForFocus])
+    useEffect(()=>setFocusHeight(screenSize !== 'phone' ? '300px' : '750px'), [screenSize])
     
     return(
-    <article    className='focus-on-project-container' 
-                style={{
-                height : projectSelectedForFocus !== 0
-                && rowIdOfSelectedProject === rowId
-                && projectSelectedForFocus.id
-                && '300px'
-                }}
+    <article    
+        className='focus-on-project-container' 
+        style={{
+            height : projectSelectedForFocus !== 0
+            && rowIdOfSelectedProject === rowId
+            && projectSelectedForFocus.id
+            && focusHeight
+        }}
     >
-        <div    className='focus-on-projetc-exit'
-                onClick={()=>setProjectSelectedForFocus({
-                    title : projectSelectedForFocus.title, 
-                    description :projectSelectedForFocus.description,
-                    students : projectSelectedForFocus.students
-                })}
+        <div    
+            className='focus-on-projetc-exit'
+            onClick={()=>setProjectSelectedForFocus({
+                title : projectSelectedForFocus.title, 
+                description :projectSelectedForFocus.description,
+                students : projectSelectedForFocus.students
+            })}
         ><Cross/></div>
         <div className='focus-on-project'>
             <figure></figure>
-            <section className='focus-project-descritpion'>
+            <section className='focus-project-description'>
                 <div className='focus-project-text'>
                     <h2>{title} </h2>
                     <p>{description}</p>
                 </div>
-                <div>
+                <div className='focus-project-buttons'>
                     {websiteLink && <a  className='inline-button' 
                                         href={websiteLink}
                                         rel='noreferrer noopener'
