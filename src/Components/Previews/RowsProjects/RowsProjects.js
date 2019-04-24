@@ -9,14 +9,13 @@ import  ProjectPreview from '../ProjectPreview/ProjectPreview'
 
 const mapStateToProps = state => ({
     screenSize: state.screenSize
-  });
+});
 
 const RowsProjects = ({categorie, categorId, projects, screenSize}) => {
 
     // Animation right left position
     const [isFocusedOn, setIsFocusedOn] = useState(0)
     const [rowPosition, SetRowPosition] = useState(0)
-
 
     const [rowHeight, setRowHeight] = useState(0)
 
@@ -107,5 +106,7 @@ const projectsInRowOfNumber = (projects, number) => {
     return projectsInRows
 }
 
-export default connect(mapStateToProps)(RowsProjects)
+export default connect(
+    mapStateToProps
+)(RowsProjects)
     

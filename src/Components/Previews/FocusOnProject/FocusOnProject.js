@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect } from 'react'
 import './_focus-on-project.scss'
 import {ArrowUp, ArrowDown} from './Arrow'
 
@@ -16,10 +16,17 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     setProjectSelectedForFocus: project => dispatch( setProjectSelectedForFocus(project) )
+    // setSelectedFocusScrollPosition: scrollPosition => dispatch( setSelectedFocusScrollPosition(scrollPosition) )
 });
 
-const FocusOnProject = ({rowId, rowPhoneId, projectSelectedForFocus, rowIdOfSelectedProject, screenSize, setProjectSelectedForFocus}) => {
-
+const FocusOnProject = ({
+    rowId, 
+    rowPhoneId, 
+    projectSelectedForFocus, 
+    rowIdOfSelectedProject, 
+    screenSize, 
+    setProjectSelectedForFocus
+}) => {
     const { title, description, students, websiteLink, githubLink } = projectSelectedForFocus
     const [studentsCarouselPosition, setStudentsCarouselPosition] = useState(0)
     const [focusHeight, setFocusHeight] = useState(screenSize)
@@ -27,7 +34,6 @@ const FocusOnProject = ({rowId, rowPhoneId, projectSelectedForFocus, rowIdOfSele
 
     useEffect(()=>setStudentsCarouselPosition(0), [projectSelectedForFocus])
     useEffect(()=>setFocusHeight(screenSize !== 'phone' ? '300px' : '750px'), [screenSize])
-    useEffect(()=>console.log(rowPhoneId))
     
     return(
     <article    

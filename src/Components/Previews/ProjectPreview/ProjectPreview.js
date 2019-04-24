@@ -1,6 +1,8 @@
 import React, {useRef, useEffect} from 'react'
-import { connect } from "react-redux";
+import { connect } from "react-redux"
 import './ProjectPreview.scss'
+
+import { animateScroll as scroll } from 'react-scroll'
 
 import { setProjectSelectedForFocus } from '../../../Reducers/projectSelectedForFocus/action'
 import { setRowIdOfSelectedProject } from '../../../Reducers/rowIdOfProjectSelected/action'
@@ -9,6 +11,7 @@ import StudentNamePreview from '../StudentNamePreview/StudentNamePreview'
 
 const mapStateToProps = state => ({
     screenSize: state.screenSize,
+    selectedFocusScrollPosition : state.selectedFocusScrollPosition,
     projectSelectedForFocus: state.projectSelectedForFocus
   });
 
@@ -23,7 +26,7 @@ const ProjetcPreview = ({
                             description, 
                             websiteLink, 
                             githubLink, 
-                            rowId, 
+                            rowId,
                             students, 
                             screenSize, 
                             setRowHeight, 
@@ -33,14 +36,14 @@ const ProjetcPreview = ({
                         }) => {
 
     // get height of element for row
-    const projectPreviewHeight = useRef()
-    useEffect(()=> {setRowHeight(projectPreviewHeight.current.clientHeight)},[])
+    const projectPreviewElement = useRef()
+    useEffect(()=> {setRowHeight(projectPreviewElement.current.clientHeight)},[])
 
     const isProjectSelected = projectSelectedForFocus.id === id 
 
     return (
         <article    className='project-preview'
-                    ref = {projectPreviewHeight}
+                    ref = {projectPreviewElement}
                     onClick={()=> {
                         setProjectSelectedForFocus(
                             {
@@ -53,6 +56,7 @@ const ProjetcPreview = ({
                             }
                         )
                         setRowIdOfSelectedProject(isProjectSelected ? 0 : rowId)
+                        scroll.scrollTo(projectPreviewElement.current.getBoundingClientRect().top)  
                     }}
         >
             <figure style={{borderColor: isProjectSelected && '#F37173'}}><img src='' alt=''/></figure>
