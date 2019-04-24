@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => ({
     setProjectSelectedForFocus: project => dispatch( setProjectSelectedForFocus(project) )
 });
 
-const FocusOnProject = ({rowId, projectSelectedForFocus, rowIdOfSelectedProject, screenSize, setProjectSelectedForFocus}) => {
+const FocusOnProject = ({rowId, rowPhoneId, projectSelectedForFocus, rowIdOfSelectedProject, screenSize, setProjectSelectedForFocus}) => {
 
     const { title, description, students, websiteLink, githubLink } = projectSelectedForFocus
     const [studentsCarouselPosition, setStudentsCarouselPosition] = useState(0)
@@ -27,6 +27,7 @@ const FocusOnProject = ({rowId, projectSelectedForFocus, rowIdOfSelectedProject,
 
     useEffect(()=>setStudentsCarouselPosition(0), [projectSelectedForFocus])
     useEffect(()=>setFocusHeight(screenSize !== 'phone' ? '300px' : '750px'), [screenSize])
+    useEffect(()=>console.log(rowPhoneId))
     
     return(
     <article    
