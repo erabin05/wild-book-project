@@ -15,7 +15,8 @@
     display: flex;
 }
 
-.row-title > button {
+
+.row-title button {
     height: 1.5rem;
     border-radius: 2em;
     padding: 0 1.2rem 0 1.2rem;
@@ -63,14 +64,14 @@
 
 
 @media screen and (min-width: $tablet) {
-    .project-by-four {
+    .rows-projects .project-by-four {
         width: 80%;
         position: absolute;
         transition: 1s;
     }
 }
 @media screen and (max-width: $tablet) {
-    .project-by-four {
+    .rows-projects .project-by-four {
         width: 90%;
         margin: auto;
     }

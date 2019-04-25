@@ -1,10 +1,40 @@
+@import '../../Style/color.scss';
+
 
 // .project-display
 
 .project-display{
+    width : 100%;
+    display : flex;
+    flex-wrap : wrap;
+    overflow : hidden;
+
+}
+
+
+// .dedicated-page
+
+.dedicated-page {
+    display : flex;
+    flex-wrap : wrap;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
+    padding-top: 2rem;
+}
+.dedicated-page-head {
+    width: 78%;
+    margin: auto;
+    margin-bottom: 3em;
+}
+
+.dedicated-page-head > h1 {
+    color : $red;
+    text-transform: uppercase;
+}
+.dedicated-page-projects {
+    width: 100%
+}
+.dedicated-page .project-by-four {
+    width : 80%;
+    margin : auto;
 
 }

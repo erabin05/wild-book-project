@@ -1,7 +1,11 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './_rows-projects.scss'
+import { numberOfprojectByRow, numberOfProjectByScreenSize, projectsInRowOfNumber} from '../../User/projectDistributionInRows'
 
+import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
+
+import { setDedicatedCategorie } from '../../../Reducers/dedicatedCategorie/action'
 
 import { ArrowLeft, ArrowRight } from './Arrows'
 import FocusOnProject from '../FocusOnProject/FocusOnProject'
@@ -11,7 +15,17 @@ const mapStateToProps = state => ({
     screenSize: state.screenSize
 });
 
-const RowsProjects = ({categorie, categorId, projects, screenSize}) => {
+const mapDispatchToProps = dispatch => ({
+    setDedicatedCategorie : categorie => dispatch( setDedicatedCategorie(categorie) ),
+});
+
+const RowsProjects = ({
+                        categorie, 
+                        categorId, 
+                        projects, 
+                        screenSize, 
+                        setDedicatedCategorie
+                    }) => {
 
     // Animation right left position
     const [isFocusedOn, setIsFocusedOn] = useState(0)
@@ -31,7 +45,16 @@ const RowsProjects = ({categorie, categorId, projects, screenSize}) => {
         {/* TITLE */}
         <div className='row-title'>
             <h2>{categorie}</h2>
-            {!isOnDesktop && <button className='outline-button'>Voir plus ></button>}
+            <Link to={categorie.replace(/ /g,"-")}>
+                <button className='outline-button'
+                        onClick={()=>{
+                            setDedicatedCategorie({
+                                categorie,
+                                projects
+                            })  
+                        }}
+                >Voir plus ></button>
+            </Link>
         </div>
         {/* ROW */}
         <div style={{height : isOnDesktop && rowHeight}}>
@@ -70,43 +93,8 @@ const RowsProjects = ({categorie, categorId, projects, screenSize}) => {
     )
 }
 
-const numberOfprojectByRow = screenSize => {
-    switch (screenSize) {
-        case 'desktop': 
-            return 4
-        case 'tablet': 
-            return 3
-        case 'phone': 
-            return 2
-    }
-}
-
-const numberOfProjectByScreenSize = (projects, screenSize) => {
-    switch (screenSize) {
-        case 'desktop': 
-            return projects
-        case 'tablet': 
-            return [projects[0], projects[1] , projects[2]]
-        case 'phone': 
-            return [projects[0], projects[1] , projects[2], projects[3]]
-    }
-}
-
-const projectsInRowOfNumber = (projects, number) => {
-    let projectsInRows = []
-    let projectByfour = []
-
-    projects.map((project, id) => {
-        projectByfour = [...projectByfour, project]
-        if ((id+1)%number === 0 || (id+1)%number !== 0 && (id+1) === projects.length) {
-            projectsInRows = [...projectsInRows, projectByfour]
-            projectByfour = []
-        } 
-    })
-    return projectsInRows
-}
-
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(RowsProjects)
     
