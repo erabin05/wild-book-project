@@ -5,8 +5,6 @@ import { numberOfprojectByRow, numberOfProjectByScreenSize, projectsInRowOfNumbe
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 
-import { setDedicatedCategorie } from '../../../Reducers/dedicatedCategorie/action'
-
 import { ArrowLeft, ArrowRight } from './Arrows'
 import FocusOnProject from '../FocusOnProject/FocusOnProject'
 import  ProjectPreview from '../ProjectPreview/ProjectPreview'
@@ -15,16 +13,11 @@ const mapStateToProps = state => ({
     screenSize: state.screenSize
 });
 
-const mapDispatchToProps = dispatch => ({
-    setDedicatedCategorie : categorie => dispatch( setDedicatedCategorie(categorie) ),
-});
-
 const RowsProjects = ({
                         categorie, 
                         categorId, 
                         projects, 
-                        screenSize, 
-                        setDedicatedCategorie
+                        screenSize
                     }) => {
 
     // Animation right left position
@@ -46,14 +39,7 @@ const RowsProjects = ({
         <div className='row-title'>
             <h2>{categorie}</h2>
             <Link to={categorie.replace(/ /g,"-")}>
-                <button className='outline-button'
-                        onClick={()=>{
-                            setDedicatedCategorie({
-                                categorie,
-                                projects
-                            })  
-                        }}
-                >Voir plus ></button>
+                <button className='outline-button'>Voir plus ></button>
             </Link>
         </div>
         {/* ROW */}
@@ -94,7 +80,6 @@ const RowsProjects = ({
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(RowsProjects)
     

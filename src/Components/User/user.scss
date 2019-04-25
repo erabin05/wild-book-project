@@ -1,4 +1,5 @@
 @import '../../Style/color.scss';
+@import '../../Style/breakpoints.scss';
 
 
 // .project-display
@@ -18,14 +19,22 @@
     display : flex;
     flex-wrap : wrap;
     width: 100%;
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 .dedicated-page-head {
     width: 78%;
     margin: auto;
     margin-bottom: 3em;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
-
+.dedicated-page-head button {
+    height: 1.5rem;
+    border-radius: 2em;
+    padding: 0 1.2rem 0 1.2rem;
+    margin-left: 1rem;
+}
 .dedicated-page-head > h1 {
     color : $red;
     text-transform: uppercase;
@@ -36,5 +45,12 @@
 .dedicated-page .project-by-four {
     width : 80%;
     margin : auto;
-
+}
+@media screen and (max-width: $tablet) {
+    .dedicated-page-head {
+        width: 86%;
+    }
+    .dedicated-page .project-by-four {
+        width : 90%;
+    }
 }

@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import projectsOfCategorie from './mockProjects'
 import { numberOfprojectByRow, numberOfProjectByScreenSize, projectsInRowOfNumber} from './projectDistributionInRows'
 
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import ProjectPreview from '../Previews/ProjectPreview/ProjectPreview'
@@ -16,10 +17,15 @@ const DedicatedPage = ({screenSize}) => {
     const categorieId = projectsOfCategorie[0].categorId
     const projects = projectsInRowOfNumber(projectsOfCategorie[0].projects, numberOfprojectByRow(screenSize))
 
+    const backButton = '< Go Back'
+
     return (
         <article className='dedicated-page'>
             <div className='dedicated-page-head'>
                 <h1>{categorie}</h1>
+                <Link to='/'>
+                    <button className='inline-button'>{backButton}</button>
+                </Link>
             </div>
             {projects.map((projectsByfour, i) => (
                 <div key={i} className='dedicated-page-projects'>
