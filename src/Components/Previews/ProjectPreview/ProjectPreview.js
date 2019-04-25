@@ -2,10 +2,9 @@ import React, {useRef, useEffect} from 'react'
 import { connect } from "react-redux"
 import './ProjectPreview.scss'
 
-import { animateScroll as scroll } from 'react-scroll'
-
 import { setProjectSelectedForFocus } from '../../../Reducers/projectSelectedForFocus/action'
 import { setRowIdOfSelectedProject } from '../../../Reducers/rowIdOfProjectSelected/action'
+import { setInnerRowIdOfProjectSelected } from '../../../Reducers/innerRowIdOfProjectSelected/action'
 
 import StudentNamePreview from '../StudentNamePreview/StudentNamePreview'
 
@@ -16,8 +15,9 @@ const mapStateToProps = state => ({
   });
 
   const mapDispatchToProps = dispatch => ({
-    setProjectSelectedForFocus: project => dispatch( setProjectSelectedForFocus(project) ),
-    setRowIdOfSelectedProject: rowId => dispatch( setRowIdOfSelectedProject(rowId) )
+    setProjectSelectedForFocus : project => dispatch( setProjectSelectedForFocus(project) ),
+    setRowIdOfSelectedProject : rowId => dispatch( setRowIdOfSelectedProject(rowId) ),
+    setInnerRowIdOfProjectSelected : innerRowId => dispatch( setInnerRowIdOfProjectSelected(innerRowId) )
   });
 
 const ProjetcPreview = ({
@@ -27,17 +27,20 @@ const ProjetcPreview = ({
                             websiteLink, 
                             githubLink, 
                             rowId,
+                            innerRowId,
                             students, 
                             screenSize, 
                             setRowHeight, 
                             projectSelectedForFocus, 
                             setProjectSelectedForFocus,
-                            setRowIdOfSelectedProject
+                            setRowIdOfSelectedProject,
+                            setInnerRowIdOfProjectSelected
                         }) => {
 
     // get height of element for row
     const projectPreviewElement = useRef()
     useEffect(()=> {setRowHeight(projectPreviewElement.current.clientHeight)},[])
+
 
     const isProjectSelected = projectSelectedForFocus.id === id 
 
@@ -47,7 +50,7 @@ const ProjetcPreview = ({
                     onClick={()=> {
                         setProjectSelectedForFocus(
                             {
-                                id : isProjectSelected ? null : id,
+                                id : isProjectSelected ? undefined : id,
                                 title,
                                 description,
                                 students,
@@ -56,7 +59,7 @@ const ProjetcPreview = ({
                             }
                         )
                         setRowIdOfSelectedProject(isProjectSelected ? 0 : rowId)
-                        scroll.scrollTo(projectPreviewElement.current.getBoundingClientRect().top)  
+                        setInnerRowIdOfProjectSelected(innerRowId)
                     }}
         >
             <figure style={{borderColor: isProjectSelected && '#F37173'}}><img src='' alt=''/></figure>

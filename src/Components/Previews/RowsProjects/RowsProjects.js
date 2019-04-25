@@ -56,10 +56,10 @@ const RowsProjects = ({categorie, categorId, projects, screenSize}) => {
                                     opacity : isOnDesktop && isFocusedOn !== i ? '0.3': '1'}}
                     >
                         {projectsByfour.map((project, j) => (
-                            <ProjectPreview key={j} {...project} rowId={categorId} setRowHeight={setRowHeightFromProjectPreview}/>
+                            <ProjectPreview key={j} {...project} rowId={categorId} innerRowId={i} setRowHeight={setRowHeightFromProjectPreview}/>
                         ))}
                     </div>
-                    { screenSize === 'phone' && <FocusOnProject rowId={categorId} rowPhoneId={i}/>}
+                    { screenSize === 'phone' && <FocusOnProject rowId={categorId} innerRowId={i}/>}
                 </div>
                 )
             )}

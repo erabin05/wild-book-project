@@ -10,8 +10,9 @@ import StudentPreview from '../StudentPreview/StudentPreview'
 
 const mapStateToProps = state => ({
     screenSize : state.screenSize,
-    projectSelectedForFocus: state.projectSelectedForFocus,
-    rowIdOfSelectedProject: state.rowIdOfSelectedProject
+    projectSelectedForFocus : state.projectSelectedForFocus,
+    rowIdOfSelectedProject : state.rowIdOfSelectedProject,
+    innerRowIdOfProjectSelected : state.innerRowIdOfProjectSelected
   });
 
 const mapDispatchToProps = dispatch => ({
@@ -19,14 +20,17 @@ const mapDispatchToProps = dispatch => ({
     // setSelectedFocusScrollPosition: scrollPosition => dispatch( setSelectedFocusScrollPosition(scrollPosition) )
 });
 
+
 const FocusOnProject = ({
-    rowId, 
-    rowPhoneId, 
-    projectSelectedForFocus, 
-    rowIdOfSelectedProject, 
-    screenSize, 
-    setProjectSelectedForFocus
-}) => {
+                            rowId, 
+                            innerRowId,
+                            innerRowIdOfProjectSelected, 
+                            projectSelectedForFocus, 
+                            rowIdOfSelectedProject, 
+                            screenSize, 
+                            setProjectSelectedForFocus
+                        }) => {
+
     const { title, description, students, websiteLink, githubLink } = projectSelectedForFocus
     const [studentsCarouselPosition, setStudentsCarouselPosition] = useState(0)
     const [focusHeight, setFocusHeight] = useState(screenSize)
@@ -41,6 +45,7 @@ const FocusOnProject = ({
         style={{
             height : projectSelectedForFocus !== 0
             && rowIdOfSelectedProject === rowId
+            && innerRowIdOfProjectSelected === innerRowId
             && projectSelectedForFocus.id
             && focusHeight
         }}
