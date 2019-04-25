@@ -41,7 +41,6 @@ const ProjetcPreview = ({
     const projectPreviewElement = useRef()
     useEffect(()=> {setRowHeight(projectPreviewElement.current.clientHeight)},[])
 
-
     const isProjectSelected = projectSelectedForFocus.id === id 
 
     return (

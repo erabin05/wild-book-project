@@ -38,6 +38,7 @@ const FocusOnProject = ({
 
     useEffect(()=>setStudentsCarouselPosition(0), [projectSelectedForFocus])
     useEffect(()=>setFocusHeight(screenSize !== 'phone' ? '300px' : '750px'), [screenSize])
+    useEffect(()=>console.log(innerRowId))
     
     return(
     <article    
@@ -45,7 +46,7 @@ const FocusOnProject = ({
         style={{
             height : projectSelectedForFocus !== 0
             && rowIdOfSelectedProject === rowId
-            && innerRowIdOfProjectSelected === innerRowId
+            && (innerRowIdOfProjectSelected === innerRowId || innerRowId === undefined)
             && projectSelectedForFocus.id
             && focusHeight
         }}
