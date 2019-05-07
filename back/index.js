@@ -2,10 +2,12 @@ import express from 'express'
 import mysql from 'mysql'
 
 const app = express()
-const router = express.router()
+const port = 5000
 
-app.get('/categories', (request, response) => {
+app.get('/students', (request, response) => {
 
-}).listen(5000, () => {
-    console.log('Server is up and listening on 5000 ...')
+})
+
+app.listen(port, () => {
+    console.log(`Server is up and listening on ${port} ...`)
 })
