@@ -28,7 +28,7 @@ exports.up = function(db, callback) {
         length: 10
       },
     url: 'string',
-    name: {type: 'string', notNull: true},
+    title: {type: 'string', notNull: true},
     description: 'text',
     githubLink: 'string',
     imgLink: 'string',
@@ -48,22 +48,6 @@ exports.up = function(db, callback) {
           mapping: 'id'
         }
       },
-    language_id:
-      {
-        type: 'int',
-        unsigned: true,
-        length: 10,
-        notNull: true,
-        foreignKey: {
-          name: 'projects_language_id_fk',
-          table: 'languages',
-          rules: {
-            onDelete: 'CASCADE',
-            onUpdate: 'RESTRICT'
-          },
-          mapping: 'id'
-        }
-      }
   }, callback);
 
   // CREATE TABLE PROJECTS_HAS_STUDENTS
@@ -105,7 +89,7 @@ exports.up = function(db, callback) {
   // CREATE TABLE SESSIONS
   db.createTable('sessions', {
     id: { type: 'int', primaryKey: true, autoIncrement: true },
-    name: {type: 'string', notNull: true},
+    session_name: {type: 'string', notNull: true},
     date: 'datetime',
     campuses_id:
       {
@@ -128,7 +112,7 @@ exports.up = function(db, callback) {
   // CREATE TABLE STUDENTS
   db.createTable('students', {
     id: { type: 'int', primaryKey: true, autoIncrement: true },
-    name: 'string',
+    student_name: 'string',
     githubLink: 'string',
     linkedinLink: 'string',
     sessions_id:
@@ -188,13 +172,13 @@ exports.up = function(db, callback) {
   // CREATE TABLE LANGUAGES
   db.createTable('languages', {
     id: { type: 'int', primaryKey: true, autoIncrement: true },
-    name: 'string'
+    language_name: 'string'
   }, callback);
 
   // CREATE TABLE CAMPUSES
   db.createTable('campuses', {
     id: { type: 'int', primaryKey: true, autoIncrement: true },
-    name: {type: 'string', notNull: true},
+    campus_name: {type: 'string', notNull: true},
     coordonates: 'string'
   }, callback);
 

@@ -25,6 +25,7 @@ app.get('/sessions', (request, response) => {
 })
 
 app.get('/campuses', (request, response) => {
+
     connection.query('SELECT * FROM campuses',(err, results)=> {
         if (err) {
             response.status(500).send(`error when trying to get all campuses : ${err}`);
@@ -32,6 +33,43 @@ app.get('/campuses', (request, response) => {
             response.json(results);
           }
     })
+})
+
+const queryGetProjects = 
+`SELECT * FROM projects`
+//  JOIN sessions ON sessions.id=projects.session_id
+//  JOIN campuses ON campuses.id=sessions.campuses_id`
+
+
+ 
+
+app.get('/projects', (request, response) => {
+
+    connection.query(queryGetProjects,(err, datas)=> {
+
+        if (err) {
+            response.status(500).send(`error when trying to get all projects : ${err}`);
+          } else {
+            const results = datas.map( data => {
+
+                let students = []
+                const queryToGetStudent_id = `SELECT students_id FROM projects_has_students WHERE projects_has_students.projects_id=${data.id};`
+
+                connection.query(queryToGetStudent_id, (err, studentIds)=> {
+                    if (err) {
+                        response.status(500).send(`error when trying to get studentIds from project : ${err}`);
+                      } else {
+                          students = studentIds
+                      }
+                }) 
+
+                return {...data, students: students}
+            })
+            response.json(results);
+          }
+    })
+
+    
 })
 
 app.listen(port, () => {
