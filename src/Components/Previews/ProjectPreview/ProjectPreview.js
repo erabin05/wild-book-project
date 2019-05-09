@@ -24,8 +24,9 @@ const ProjetcPreview = ({
                             id, 
                             title, 
                             description, 
-                            websiteLink, 
-                            githubLink, 
+                            url, 
+                            githubLink,
+                            imgLink, 
                             rowId,
                             innerRowId,
                             students, 
@@ -50,10 +51,11 @@ const ProjetcPreview = ({
                         setProjectSelectedForFocus(
                             {
                                 id : isProjectSelected ? undefined : id,
+                                imgLink,
                                 title,
                                 description,
                                 students,
-                                websiteLink,
+                                url,
                                 githubLink
                             }
                         )
@@ -61,7 +63,7 @@ const ProjetcPreview = ({
                         setInnerRowIdOfProjectSelected(innerRowId)
                     }}
         >
-            <figure style={{borderColor: isProjectSelected && '#F37173'}}><img src='' alt=''/></figure>
+            <figure style={{borderColor: isProjectSelected && '#F37173'}}><img src={imgLink} alt={title}/></figure>
             <div>
                 <h3>{title}</h3>
                 < div></div>

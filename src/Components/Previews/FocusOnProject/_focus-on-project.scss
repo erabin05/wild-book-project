@@ -43,6 +43,14 @@
     background: #fff;
     border: 1px solid $grey;
     border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.focus-on-project > figure > img {
+    height: 100%;
 }
 
 .focus-on-project > .focus-project-description {

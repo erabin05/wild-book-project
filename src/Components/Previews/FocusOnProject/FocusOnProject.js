@@ -31,7 +31,7 @@ const FocusOnProject = ({
                             setProjectSelectedForFocus
                         }) => {
 
-    const { title, description, students, websiteLink, githubLink } = projectSelectedForFocus
+    const { title, description, students, url, githubLink, imgLink } = projectSelectedForFocus
     const [studentsCarouselPosition, setStudentsCarouselPosition] = useState(0)
     const [focusHeight, setFocusHeight] = useState(screenSize)
     const studentsByRowsOfThree = byRowsOfThree(students)
@@ -59,15 +59,15 @@ const FocusOnProject = ({
             })}
         ><Cross/></div>
         <div className='focus-on-project'>
-            <figure></figure>
+            <figure><img src={imgLink} alt={title}/></figure>
             <section className='focus-project-description'>
                 <div className='focus-project-text'>
                     <h2>{title} </h2>
                     <p>{description}</p>
                 </div>
                 <div className='focus-project-buttons'>
-                    {websiteLink && <a  className='inline-button' 
-                                        href={websiteLink}
+                    {url && <a  className='inline-button' 
+                                        href={url}
                                         rel='noreferrer noopener'
                                         target='_blank'
                     >Go to website</a>}

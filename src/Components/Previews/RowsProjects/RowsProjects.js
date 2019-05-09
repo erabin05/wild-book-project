@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './_rows-projects.scss'
 import { numberOfprojectByRow, numberOfProjectByScreenSize, projectsInRowOfNumber} from '../../User/projectDistributionInRows'
 
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
+import axios from 'axios'
 
 import { ArrowLeft, ArrowRight } from './Arrows'
 import FocusOnProject from '../FocusOnProject/FocusOnProject'
@@ -14,11 +15,12 @@ const mapStateToProps = state => ({
 });
 
 const RowsProjects = ({
-                        categorie, 
-                        categorId, 
-                        projects, 
+                        rowId,
                         screenSize
                     }) => {
+
+    //PROJECTS
+    const [projects, setProjects] = useState([])
 
     // Animation right left position
     const [isFocusedOn, setIsFocusedOn] = useState(0)
@@ -33,15 +35,24 @@ const RowsProjects = ({
 
     const setRowHeightFromProjectPreview =  projectPreviewHeight => setRowHeight(projectPreviewHeight + 40)
 
+    useEffect(()=>{
+        axios.get('http://localhost:5000/projects/campus=1')
+            .then(res => {
+                setProjects(res.data)
+            })
+    },[])
+
     return (
     <article className='rows-projects'>
         {/* TITLE */}
+        { projects[0] &&
         <div className='row-title'>
-            <h2>{categorie}</h2>
-            <Link to={categorie.replace(/ /g,"-")}>
+            <h2>{projects[0].session.name}</h2>
+            <Link to={`${projects[0].session.name} ${projects[0].session.id}`.replace(/ /g,"-")}>
                 <button className='outline-button'>Voir plus ></button>
             </Link>
         </div>
+        }
         {/* ROW */}
         <div style={{height : isOnDesktop && rowHeight}}>
 
@@ -65,15 +76,15 @@ const RowsProjects = ({
                                     opacity : isOnDesktop && isFocusedOn !== i ? '0.3': '1'}}
                     >
                         {projectsByfour.map((project, j) => (
-                            <ProjectPreview key={j} {...project} rowId={categorId} innerRowId={i} setRowHeight={setRowHeightFromProjectPreview}/>
+                            <ProjectPreview key={j} {...project} rowId={rowId} innerRowId={i} setRowHeight={setRowHeightFromProjectPreview}/>
                         ))}
                     </div>
-                    { screenSize === 'phone' && <FocusOnProject rowId={categorId} innerRowId={i}/>}
+                    { screenSize === 'phone' && <FocusOnProject rowId={rowId} innerRowId={i}/>}
                 </div>
                 )
             )}
         </div> 
-        { screenSize !== 'phone' && <FocusOnProject rowId={categorId}/>}
+        { screenSize !== 'phone' && <FocusOnProject rowId={rowId}/>}
 
     </article> 
     )

@@ -18,6 +18,14 @@
     background: $light-grey;
     border: 1px solid $grey;
     border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+.project-preview > figure > img {
+    height: 100%;
 }
 
 .project-preview > div {
