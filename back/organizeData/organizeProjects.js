@@ -6,6 +6,7 @@ let listOfstudents = datas.map(data =>
       project_id : data.id,
       student : 
       {
+        id : data.student_id,
         name : data.student_name,
         github : data.student_github,
         linkedin : data.student_linkedin,
@@ -34,10 +35,12 @@ let listOfstudents = datas.map(data =>
           githubLink: data.githubLink,
           imgLink: data.imgLink,
           session: {
+            id : data.session_id,
             name :  data.session,
             date : data.session_date
           },
           campus:{
+            id : data.campus_id,
             name : data.campus,
             coordonates : data.campus_coordonates
           },
