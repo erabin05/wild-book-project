@@ -64,27 +64,33 @@ app.get('/projects', (request, response) => {
         if (err) {
             response.status(500).send(`error when trying to get all projects : ${err}`);
           } else {
-            let results = datas
 
-            let students = []
-            let projects = []
-            let currentId
-            datas.map(data => {
-
-              students = [
-                ...students, 
+            // List all students with project id
+            let listOfstudents = datas.map(data => 
+              ({
+                project_id : data.id,
+                student : 
                 {
-                name : data.student_name,
-                github : data.student_github,
-                linkedin : data.student_linkedin,
+                  name : data.student_name,
+                  github : data.student_github,
+                  linkedin : data.student_linkedin,
                 }
-              ]
+              })
+            )
+
+            // List of project without double and students
+            let currentId
+            let projects = []
+            
+            datas.map(data => {
 
               if (currentId !== data.id) {
                 currentId = data.id
-
+                // Students for this project
+                let students = listOfstudents.filter(student => student.project_id === data.id)
+                // Object Project
                 projects = [
-                  ...projects, 
+                  ...projects,
                   {
                     id: data.id,
                     url: data.url,
@@ -99,13 +105,11 @@ app.get('/projects', (request, response) => {
                       name : data.campus,
                       coordonates : data.campus_coordonates
                     },
-                    students : students
+                    students : students.map(student => student.student)
                   }
-                ]
-
-                students = []
+                ] 
               }
-
+              
             })
 
             response.json(projects);
