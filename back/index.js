@@ -64,7 +64,51 @@ app.get('/projects', (request, response) => {
         if (err) {
             response.status(500).send(`error when trying to get all projects : ${err}`);
           } else {
-            response.json(datas);
+            let results = datas
+
+            let students = []
+            let projects = []
+            let currentId
+            datas.map(data => {
+
+              students = [
+                ...students, 
+                {
+                name : data.student_name,
+                github : data.student_github,
+                linkedin : data.student_linkedin,
+                }
+              ]
+
+              if (currentId !== data.id) {
+                currentId = data.id
+
+                projects = [
+                  ...projects, 
+                  {
+                    id: data.id,
+                    url: data.url,
+                    description: data.description,
+                    githubLink: data.githubLink,
+                    imgLink: data.imgLink,
+                    session: {
+                      name :  data.session,
+                      date : data.session_date
+                    },
+                    campus:{
+                      name : data.campus,
+                      coordonates : data.campus_coordonates
+                    },
+                    students : students
+                  }
+                ]
+
+                students = []
+              }
+
+            })
+
+            response.json(projects);
           }
     })
  
