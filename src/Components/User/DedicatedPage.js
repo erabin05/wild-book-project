@@ -17,29 +17,28 @@ const DedicatedPage = ({screenSize}) => {
 
     const [projetcsInCategorie, setprojetcsInCategorie] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [pageTitle, setPageTitle] = useState('')
 
-    // MOCK
-    const categorie = projectsOfCategorie[0].categorie
-    const categorieId = projectsOfCategorie[0].categorId
+
     const projects = projectsInRowOfNumber(projetcsInCategorie, numberOfprojectByRow(screenSize))
 
     useEffect(()=>{
-        axios.get('http://localhost:5000/projects/campus=1')
+
+        const [title, categorie, idInCategorie]= window.location.pathname.slice(1).split('-')
+        setPageTitle(title)
+
+        axios.get(`http://localhost:5000/projects/${categorie}=${idInCategorie}`)
             .then(res => {
                 setprojetcsInCategorie(res.data)
             })
             .then(setIsLoading(false))
     },[])
 
-    useEffect(()=>{
-        console.log(projetcsInCategorie)
-    },[projetcsInCategorie])
-
     return (
         <article className='dedicated-page'>
             {isLoading && <div className='loadingPage'></div>}
             <div className='dedicated-page-head'>
-                <h1>{categorie}</h1>
+                <h1>{pageTitle}</h1>
                 <Link to='/'>
                     <button className='inline-button'>{'< Go Back'}</button>
                 </Link>

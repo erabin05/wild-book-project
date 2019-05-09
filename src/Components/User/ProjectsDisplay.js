@@ -1,12 +1,24 @@
-import React from 'react'
-import projectsRows from './mockProjects'
+import React, { useState, useEffect } from 'react'
 
 import RowsProjects from '../Previews/RowsProjects/RowsProjects'
 
-const ProjectDisplay = () => (
-    <section className='project-display'>
-        {projectsRows.map((project, id) => <RowsProjects key={id} rowId={id}/>)}
-    </section>
+const ProjectDisplay = () => {
+    const [projectsRows, setProjectRows] = useState([])
+
+    useEffect(()=> {
+        setProjectRows([
+            {
+                categorie : 'campus',
+                idInCategorie : 1
+            }
+        ])
+    })
+
+    return (
+        <section className='project-display'>
+            {projectsRows.map((categorie, id) => <RowsProjects key={id} rowId={id} {...categorie}/>)}
+        </section>
     )
+}
 
 export default ProjectDisplay

@@ -16,7 +16,9 @@ const mapStateToProps = state => ({
 
 const RowsProjects = ({
                         rowId,
-                        screenSize
+                        screenSize,
+                        categorie,
+                        idInCategorie
                     }) => {
 
     //PROJECTS
@@ -36,7 +38,7 @@ const RowsProjects = ({
     const setRowHeightFromProjectPreview =  projectPreviewHeight => setRowHeight(projectPreviewHeight + 40)
 
     useEffect(()=>{
-        axios.get('http://localhost:5000/projects/campus=1')
+        axios.get(`http://localhost:5000/projects/${categorie}=${idInCategorie}`)
             .then(res => {
                 setProjects(res.data)
             })
@@ -47,8 +49,8 @@ const RowsProjects = ({
         {/* TITLE */}
         { projects[0] &&
         <div className='row-title'>
-            <h2>{projects[0].session.name}</h2>
-            <Link to={`${projects[0].session.name} ${projects[0].session.id}`.replace(/ /g,"-")}>
+            <h2>{projects[0].campus.name}</h2>
+            <Link to={`${projects[0].campus.name} ${categorie} ${idInCategorie}`.replace(/ /g,"-")}>
                 <button className='outline-button'>Voir plus ></button>
             </Link>
         </div>
