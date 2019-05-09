@@ -16,20 +16,19 @@ const mapStateToProps = state => ({
 const DedicatedPage = ({screenSize}) => {
 
     const [projetcsInCategorie, setprojetcsInCategorie] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     // MOCK
     const categorie = projectsOfCategorie[0].categorie
     const categorieId = projectsOfCategorie[0].categorId
-    const projects = projectsInRowOfNumber(projectsOfCategorie[0].projects, numberOfprojectByRow(screenSize))
-
-    //API
-    // const APIprojects = projectsInRowOfNumber(projetcsInCategorie, numberOfprojectByRow(screenSize))
+    const projects = projectsInRowOfNumber(projetcsInCategorie, numberOfprojectByRow(screenSize))
 
     useEffect(()=>{
-        axios.get('http://localhost:5000/projects')
+        axios.get('http://localhost:5000/projects/campus=1')
             .then(res => {
                 setprojetcsInCategorie(res.data)
             })
+            .then(setIsLoading(false))
     },[])
 
     useEffect(()=>{
@@ -38,6 +37,7 @@ const DedicatedPage = ({screenSize}) => {
 
     return (
         <article className='dedicated-page'>
+            {isLoading && <div className='loadingPage'></div>}
             <div className='dedicated-page-head'>
                 <h1>{categorie}</h1>
                 <Link to='/'>
@@ -48,10 +48,10 @@ const DedicatedPage = ({screenSize}) => {
                 <div key={i} className='dedicated-page-projects'>
                     <div    className='project-by-four'>
                         {projectsByfour.map((project, j) => (
-                            <ProjectPreview key={j} {...project} rowId={categorieId} innerRowId={i}/>
+                            <ProjectPreview key={j} {...project} rowId={0} innerRowId={i}/>
                         ))}
                     </div>
-                    <FocusOnProject rowId={categorieId} innerRowId={i}/>
+                    <FocusOnProject rowId={0} innerRowId={i}/>
                 </div>
                 )
             )}
