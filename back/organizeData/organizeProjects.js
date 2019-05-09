@@ -29,6 +29,7 @@ let listOfstudents = datas.map(data =>
         {
           id: data.id,
           url: data.url,
+          title: data.title,
           description: data.description,
           githubLink: data.githubLink,
           imgLink: data.imgLink,

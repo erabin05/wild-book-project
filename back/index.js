@@ -7,6 +7,7 @@ const connection = require('./conf');
 const sortProjects = require('./organizeData/organizeProjects.js')
 
 app.get('/students', (request, response) => {
+    response.header("Access-Control-Allow-Origin", "*");
     connection.query('SELECT * FROM students',(err, results)=> {
         if (err) {
             response.status(500).send(`error when trying to get all students : ${err}`);
@@ -42,6 +43,7 @@ const queryGetProjects =
 SELECT 
   projects.id AS id,
   projects.url,
+  projects.title,
   projects.description,
   projects.githubLink,
   projects.imgLink,
@@ -60,7 +62,7 @@ JOIN students ON projects_has_students.students_id=students.id
  `
 
 app.get('/projects', (request, response) => {
-
+    response.header("Access-Control-Allow-Origin", "*");
     connection.query(queryGetProjects,(err, datas)=> {
 
         if (err) {
