@@ -63,7 +63,14 @@ app.get('/projects/campus=:campus_id', (request, response) => {
   connectionGetProjects(`get projects by campuse id(${campus_id})`, querysProject.getByCampus(campus_id), response)
 })
 
-// GET RANDOM CAMPUS
+// GET PROJECTS BY LANGUAGE
+app.get('/projects/campus=:campus_id', (request, response) => {
+  const campus_id = request.params.campus_id;
+  connectionGetProjects(`get projects by campuse id(${campus_id})`, querysProject.getByCampus(campus_id), response)
+})
+
+
+// GET RESEARCH BY PROJECT TITLE
 app.get('/projects/research=:project_title', (request, response) => {
   const project_title = request.params.project_title;
   connectionGetProjects(`get projects with research ='${campus_id}'`, querysProject.getByProjectResearch(project_title), response)

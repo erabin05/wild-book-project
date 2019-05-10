@@ -44,6 +44,10 @@ let listOfstudents = datas.map(data =>
             name : data.campus,
             coordonates : data.campus_coordonates
           },
+          language:{
+            id : data.language_id,
+            name : data.language
+          },
           students : students.map(student => student.student)
         }
       ] 
