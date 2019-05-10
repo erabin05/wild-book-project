@@ -28,11 +28,11 @@ JOIN projects_has_students ON projects.id=projects_has_students.projects_id
 JOIN students ON projects_has_students.students_id=students.id
  `
 
-const getByCampus = campus => `${getAll} WHERE campuses.id = ${campus}`
-const getBySession = session => `${getAll} WHERE sessions.id = ${session}`
-const getByLanguage = language => `${getAll} WHERE languages.id = ${language}`
+const getByCampus = `${getAll} WHERE campuses.id = ?`
+const getBySession = `${getAll} WHERE sessions.id = ?`
+const getByLanguage = `${getAll} WHERE languages.id = ?`
 
-const getByProjectResearch = research => `${getAll} WHERE projects.title LIKE '${research}%'`
+const getByProjectResearch = `${getAll} WHERE projects.title LIKE ?`
 
  module.exports = {
     getAll,
@@ -40,5 +40,4 @@ const getByProjectResearch = research => `${getAll} WHERE projects.title LIKE '$
     getBySession,
     getByLanguage,
     getByProjectResearch
-    
  }

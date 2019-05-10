@@ -41,9 +41,9 @@ app.get('/campuses', (request, response) => {
 
 
 // PROJECTS
-const connectionGetProjects = (action, method, res, categorie) => {
+const connectionGetProjects = (action, method, param, res, categorie) => {
   res.header("Access-Control-Allow-Origin", "*");
-  connection.query(method,(err, datas)=> {
+  connection.query(method, [param],  (err, datas)=> {
     if (err) {
         res.status(500).send(`error when trying to ${action} : ${err}`);
       } else {
@@ -60,25 +60,29 @@ app.get('/projects', (request, response) => {
 // GET PROJECTS BY CAMPUSES
 app.get('/projects/campus=:campus_id', (request, response) => {
   const campus_id = request.params.campus_id;
-  connectionGetProjects(`get projects by campuse id(${campus_id})`, querysProject.getByCampus(campus_id), response, 'campus')
+  connectionGetProjects(`get projects by campuse id(${campus_id})`, querysProject.getByCampus ,campus_id , response, 'campus')
 })
 
 // GET PROJECTS BY LANGUAGE
 app.get('/projects/language=:language_id', (request, response) => {
   const language_id = request.params.language_id;
-  connectionGetProjects(`get projects by language id(${language_id})`, querysProject.getByLanguage(language_id), response, 'language')
+  connectionGetProjects(`get projects by language id(${language_id})`, querysProject.getByLanguage, language_id, response, 'language')
 })
 
 // GET PROJECTS BY SESSION
 app.get('/projects/session=:session_id', (request, response) => {
   const session_id = request.params.session_id;
-  connectionGetProjects(`get projects by session id(${session_id})`, querysProject.getBySession(session_id), response, 'session')
+  connectionGetProjects(`get projects by session id(${session_id})`, querysProject.getBySession, session_id, response, 'session')
 })
+
+
+// PROJECTS
+
 
 // GET RESEARCH BY PROJECT TITLE
 app.get('/projects/research=:project_title', (request, response) => {
   const project_title = request.params.project_title;
-  connectionGetProjects(`get projects with research ='${project_title}'`,querysProject.getByProjectResearch(project_title), response)
+  connectionGetProjects(`get projects with research ='${project_title}'`,querysProject.getByProjectResearch, `${project_title}%`, response)
 })
 
 
