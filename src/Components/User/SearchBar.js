@@ -21,6 +21,28 @@ const mapDispatchToProps = dispatch => ({
 const SearchBar = ({searchBarIsFocus, setSearchBarIsFocus, setSearchProjectsList}) => {
 
     const [research, setResearch] = useState('')
+    const [categories, setCategories] = useState([
+        {name : 'project',
+        isSelected : true
+        },
+        {name : 'campus',
+        isSelected : true
+        },
+        {name : 'student',
+        isSelected : true
+        },
+        {name : 'language',
+        isSelected : true
+        },
+    ])
+
+    const selectedButton = buttonId => {
+        let result = []
+        categories.map((categorie, id) => {
+            result = [...result, buttonId === id ? {name : categorie.name, isSelected : !categorie.isSelected}: categorie]
+        })
+        setCategories(result)
+    }
 
     const researchBarOnChange = (e) => {
         setResearch(e.target.value)
@@ -33,15 +55,31 @@ const SearchBar = ({searchBarIsFocus, setSearchBarIsFocus, setSearchProjectsList
 
     return (
         <section className='search-bar'>
-            <input 
-                type="text" 
-                value={research} 
-                onChange={researchBarOnChange} 
-                onFocus={()=>setSearchBarIsFocus(true)}
-                placeholder="search"
-            />
-            {searchBarIsFocus && 
-            <div className='exit-cross' onClick={()=>setSearchBarIsFocus(false)}><Cross color={'#fff'}/></div>
+            <div className='bar'>
+                <input 
+                    type="text" 
+                    value={research} 
+                    onChange={researchBarOnChange} 
+                    onFocus={()=>setSearchBarIsFocus(true)}
+                    placeholder="search"
+                />
+                {searchBarIsFocus && 
+                <div className='exit-cross' onClick={()=>setSearchBarIsFocus(false)}><Cross color={'#fff'}/></div>
+                }
+            </div>
+            { searchBarIsFocus &&
+            <div className='search-bar-buttons'>
+                <p>Result by</p>
+                <div>{categories.map((categorie, i) => (
+                    <button 
+                        key={i}
+                        className={categorie.isSelected ? 'button-selected' : 'button-unselected'}
+                        onClick={()=>selectedButton(i)}
+                    >
+                        {categorie.name}<div><Cross color={'#000'}/></div>
+                    </button>
+                ))}</div>
+            </div>
             }
         </section>
     )

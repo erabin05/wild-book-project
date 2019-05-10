@@ -22,10 +22,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3rem 0 5rem 0;
+    flex-direction: column;
+    padding: 1rem 0 5rem 0;
 }
 
-.search-bar > input {
+.search-bar > .bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar > div > input {
     background : $light-grey;
     border: none;
     border-radius: 15px;
@@ -34,13 +42,13 @@
     font-size: 1.4rem;
 }
 
-.search-bar > input:focus {
+.search-bar > div > input:focus {
     outline : none;
     background : $light-grey-hover;
     transition: 0.5s;
 }
 
-.search-bar > .exit-cross {
+.search-bar > div > .exit-cross {
     width: 1.5rem;
     height: 1.5rem;
     padding: 0.6rem;
@@ -50,9 +58,46 @@
     transition: 0.5s;
 }
 
-.search-bar > .exit-cross:hover {
+.search-bar > div > .exit-cross:hover {
     background : $red-hover;
     transform: scale(1.05);
+    cursor: pointer;
+}
+
+.search-bar-buttons > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-bar-buttons > p{
+    margin-top : 1rem;
+    margin-left: 0.2rem;
+    color : $red;
+}
+
+.search-bar-buttons > div > button {
+    padding : 0.8rem 1.6rem 0.8rem 2rem;
+    margin : 0.5rem 1rem 1rem 0;
+    font-size: 0.8rem;
+    
+    border-radius: 10px;
+    display: flex;
+}
+
+.search-bar-buttons > div > button > div {
+    margin-left: 0.5rem;
+    height: 10px;
+    width: 10px;
+}
+
+.search-bar-buttons > div > .button-selected {
+    border : solid 1px $red;
+    background : $red;
+    color : #fff;
+}
+
+.search-bar-buttons > div > .button-unselected {
+    border : solid 1px $grey;
 }
 
 // .research-result

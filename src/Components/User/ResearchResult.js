@@ -12,7 +12,7 @@ const ResearchResult = ({searchProjectsList}) => {
     return (
         <div className='research-result'>
             <div className='research-head'>
-                <h2>Results by projects</h2>
+                <h2>Projects</h2>
             </div>
             {searchProjectsList.length > 0
             ?   <ListOfProjects projects={searchProjectsList}/>
