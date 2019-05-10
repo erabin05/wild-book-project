@@ -37,6 +37,21 @@
 .search-bar > input:focus {
     outline : none;
     background : $light-grey-hover;
+    transition: 0.5s;
+}
+
+.search-bar > .exit-cross {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.6rem;
+    border-radius: 10px;
+    background: $light-grey;
+    margin-left: 1rem;
+    transition: 0.5s;
+}
+
+.search-bar > .exit-cross:hover {
+    cursor: pointer
 }
 
 // .dedicated-page
@@ -47,7 +62,7 @@
     width: 100%;
     padding-top: 1rem;
 }
-.dedicated-page-head {
+.dedicated-page-head, .research-head {
     width: 78%;
     margin: auto;
     margin-bottom: 3em;
@@ -73,7 +88,7 @@
     margin : auto;
 }
 @media screen and (max-width: $tablet) {
-    .dedicated-page-head {
+    .dedicated-page-head , .research-head{
         width: 86%;
     }
      .project-by-four {
