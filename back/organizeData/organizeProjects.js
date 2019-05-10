@@ -1,4 +1,4 @@
-const sortProjects = datas => {
+const sortProjects = (datas, researchCategorie) => {  
     
 // List all students with project id
 let listOfstudents = datas.map(data => 
@@ -17,8 +17,36 @@ let listOfstudents = datas.map(data =>
   // List of project without double and students
   let currentId
   let projects = []
+  let categorie
   
   datas.map(data => {
+
+  // Categorie of project list
+  switch (researchCategorie) {
+    case 'campus' :
+      categorie = {
+        type : 'campus',
+        name : data.campus,
+        id : data.campus_id
+      } 
+      break
+    case 'language':
+      categorie = {
+        type : 'language',
+        name : data.language,
+        id : data.language_id
+      } 
+      break
+    case 'session':
+      categorie = {
+        type : 'session',
+        name : data.session,
+        id : data.session_id
+      } 
+      break
+    default:
+      categorie = 'undefined'
+  }
 
     if (currentId !== data.id) {
       currentId = data.id
@@ -55,7 +83,8 @@ let listOfstudents = datas.map(data =>
 
   })
 
-  return projects
+
+  return { categorie, projects }
 }
 
 module.exports = sortProjects

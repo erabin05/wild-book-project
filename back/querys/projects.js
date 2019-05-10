@@ -38,6 +38,7 @@ const getByProjectResearch = research => `${getAll} WHERE projects.title LIKE '$
     getAll,
     getByCampus,
     getBySession,
+    getByLanguage,
     getByProjectResearch
     
  }

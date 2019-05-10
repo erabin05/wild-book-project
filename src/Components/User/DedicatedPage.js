@@ -16,6 +16,7 @@ const mapStateToProps = state => ({
 const DedicatedPage = ({screenSize}) => {
 
     const [projetcsInCategorie, setprojetcsInCategorie] = useState([])
+    const [projectsCategorie, setProjectsCategorie] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const [pageTitle, setPageTitle] = useState('')
 
@@ -29,7 +30,8 @@ const DedicatedPage = ({screenSize}) => {
 
         axios.get(`http://localhost:5000/projects/${categorie}=${idInCategorie}`)
             .then(res => {
-                setprojetcsInCategorie(res.data)
+                setprojetcsInCategorie(res.data.projects)
+                setProjectsCategorie(res.data.categorie)
             })
             .then(setIsLoading(false))
     },[])
@@ -38,7 +40,7 @@ const DedicatedPage = ({screenSize}) => {
         <article className='dedicated-page'>
             {isLoading && <div className='loadingPage'></div>}
             <div className='dedicated-page-head'>
-                <h1>{pageTitle}</h1>
+                <h1>{projectsCategorie.name}</h1>
                 <Link to='/'>
                     <button className='inline-button'>{'< Go Back'}</button>
                 </Link>

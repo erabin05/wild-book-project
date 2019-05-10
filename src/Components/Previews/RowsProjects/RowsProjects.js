@@ -23,6 +23,7 @@ const RowsProjects = ({
 
     //PROJECTS
     const [projects, setProjects] = useState([])
+    const [projectsCategorie, setProjectsCategorie] = useState({})
 
     // Animation right left position
     const [isFocusedOn, setIsFocusedOn] = useState(0)
@@ -40,21 +41,20 @@ const RowsProjects = ({
     useEffect(()=>{
         axios.get(`http://localhost:5000/projects/${categorie}=${idInCategorie}`)
             .then(res => {
-                setProjects(res.data)
+                setProjects(res.data.projects)
+                setProjectsCategorie(res.data.categorie)
             })
     },[])
 
     return (
     <article className='rows-projects'>
         {/* TITLE */}
-        { projects[0] &&
         <div className='row-title'>
-            <h2>{projects[0].campus.name}</h2>
-            <Link to={`${projects[0].campus.name} ${categorie} ${idInCategorie}`.replace(/ /g,"-")}>
+            <h2>{projectsCategorie.name}</h2>
+            <Link to={`${projectsCategorie.name} ${projectsCategorie.type} ${projectsCategorie.id}`.replace(/ /g,"-")}>
                 <button className='outline-button'>Voir plus ></button>
             </Link>
         </div>
-        }
         {/* ROW */}
         <div style={{height : isOnDesktop && rowHeight}}>
 
