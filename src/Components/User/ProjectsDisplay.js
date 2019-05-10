@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from "react-redux";
 
+import SearchBar from './SearchBar'
+import ListOfProjects from './ListOfProjects'
 import RowsProjects from '../Previews/RowsProjects/RowsProjects'
 
-const ProjectDisplay = () => {
+const mapStateToProps = state => ({
+    isSearchBarFocus : state.searchBarIsFocus
+  });
+
+const ProjectDisplay = ({isSearchBarFocus}) => {
     const [projectsRows, setProjectRows] = useState([])
+    const[isResearchFocus, setIsResearchFocus] = useState(false)
 
     useEffect(()=> {
         setProjectRows([
@@ -24,9 +32,15 @@ const ProjectDisplay = () => {
 
     return (
         <section className='project-display'>
-            {projectsRows.map((categorie, id) => <RowsProjects key={id} rowId={id} {...categorie}/>)}
+            <SearchBar/>
+            { isSearchBarFocus
+            ? <ListOfProjects/>
+            :<div>{projectsRows.map((categorie, id) => <RowsProjects key={id} rowId={id} {...categorie}/>)}</div>
+            }
         </section>
     )
 }
 
-export default ProjectDisplay
+export default connect(
+    mapStateToProps
+)(ProjectDisplay)

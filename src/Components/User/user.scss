@@ -9,9 +9,35 @@
     display : flex;
     flex-wrap : wrap;
     overflow : hidden;
-
 }
 
+.project-display > div{
+    width : 100%;
+}
+
+// .search-bar
+
+.search-bar {
+    width : 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0 5rem 0;
+}
+
+.search-bar > input {
+    background : $light-grey;
+    border: none;
+    border-radius: 15px;
+    width: 35%;
+    padding : 1rem 1rem 1rem 1rem;
+    font-size: 1.4rem;
+}
+
+.search-bar > input:focus {
+    outline : none;
+    background : $light-grey-hover;
+}
 
 // .dedicated-page
 
@@ -39,10 +65,10 @@
     color : $red;
     text-transform: uppercase;
 }
-.dedicated-page-projects {
+.list-of-projects {
     width: 100%
 }
-.dedicated-page .project-by-four {
+ .project-by-four {
     width : 80%;
     margin : auto;
 }
@@ -50,7 +76,7 @@
     .dedicated-page-head {
         width: 86%;
     }
-    .dedicated-page .project-by-four {
+     .project-by-four {
         width : 90%;
     }
 }
