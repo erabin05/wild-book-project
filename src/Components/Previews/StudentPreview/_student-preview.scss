@@ -21,11 +21,22 @@
 }
 
 .student-preview:hover {
-    color : #fff;
-    background: $pink;
     cursor: pointer;
+    background: $pink;
 }
-
+.student-preview > .links > a {
+    padding : 0.3rem 1.2rem 0.3rem 1.2rem;
+    margin : 0 0.2rem 0 0.2rem;
+    background: $pink;
+    border-radius: 1rem;
+    border : solid 1px #fff;
+    color : #fff;
+    text-decoration : none;
+}
+.student-preview > .links > a:hover{
+    cursor: pointer;
+    background: $red;
+}
 
 @media screen and (min-width : $phone) and (max-width : $tablet) {
     .student-preview {
