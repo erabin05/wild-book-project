@@ -5,11 +5,13 @@ import innerRowIdOfProjectSelected from './innerRowIdOfProjectSelected/reducer'
 import projectSelectedForFocus from './projectSelectedForFocus/reducer'
 import rowIdOfSelectedProject from './rowIdOfProjectSelected/reducer'
 import searchBarIsFocus from './searchBarIsFocus/reducer'
+import searchProjectsList from './searchProjectsList/reducer'
 
 export default combineReducers ({
     screenSize,
     innerRowIdOfProjectSelected,
     projectSelectedForFocus,
     rowIdOfSelectedProject,
-    searchBarIsFocus
+    searchBarIsFocus,
+    searchProjectsList
 });

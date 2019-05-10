@@ -6,10 +6,12 @@ import ListOfProjects from './ListOfProjects'
 import RowsProjects from '../Previews/RowsProjects/RowsProjects'
 
 const mapStateToProps = state => ({
-    isSearchBarFocus : state.searchBarIsFocus
+    isSearchBarFocus : state.searchBarIsFocus,
+    searchProjectsList : state.searchProjectsList
+
   });
 
-const ProjectDisplay = ({isSearchBarFocus}) => {
+const ProjectDisplay = ({isSearchBarFocus, searchProjectsList}) => {
     const [projectsRows, setProjectRows] = useState([])
     const[isResearchFocus, setIsResearchFocus] = useState(false)
 
@@ -34,7 +36,7 @@ const ProjectDisplay = ({isSearchBarFocus}) => {
         <section className='project-display'>
             <SearchBar/>
             { isSearchBarFocus
-            ? <ListOfProjects/>
+            ? <ListOfProjects projects={searchProjectsList}/>
             :<div>{projectsRows.map((categorie, id) => <RowsProjects key={id} rowId={id} {...categorie}/>)}</div>
             }
         </section>
