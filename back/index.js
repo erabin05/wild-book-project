@@ -64,9 +64,9 @@ app.get('/projects/campus=:campus_id', (request, response) => {
 })
 
 // GET PROJECTS BY LANGUAGE
-app.get('/projects/campus=:campus_id', (request, response) => {
-  const campus_id = request.params.campus_id;
-  connectionGetProjects(`get projects by campuse id(${campus_id})`, querysProject.getByCampus(campus_id), response)
+app.get('/projects/language=:language_id', (request, response) => {
+  const language_id = request.params.language_id;
+  connectionGetProjects(`get projects by language id(${language_id})`, querysProject.getByLanguage(campus_id), response)
 })
 
 
