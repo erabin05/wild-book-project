@@ -10,13 +10,13 @@ const mapStateToProps = state => ({
 
 const ResearchResult = ({searchProjectsList}) => {
     return (
-        <div>
+        <div className='research-result'>
             <div className='research-head'>
-                <h2>Projects</h2>
+                <h2>Results by projects</h2>
             </div>
             {searchProjectsList.length > 0
             ?   <ListOfProjects projects={searchProjectsList}/>
-            : <p>no results found</p>
+            : <p className='not-found'>We can't find the project you are looking for, sorry :/</p>
             }
         </div>
     )

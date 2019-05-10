@@ -57,7 +57,7 @@ const FocusOnProject = ({
                 description :projectSelectedForFocus.description,
                 students : projectSelectedForFocus.students
             })}
-        ><Cross/></div>
+        ><Cross color={"#39424e"}/></div>
         <div className='focus-on-project'>
             <figure><img src={imgLink} alt={title}/></figure>
             <section className='focus-project-description'>

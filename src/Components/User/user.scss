@@ -45,9 +45,28 @@
     height: 1.5rem;
     padding: 0.6rem;
     border-radius: 10px;
-    background: $light-grey;
+    background: $red;
     margin-left: 1rem;
     transition: 0.5s;
+}
+
+.search-bar > .exit-cross:hover {
+    background : $red-hover;
+    transform: scale(1.05);
+}
+
+// .research-result
+
+.research-result > .not-found {
+    background : $light-grey;
+    margin: auto;
+    width: 80%;
+    height: 15vh;
+    min-height: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .search-bar > .exit-cross:hover {

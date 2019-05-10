@@ -4,10 +4,22 @@ import './_header.scss'
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 
-const Header = ({screenSize}) => (
+import { setSearchBarIsFocus } from '../../Reducers/searchBarIsFocus/action'
+
+const mapStateToProps = state => ({
+    screenSize: state.screenSize
+});
+
+const mapDispatchToProps = dispatch => ({
+    setSearchBarIsFocus: isFocus => dispatch( setSearchBarIsFocus(isFocus) ),
+})
+
+const Header = ({screenSize, setSearchBarIsFocus}) => (
     <header>
         <Link to='/'>
-            <figure><img src={require('./wild-logo.png')} alt='wild code school identity'/></figure>
+            <figure onClick={()=>setSearchBarIsFocus(false)}>
+                <img src={require('./wild-logo.png')} alt='wild code school identity'/>
+            </figure>
         </Link>
         {screenSize !== 'phone' &&  
         <a  className='outline-button'
@@ -18,10 +30,7 @@ const Header = ({screenSize}) => (
     </header>
 )
 
-const mapStateToProps = state => ({
-    screenSize: state.screenSize
-  });
-
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
     )(Header)
