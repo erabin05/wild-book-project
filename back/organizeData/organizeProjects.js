@@ -1,4 +1,14 @@
 const sortProjects = (datas, researchCategorie) => {  
+
+  const removeDouble = (arr, comp) => {
+    const unique = arr
+      .map(e => e[comp])
+       // store the keys of the unique objects
+      .map((e, i, final) => final.indexOf(e) === i && i)
+      // eliminate the dead keys & store unique objects
+      .filter(e => arr[e]).map(e => arr[e]);
+     return unique;
+  }
     
 // List all students with project id
 let listOfstudents = datas.map(data => 
@@ -10,6 +20,17 @@ let listOfstudents = datas.map(data =>
         name : data.student_name,
         github : data.student_github,
         linkedin : data.student_linkedin,
+      }
+    })
+  )
+
+  let listOfLanguages = datas.map(data => 
+    ({
+      project_id : data.id,
+      language : 
+      {
+        id : data.language_id,
+        name : data.language,
       }
     })
   )
@@ -50,8 +71,14 @@ let listOfstudents = datas.map(data =>
 
     if (currentId !== data.id) {
       currentId = data.id
+
       // Students for this project
       let students = listOfstudents.filter(student => student.project_id === data.id)
+      students = removeDouble(students.map(student => student.student), 'id')
+      // languages for this project
+      let languages = listOfLanguages.filter(language => language.project_id === data.id)
+      languages = removeDouble(languages.map(language => language.language), 'id')
+
       // Object Project
       projects = [
         ...projects,
@@ -72,11 +99,8 @@ let listOfstudents = datas.map(data =>
             name : data.campus,
             coordonates : data.campus_coordonates
           },
-          language:{
-            id : data.language_id,
-            name : data.language
-          },
-          students : students.map(student => student.student)
+          languages,
+          students
         }
       ] 
     }
@@ -84,7 +108,7 @@ let listOfstudents = datas.map(data =>
   })
 
 
-  return { categorie, projects }
+  return { categorie, projects: removeDouble(projects, 'id') }
 }
 
 module.exports = sortProjects

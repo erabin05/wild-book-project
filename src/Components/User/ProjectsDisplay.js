@@ -10,6 +10,14 @@ const ProjectDisplay = () => {
             {
                 categorie : 'campus',
                 idInCategorie : 1
+            },
+            {
+                categorie : 'language',
+                idInCategorie : 4
+            },
+            {
+                categorie : 'session',
+                idInCategorie : 1
             }
         ])
     })

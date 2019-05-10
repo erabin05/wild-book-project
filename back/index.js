@@ -72,7 +72,7 @@ app.get('/projects/language=:language_id', (request, response) => {
 // GET PROJECTS BY SESSION
 app.get('/projects/session=:session_id', (request, response) => {
   const session_id = request.params.session_id;
-  connectionGetProjects(`get projects by language id(${session_id})`, querysProject.getBySession(session_id), response, 'session')
+  connectionGetProjects(`get projects by session id(${session_id})`, querysProject.getBySession(session_id), response, 'session')
 })
 
 // GET RESEARCH BY PROJECT TITLE

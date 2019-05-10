@@ -18,15 +18,13 @@ const DedicatedPage = ({screenSize}) => {
     const [projetcsInCategorie, setprojetcsInCategorie] = useState([])
     const [projectsCategorie, setProjectsCategorie] = useState({})
     const [isLoading, setIsLoading] = useState(true)
-    const [pageTitle, setPageTitle] = useState('')
 
 
     const projects = projectsInRowOfNumber(projetcsInCategorie, numberOfprojectByRow(screenSize))
 
     useEffect(()=>{
 
-        const [title, categorie, idInCategorie]= window.location.pathname.slice(1).split('-')
-        setPageTitle(title)
+        const [title, categorie, idInCategorie]= window.location.pathname.slice(1).split('_')
 
         axios.get(`http://localhost:5000/projects/${categorie}=${idInCategorie}`)
             .then(res => {
