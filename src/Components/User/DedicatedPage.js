@@ -19,7 +19,6 @@ const DedicatedPage = ({screenSize}) => {
     const [projectsCategorie, setProjectsCategorie] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
-
     const projects = projectsInRowOfNumber(projetcsInCategorie, numberOfprojectByRow(screenSize))
 
     useEffect(()=>{
