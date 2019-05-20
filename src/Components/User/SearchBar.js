@@ -4,44 +4,35 @@ import { connect } from "react-redux";
 import axios from 'axios'
 
 import { setSearchBarIsFocus } from '../../Reducers/searchBarIsFocus/action'
+import { setSearchCategorieList } from '../../Reducers/searchCategorieList/action'
 import { setSearchProjectsList } from '../../Reducers/searchProjectsList/action'
 
 import { Cross } from '../Previews/FocusOnProject/Cross'
 
 const mapStateToProps = state => ({
-    searchBarIsFocus : state.searchBarIsFocus
+    searchBarIsFocus : state.searchBarIsFocus,
+    searchCategorieList : state.searchCategorieList
 })
 
 const mapDispatchToProps = dispatch => ({
     setSearchBarIsFocus: isFocus => dispatch( setSearchBarIsFocus(isFocus) ),
-    setSearchProjectsList: projects => dispatch( setSearchProjectsList(projects) )
+    setSearchProjectsList: projects => dispatch( setSearchProjectsList(projects) ),
+    setSearchCategorieList: categories => dispatch(setSearchCategorieList(categories) )
 });
 
 
-const SearchBar = ({searchBarIsFocus, setSearchBarIsFocus, setSearchProjectsList}) => {
+const SearchBar = ({searchBarIsFocus, searchCategorieList, setSearchBarIsFocus, setSearchProjectsList}) => {
 
     const [research, setResearch] = useState('')
-    const [categories, setCategories] = useState([
-        {name : 'project',
-        isSelected : true
-        },
-        {name : 'campus',
-        isSelected : true
-        },
-        {name : 'student',
-        isSelected : true
-        },
-        {name : 'language',
-        isSelected : true
-        },
-    ])
 
     const selectedButton = buttonId => {
         let result = []
-        categories.map((categorie, id) => {
+        searchCategorieList.map((categorie, id) => {
             result = [...result, buttonId === id ? {name : categorie.name, isSelected : !categorie.isSelected}: categorie]
         })
-        setCategories(result)
+        console.log(result)
+        setSearchCategorieList(result)
+        console.log(searchCategorieList)
     }
 
     const researchBarOnChange = (e) => {
@@ -70,7 +61,9 @@ const SearchBar = ({searchBarIsFocus, setSearchBarIsFocus, setSearchProjectsList
             { searchBarIsFocus &&
             <div className='search-bar-buttons'>
                 <p>Result by</p>
-                <div>{categories.map((categorie, i) => (
+                <div>{searchCategorieList.map((categorie, i) => {
+                    console.log(categorie)
+                    return (
                     <button 
                         key={i}
                         className={categorie.isSelected ? 'button-selected' : 'button-unselected'}
@@ -78,7 +71,8 @@ const SearchBar = ({searchBarIsFocus, setSearchBarIsFocus, setSearchProjectsList
                     >
                         {categorie.name}<div><Cross color={'#000'}/></div>
                     </button>
-                ))}</div>
+                    )
+                })}</div>
             </div>
             }
         </section>

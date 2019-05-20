@@ -5,6 +5,7 @@ import innerRowIdOfProjectSelected from './innerRowIdOfProjectSelected/reducer'
 import projectSelectedForFocus from './projectSelectedForFocus/reducer'
 import rowIdOfSelectedProject from './rowIdOfProjectSelected/reducer'
 import searchBarIsFocus from './searchBarIsFocus/reducer'
+import searchCategorieList from './searchCategorieList/reducer'
 import searchProjectsList from './searchProjectsList/reducer'
 
 export default combineReducers ({
@@ -13,5 +14,6 @@ export default combineReducers ({
     projectSelectedForFocus,
     rowIdOfSelectedProject,
     searchBarIsFocus,
+    searchCategorieList,
     searchProjectsList
 });

@@ -90,19 +90,19 @@
     width: 10px;
 }
 
-.search-bar-buttons > div > .button-selected {
+.button-selected {
     border : solid 1px $red;
     background : $red;
     color : #fff;
 }
 
-.search-bar-buttons > div > .button-unselected {
+.button-unselected {
     border : solid 1px $grey;
 }
 
 // .research-result
 
-.research-result > .not-found {
+.research-result > div > .not-found {
     background : $light-grey;
     margin: auto;
     width: 80%;
@@ -112,6 +112,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top : 0;
+}
+
+.research-result > div > .research-head {
+    margin-top : 2rem;
+    margin-bottom : 1rem;
 }
 
 .search-bar > .exit-cross:hover {
