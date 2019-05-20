@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "node node_modules/db-migrate/bin/db-migrate"
   },
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "db-migrate": "^0.11.5",
-    "db-migrate-mysql": "^1.1.10"
+    "db-migrate-mysql": "^1.1.10",
+    "nodemon": "^1.19.0"
   }
 }

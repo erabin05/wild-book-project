@@ -13,7 +13,11 @@ import rootReducer from './Reducers';
 let initialStore = {
 };
 
-const store = createStore(rootReducer, initialStore)
+const store = createStore(
+    rootReducer, 
+    initialStore, 
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 ReactDOM.render(
     <Provider store={store}>

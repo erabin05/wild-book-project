@@ -17,23 +17,19 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     setSearchBarIsFocus: isFocus => dispatch( setSearchBarIsFocus(isFocus) ),
     setSearchProjectsList: projects => dispatch( setSearchProjectsList(projects) ),
-    setSearchCategorieList: categories => dispatch(setSearchCategorieList(categories) )
+    setSearchCategorieList: categories => dispatch( setSearchCategorieList(categories) )
 });
 
 
-const SearchBar = ({searchBarIsFocus, searchCategorieList, setSearchBarIsFocus, setSearchProjectsList}) => {
+const SearchBar = ({
+    searchBarIsFocus, 
+    searchCategorieList, 
+    setSearchCategorieList, 
+    setSearchBarIsFocus, 
+    setSearchProjectsList
+}) => {
 
     const [research, setResearch] = useState('')
-
-    const selectedButton = buttonId => {
-        let result = []
-        searchCategorieList.map((categorie, id) => {
-            result = [...result, buttonId === id ? {name : categorie.name, isSelected : !categorie.isSelected}: categorie]
-        })
-        console.log(result)
-        setSearchCategorieList(result)
-        console.log(searchCategorieList)
-    }
 
     const researchBarOnChange = (e) => {
         setResearch(e.target.value)
@@ -62,12 +58,11 @@ const SearchBar = ({searchBarIsFocus, searchCategorieList, setSearchBarIsFocus, 
             <div className='search-bar-buttons'>
                 <p>Result by</p>
                 <div>{searchCategorieList.map((categorie, i) => {
-                    console.log(categorie)
                     return (
                     <button 
                         key={i}
                         className={categorie.isSelected ? 'button-selected' : 'button-unselected'}
-                        onClick={()=>selectedButton(i)}
+                        onClick={()=>setSearchCategorieList(categorie.name)}
                     >
                         {categorie.name}<div><Cross color={'#000'}/></div>
                     </button>

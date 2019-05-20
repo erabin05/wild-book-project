@@ -23,7 +23,15 @@ const initialState = [
 
 const searchCategorieList = (state = initialState, action) => {
     if ( action.type === SEARCH_CATEGORIE_LIST ) {
-        return action.categorieList 
+        let result = []
+        state.map(categorie => {
+            result = [
+                ...result, action.categorieName === categorie.name 
+                ? {name : categorie.name, isSelected : !categorie.isSelected}
+                : categorie
+            ]
+        })
+        return result
     } else {
         return state
     }

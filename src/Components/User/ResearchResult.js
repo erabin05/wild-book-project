@@ -10,11 +10,11 @@ const mapStateToProps = state => ({
   });
 
 const ResearchResult = ({searchProjectsList, searchCategories}) => {
-    console.log(searchCategories)
     return (
         <div className='research-result'>
             {searchCategories
-                .map(({name, isSelected}, index)=>(
+                .filter(({isSelected}) => isSelected)
+                .map(({name}, index)=>(
                     <ResultBy 
                         key={index}
                         categorie={name} 
@@ -23,33 +23,7 @@ const ResearchResult = ({searchProjectsList, searchCategories}) => {
                         errorMsg="We can't find the project you are looking for, sorry :/"
                     />
                 ))
-                .filter(Categorie => !Categorie.isSelected)
             }
-
-
-            {/* <ResultBy 
-                categorie='Project' 
-                ListOfCategorie={ResultByProjects} 
-                searchList={searchProjectsList} 
-                errorMsg="We can't find the project you are looking for, sorry :/"
-            />
-            <ResultBy 
-                categorie='Campus' 
-                ListOfCategorie={ResultByCampus} 
-                searchList={searchProjectsList} 
-                errorMsg="We can't find the project you are looking for, sorry :/"
-            />
-            <ResultBy 
-                categorie='Student' 
-                ListOfCategorie={ResultByStudent} 
-                searchList={searchProjectsList} 
-                errorMsg="We can't find the project you are looking for, sorry :/"
-            />
-            <ResultBy categorie='Language' 
-                ListOfCategorie={ResultByLanguage} 
-                searchList={searchProjectsList} 
-                errorMsg="We can't find the project you are looking for, sorry :/"
-            /> */}
         </div>
     )
 }
