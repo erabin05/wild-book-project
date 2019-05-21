@@ -2,19 +2,19 @@ import {SEARCH_CATEGORIE_LIST} from './action'
 
 const initialState = [
     {
-        name : 'project',
+        name : 'projects',
         isSelected : true
     },
     {
-        name : 'campus',
+        name : 'campuses',
         isSelected : true
     },
     {
-        name : 'student',
+        name : 'students',
         isSelected : true
     },
     {
-        name : 'language',
+        name : 'languages',
         isSelected : true
     },
 ]

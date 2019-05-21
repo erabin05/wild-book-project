@@ -6,6 +6,9 @@ import axios from 'axios'
 import { setSearchBarIsFocus } from '../../Reducers/searchBarIsFocus/action'
 import { setSearchCategorieList } from '../../Reducers/searchCategorieList/action'
 import { setSearchProjectsList } from '../../Reducers/searchProjectsList/action'
+import { setSearchCampusesList } from '../../Reducers/searchCampusesList/action'
+import { setSearchLanguagesList } from '../../Reducers/searchLanguagesList/action'
+import { setSearchStudentsList } from '../../Reducers/searchStudentsList/action'
 
 import { Cross } from '../Previews/FocusOnProject/Cross'
 
@@ -17,6 +20,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     setSearchBarIsFocus: isFocus => dispatch( setSearchBarIsFocus(isFocus) ),
     setSearchProjectsList: projects => dispatch( setSearchProjectsList(projects) ),
+    setSearchCampusesList: projects => dispatch( setSearchCampusesList(projects) ),
+    setSearchLanguagesList: projects => dispatch( setSearchLanguagesList(projects) ),
+    setSearchStudentsList: projects => dispatch( setSearchStudentsList(projects) ),
     setSearchCategorieList: categories => dispatch( setSearchCategorieList(categories) )
 });
 
@@ -26,19 +32,28 @@ const SearchBar = ({
     searchCategorieList, 
     setSearchCategorieList, 
     setSearchBarIsFocus, 
-    setSearchProjectsList
+    setSearchProjectsList,
+    setSearchCampusesList,
+    setSearchLanguagesList,
+    setSearchStudentsList
 }) => {
 
     const [research, setResearch] = useState('')
+    const setSearchCategories = [setSearchProjectsList, setSearchCampusesList, setSearchStudentsList, setSearchLanguagesList]
 
     const researchBarOnChange = (e) => {
         setResearch(e.target.value)
         e.target.value && 
 
-        axios.get(`http://localhost:5000/projects/search=${e.target.value}`)
-            .then(res => {
-                setSearchProjectsList(res.data.projects)
-            })
+        searchCategorieList.map((categorie, i) => {
+            categorie.isSelected 
+            && axios.get(`http://localhost:5000/${categorie.name}/search=${e.target.value}`)
+                .then(res => {
+                    const setSearchCategorie = setSearchCategories[i]
+                    console.log(res.data)
+                    setSearchCategorie(res.data)
+                })   
+        })
     }  
 
     return (
