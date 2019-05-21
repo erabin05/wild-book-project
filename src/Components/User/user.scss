@@ -139,6 +139,17 @@
     cursor: pointer
 }
 
+.search-by-name {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80%;
+}
+.search-by-name > div > div {
+    border : solid 1px $grey;
+    max-width: 300px;
+}
+
 // .dedicated-page
 
 .dedicated-page {

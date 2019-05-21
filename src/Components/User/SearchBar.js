@@ -50,7 +50,6 @@ const SearchBar = ({
             && axios.get(`http://localhost:5000/${categorie.name}/search=${e.target.value}`)
                 .then(res => {
                     const setSearchCategorie = setSearchCategories[i]
-                    console.log(res.data)
                     setSearchCategorie(res.data)
                 })   
         })
