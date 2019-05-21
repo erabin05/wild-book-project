@@ -34,11 +34,12 @@ const SearchBar = ({
     const researchBarOnChange = (e) => {
         setResearch(e.target.value)
         e.target.value && 
-        axios.get(`http://localhost:5000/projects/research=${e.target.value}`)
+
+        axios.get(`http://localhost:5000/projects/search=${e.target.value}`)
             .then(res => {
                 setSearchProjectsList(res.data.projects)
             })
-    }
+    }  
 
     return (
         <section className='search-bar'>
@@ -51,7 +52,15 @@ const SearchBar = ({
                     placeholder="search"
                 />
                 {searchBarIsFocus && 
-                <div className='exit-cross' onClick={()=>setSearchBarIsFocus(false)}><Cross color={'#fff'}/></div>
+                <div 
+                    className='exit-cross' 
+                    onClick={()=>{
+                        setResearch("")
+                        setSearchBarIsFocus(false)
+                    }}
+                >
+                        <Cross color={'#fff'}/>
+                </div>
                 }
             </div>
             { searchBarIsFocus &&

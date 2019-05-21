@@ -7,6 +7,9 @@ import rowIdOfSelectedProject from './rowIdOfProjectSelected/reducer'
 import searchBarIsFocus from './searchBarIsFocus/reducer'
 import searchCategorieList from './searchCategorieList/reducer'
 import searchProjectsList from './searchProjectsList/reducer'
+import searchCampusesList from './searchCampusesList/reducer'
+import searchLanguagesList from './searchLanguagesList/reducer'
+import searchStudentsList from './searchStudentsList/reducer'
 
 export default combineReducers ({
     screenSize,
@@ -15,5 +18,8 @@ export default combineReducers ({
     rowIdOfSelectedProject,
     searchBarIsFocus,
     searchCategorieList,
-    searchProjectsList
+    searchProjectsList,
+    searchCampusesList,
+    searchLanguagesList,
+    searchStudentsList
 });

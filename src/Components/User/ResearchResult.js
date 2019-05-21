@@ -9,7 +9,14 @@ const mapStateToProps = state => ({
     searchCategories : state.searchCategorieList
   });
 
-const ResearchResult = ({searchProjectsList, searchCategories}) => {
+  
+const ResearchResult = ({
+    searchProjectsList, 
+    searchCategories
+}) => {
+
+    const categoriesDisplay = [ ResultByProjects, ResultByCampus, ResultByStudent, ResultByLanguage]
+
     return (
         <div className='research-result'>
             {searchCategories
@@ -18,7 +25,7 @@ const ResearchResult = ({searchProjectsList, searchCategories}) => {
                     <ResultBy 
                         key={index}
                         categorie={name} 
-                        ListOfCategorie={ResultByProjects} 
+                        ListOfCategorie={categoriesDisplay[index]} 
                         searchList={searchProjectsList} 
                         errorMsg="We can't find the project you are looking for, sorry :/"
                     />
