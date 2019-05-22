@@ -75,9 +75,9 @@ app.get('/students/search=:project_title', (request, response) => {
   connectionGet(`get campuses with research ='${project_title}'`,querysStudents.getByNameResearch, `${project_title}%`, response, 'search', sortStudents)
 })
 
-// ------------------ STUDENTS -------------------------
+// ------------------ LANGUAGES -------------------------
 
-// GET RESEARCH BY STUDENTS TITLE
+// GET RESEARCH BY LANGUAGES TITLE
 app.get('/languages/search=:project_title', (request, response) => {
   const project_title = request.params.project_title;
   connectionGet(`get campuses with research ='${project_title}'`,querysLanguages.getByNameResearch, `${project_title}%`, response, 'search', data=>data)

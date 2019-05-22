@@ -1,9 +1,13 @@
 import React from 'react'
+import './_search.scss'
+import './ResearchResultBy/_resultBy.scss'
 
-import { connect } from "react-redux";
+import { connect } from 'react-redux'
 
-import StudentPreview from '../Previews/StudentPreview/StudentPreview'
-import ListOfProjects from './ListOfProjects'
+import ResultByProjects from './ResearchResultBy/ResultByProjects'
+import ResultByStudents from './ResearchResultBy/ResultByStudents'
+import ResultByCampuses from './ResearchResultBy/ResultByCampuses'
+import ResultByLanguages from './ResearchResultBy/ResultByLanguages'
 
 const mapStateToProps = state => ({
     searchProjectsList : state.searchProjectsList,
@@ -73,18 +77,6 @@ const ResultBy = ({categorie, ListOfCategorie, searchResults, errorMsg}) => (
         {ListOfCategorie(searchResults)}
     </div>
 )
-
-const ResultByProjects = (searchResults) => <ListOfProjects projects={searchResults}/>
-
-const ResultByCampuses = (searchResults) => (<div></div>)
-
-const ResultByStudents = (searchResults) => (
-    <div className='search-by-name'>
-        {searchResults.map(((searchResult, i) => <div><StudentPreview key={i} {...searchResult}/></div>))}
-    </div>
-)
-
-const ResultByLanguages = (searchResults) => (<div></div>)
 
 export default connect(
     mapStateToProps

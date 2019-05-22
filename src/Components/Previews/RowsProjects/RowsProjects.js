@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './_rows-projects.scss'
-import { numberOfprojectByRow, numberOfProjectByScreenSize, projectsInRowOfNumber} from '../../User/projectDistributionInRows'
+import { numberOfprojectByRow, numberOfProjectByScreenSize, projectsInRowOfNumber} from '../../Previews/ListOfProjects/projectDistributionInRows'
 
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";

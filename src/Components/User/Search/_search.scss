@@ -1,0 +1,126 @@
+@import '../../../Style/color.scss';
+@import '../../../Style/breakpoints.scss';
+
+// .search-bar
+
+.search-bar {
+    width : 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem 0 5rem 0;
+}
+
+.search-bar > .bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar > div > input {
+    background : $light-grey;
+    border: none;
+    border-radius: 15px;
+    width: 35%;
+    padding : 1rem 1rem 1rem 1rem;
+    font-size: 1.4rem;
+}
+
+.search-bar > div > input:focus {
+    outline : none;
+    background : $light-grey-hover;
+    transition: 0.5s;
+}
+
+.search-bar > div > .exit-cross {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.6rem;
+    border-radius: 10px;
+    background: $red;
+    margin-left: 1rem;
+    transition: 0.5s;
+}
+
+.search-bar > div > .exit-cross:hover {
+    background : $red-hover;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.search-bar-buttons > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.search-bar-buttons > p{
+    margin-top : 1rem;
+    margin-left: 0.2rem;
+    color : $red;
+}
+
+.search-bar-buttons > div > button {
+    padding : 0.8rem 1.6rem 0.8rem 2rem;
+    margin : 0.5rem 1rem 1rem 0;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    display: flex;
+}
+
+.search-bar-buttons > div > button > div {
+    margin-left: 0.5rem;
+    height: 10px;
+    width: 10px;
+}
+
+.button-selected {
+    border : solid 1px $red;
+    background : $red;
+    color : #fff;
+}
+
+.button-unselected {
+    border : solid 1px $grey;
+    background: #fff;
+}
+
+@media screen and (max-width: $phone) {
+    .search-bar > div > input {
+        width : 60%;
+    }
+    .search-bar-buttons {
+        width: 90%;
+    }
+    .search-bar-buttons > div > button {
+        width: 45%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+// .research-result
+
+.research-result > div > .not-found {
+    background : $light-grey;
+    margin: auto;
+    width: 80%;
+    height: 15vh;
+    min-height: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top : 0;
+}
+
+.research-result > div > .research-head {
+    margin-top : 2rem;
+    margin-bottom : 1rem;
+}
+
+.search-bar > .exit-cross:hover {
+    cursor: pointer
+}

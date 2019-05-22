@@ -1,10 +1,9 @@
 import React, {useState ,useEffect} from 'react'
-import { numberOfprojectByRow, projectsInRowOfNumber} from './projectDistributionInRows'
 
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-import ListOfProjects from './ListOfProjects'
+import ListOfProjects from '../Previews/ListOfProjects/ListOfProjects'
 
 const DedicatedPage = () => {
 

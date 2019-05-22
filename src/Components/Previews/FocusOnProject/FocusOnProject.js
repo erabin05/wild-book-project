@@ -5,7 +5,7 @@ import {ArrowUp, ArrowDown} from './Arrow'
 import { connect } from "react-redux"
 import { setProjectSelectedForFocus } from '../../../Reducers/projectSelectedForFocus/action'
 
-import { Cross } from './Cross'
+import { Cross } from '../../Pictos/Cross'
 import StudentPreview from '../StudentPreview/StudentPreview'
 
 const mapStateToProps = state => ({

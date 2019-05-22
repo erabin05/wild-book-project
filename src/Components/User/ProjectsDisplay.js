@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from "react-redux";
 
-import ResearchResult from './ResearchResult'
-import SearchBar from './SearchBar'
+import ResearchResult from './Search/ResearchResult'
+import SearchBar from './Search/SearchBar'
 import RowsProjects from '../Previews/RowsProjects/RowsProjects'
 
 const mapStateToProps = state => ({

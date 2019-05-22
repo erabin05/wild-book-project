@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import axios from 'axios'
 
-import { setSearchBarIsFocus } from '../../Reducers/searchBarIsFocus/action'
-import { setSearchCategorieList } from '../../Reducers/searchCategorieList/action'
-import { setSearchProjectsList } from '../../Reducers/searchProjectsList/action'
-import { setSearchCampusesList } from '../../Reducers/searchCampusesList/action'
-import { setSearchLanguagesList } from '../../Reducers/searchLanguagesList/action'
-import { setSearchStudentsList } from '../../Reducers/searchStudentsList/action'
+import { setSearchBarIsFocus } from '../../../Reducers/searchBarIsFocus/action'
+import { setSearchCategorieList } from '../../../Reducers/searchCategorieList/action'
+import { setSearchProjectsList } from '../../../Reducers/searchProjectsList/action'
+import { setSearchCampusesList } from '../../../Reducers/searchCampusesList/action'
+import { setSearchLanguagesList } from '../../../Reducers/searchLanguagesList/action'
+import { setSearchStudentsList } from '../../../Reducers/searchStudentsList/action'
 
-import { Cross } from '../Previews/FocusOnProject/Cross'
+import { Cross } from '../../Pictos/Cross'
+import Selected from '../../Pictos/Selected'
 
 const mapStateToProps = state => ({
     searchBarIsFocus : state.searchBarIsFocus,
@@ -73,7 +74,7 @@ const SearchBar = ({
                         setSearchBarIsFocus(false)
                     }}
                 >
-                        <Cross color={'#fff'}/>
+                    <Cross color={'#fff'}/>
                 </div>
                 }
             </div>
@@ -87,7 +88,13 @@ const SearchBar = ({
                         className={categorie.isSelected ? 'button-selected' : 'button-unselected'}
                         onClick={()=>setSearchCategorieList(categorie.name)}
                     >
-                        {categorie.name}<div><Cross color={'#000'}/></div>
+                        {categorie.name}
+                        <div>
+                            {categorie.isSelected
+                            ? <Selected color={'#fff'}/>
+                            : <Cross color={'#000'}/>
+                            }
+                        </div>
                     </button>
                     )
                 })}</div>

@@ -2,10 +2,10 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import { numberOfprojectByRow, projectsInRowOfNumber} from '../Previews/ListOfProjects/projectDistributionInRows'
+import { numberOfprojectByRow, projectsInRowOfNumber} from './projectDistributionInRows'
 
-import ProjectPreview from '../Previews/ProjectPreview/ProjectPreview'
-import FocusOnProject from '../Previews/FocusOnProject/FocusOnProject'
+import ProjectPreview from '../ProjectPreview/ProjectPreview'
+import FocusOnProject from '../FocusOnProject/FocusOnProject'
 
 const mapStateToProps = state => ({
     screenSize: state.screenSize
