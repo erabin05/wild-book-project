@@ -4,7 +4,7 @@ import './user.scss'
 import { Route } from 'react-router-dom'
 
 import ProjetcDisplay from './ProjectsDisplay'
-import DedicatedPage from './DedicatedPage'
+import DedicatedPage from './DedicatedPage/DedicatedPage'
 
 
 const User = () => (

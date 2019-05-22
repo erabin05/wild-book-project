@@ -1,0 +1,49 @@
+@import '../../../Style/color.scss';
+@import '../../../Style/breakpoints.scss';
+
+// .dedicated-page
+
+.dedicated-page {
+    display : flex;
+    flex-wrap : wrap;
+    width: 100%;
+    padding-top: 1rem;
+}
+.dedicated-page-head, .research-head {
+    width: 78%;
+    margin: auto;
+    margin-bottom: 3em;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.dedicated-page-head button {
+    height: 1.5rem;
+    border-radius: 2em;
+    padding: 0 1.2rem 0 1.2rem;
+    margin-left: 1rem;
+}
+.dedicated-page-head > h1 {
+    color : $red;
+    text-transform: uppercase;
+}
+.list-of-projects {
+    width: 100%
+}
+ .project-by-four {
+    width : 80%;
+    margin : auto;
+}
+@media screen and (max-width: $tablet) {
+    .dedicated-page-head , .research-head{
+        width: 86%;
+    }
+     .project-by-four {
+        width : 90%;
+    }
+}
+
+.dedicated-page > .error-msg {
+    margin : auto;
+    width: 70%;
+}

@@ -36,4 +36,19 @@ h2 {
     color : #fff;
     background : $red-hover;
  }
+
+ // Error-msg
+
+ .error-msg {
+    color : $grey;
+    background: $light-grey;
+    padding : 1rem 3rem 1rem 3rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+ }
+
+ a {
+   text-decoration: none;
+}
  

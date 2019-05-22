@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
 import axios from 'axios'
 
-import { ArrowLeft, ArrowRight } from './Arrows'
+import { ArrowLeft, ArrowRight } from '../../Pictos/Arrows'
 import FocusOnProject from '../FocusOnProject/FocusOnProject'
 import  ProjectPreview from '../ProjectPreview/ProjectPreview'
 

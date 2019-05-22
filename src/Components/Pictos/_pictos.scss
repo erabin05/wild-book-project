@@ -1,0 +1,13 @@
+@import '../../Style/color.scss';
+@import '../../Style/breakpoints.scss';
+
+.here > circle, .here path, .picto-language circle, .picto-language path{
+    stroke : $red;
+}
+
+.result-by:hover .here > circle, 
+.result-by:hover .here path, 
+.result-by:hover .picto-language circle, 
+.result-by:hover .picto-language path {
+    stroke : #fff;
+}

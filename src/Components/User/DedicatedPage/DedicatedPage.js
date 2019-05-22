@@ -1,9 +1,10 @@
 import React, {useState ,useEffect} from 'react'
+import './_dedicatedPage.scss'
 
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-import ListOfProjects from '../Previews/ListOfProjects/ListOfProjects'
+import ListOfProjects from '../../Previews/ListOfProjects/ListOfProjects'
 
 const DedicatedPage = () => {
 
@@ -11,8 +12,9 @@ const DedicatedPage = () => {
     const [projectsCategorie, setProjectsCategorie] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
+    const [title, categorie, idInCategorie]= window.location.pathname.slice(1).split('_')
+
     useEffect(()=>{
-        const [title, categorie, idInCategorie]= window.location.pathname.slice(1).split('_')
 
         axios.get(`http://localhost:5000/projects/${categorie}=${idInCategorie}`)
             .then(res => {
@@ -26,12 +28,20 @@ const DedicatedPage = () => {
         <article className='dedicated-page'>
             {isLoading && <div className='loadingPage'></div>}
             <div className='dedicated-page-head'>
-                <h1>{projectsCategorie.name}</h1>
+                <h1>{
+                    projectsCategorie !== undefined && projectsCategorie.name === title
+                    ? projectsCategorie.name
+                    : title
+                }</h1>
                 <Link to='/'>
                     <button className='inline-button'>{'< Go Back'}</button>
                 </Link>
             </div>
-            <ListOfProjects projects={projetcsInCategorie}/>
+            {
+                projetcsInCategorie.length > 0 
+                ? <ListOfProjects projects={projetcsInCategorie}/>
+                : <div className='error-msg'>Sorry, we don't have projects for '{title}', yet :) !</div>
+            }
         </article>
     )
 }

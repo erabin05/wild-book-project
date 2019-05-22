@@ -5,14 +5,16 @@
     margin : auto;
     width: 80%;
     display: flex;
+    flex-direction: row;
 }
 
 .result-by {
-    padding : 0.7rem 1.5rem 0.7rem 1.5rem;
+    padding : 0.7rem 1.5rem 0.7rem 1rem;
     margin: 0.5rem;
     border : solid 1px $grey;
     border-radius: 2.5rem;
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
 
 .result-by:hover {
@@ -20,6 +22,10 @@
     background : $red-hover;
     border : $red 1px solid;
     cursor: pointer;
+}
+
+.result-by:hover > a {
+    color : #fff
 }
 
 .container-result-by-student {
@@ -32,4 +38,15 @@
     border : solid 1px $grey;
     max-width: 300px;
     margin: 0.5rem;
+}
+
+.result-by-picto, .result-by-picto-language {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.result-by-picto-language {
+    height: 25px;
+    margin-right: 0.5rem;
 }

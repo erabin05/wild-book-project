@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import { connect } from "react-redux";
 import './App.scss'
+import './Components/Pictos/_pictos.scss'
 
 import Header from './Components/Header/Header'
 import User from './Components/User/User'
