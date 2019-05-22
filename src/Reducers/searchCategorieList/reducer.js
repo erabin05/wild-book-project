@@ -9,17 +9,17 @@ const initialState = [
     },
     {
         name : 'campuses',
-        isSelected : true,
+        isSelected : false,
         isThereResults : false
     },
     {
         name : 'students',
-        isSelected : true,
+        isSelected : false,
         isThereResults : false
     },
     {
         name : 'languages',
-        isSelected : true,
+        isSelected : false,
         isThereResults : false
     },
 ]
