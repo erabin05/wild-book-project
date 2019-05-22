@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './_search.scss'
 import './ResearchResultBy/_resultBy.scss'
 
@@ -15,7 +15,7 @@ const mapStateToProps = state => ({
     searchStudentsList : state.searchStudentsList,
     searchLanguagesList : state.searchLanguagesList,
     searchCategories : state.searchCategorieList
-  });
+});
 
   
 const ResearchResult = ({
@@ -48,28 +48,28 @@ const ResearchResult = ({
     return (
         <div className='research-result'>
             {searchCategories
-                .map((searchCategorie, index) => (
-                    {...searchCategorie, 
-                        resultBy : categoriesDisplay[index].resultBy, 
-                        searchResults : categoriesDisplay[index].searchResults
+                .map((searchCategorie, index) => ({
+                    ...searchCategorie, 
+                    resultBy : categoriesDisplay[index].resultBy, 
+                    searchResults : categoriesDisplay[index].searchResults
                 }))
                 .filter(({isSelected}) => isSelected)
-                .map(({name, resultBy, searchResults}, index)=>{
-                    return searchResults.length > 0 && (
-                    <ResultBy 
+                .map(({name, resultBy, searchResults}, index)=> {
+                    return searchResults.length > 0 &&
+                    (<ResultBy 
                         key={index}
                         categorie={name} 
                         ListOfCategorie={resultBy} 
                         searchResults={searchResults} 
-                        errorMsg="We can't find the project you are looking for, sorry :/"
                     />
-                )})
+                    )
+                })
             }
         </div>
     )
 }
 
-const ResultBy = ({categorie, ListOfCategorie, searchResults, errorMsg}) => (
+const ResultBy = ({categorie, ListOfCategorie, searchResults}) => (
     <div>
         <div className='research-head'>
             <h2>{categorie}</h2>

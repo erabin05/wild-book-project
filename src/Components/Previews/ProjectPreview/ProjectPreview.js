@@ -69,7 +69,7 @@ const ProjetcPreview = ({
                 < div></div>
                 { screenSize !== 'phone' &&
                 <section>
-                    {students.map((student, id) => <StudentNamePreview key={id} {...student}/>)}
+                    {students && students.map((student, id) => <StudentNamePreview key={id} {...student}/>)}
                 </section>
                 }
             </div> 

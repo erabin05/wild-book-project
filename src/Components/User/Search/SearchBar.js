@@ -9,6 +9,7 @@ import { setSearchProjectsList } from '../../../Reducers/searchProjectsList/acti
 import { setSearchCampusesList } from '../../../Reducers/searchCampusesList/action'
 import { setSearchLanguagesList } from '../../../Reducers/searchLanguagesList/action'
 import { setSearchStudentsList } from '../../../Reducers/searchStudentsList/action'
+import { setSearchCategorieListResults } from '../../../Reducers/searchCategorieList/action'
 
 import { Cross } from '../../Pictos/Cross'
 import Selected from '../../Pictos/Selected'
@@ -24,7 +25,8 @@ const mapDispatchToProps = dispatch => ({
     setSearchCampusesList: projects => dispatch( setSearchCampusesList(projects) ),
     setSearchLanguagesList: projects => dispatch( setSearchLanguagesList(projects) ),
     setSearchStudentsList: projects => dispatch( setSearchStudentsList(projects) ),
-    setSearchCategorieList: categories => dispatch( setSearchCategorieList(categories) )
+    setSearchCategorieList: categories => dispatch( setSearchCategorieList(categories) ),
+    setSearchCategorieListResults : (categorieName, isThereResults) => dispatch( setSearchCategorieListResults(categorieName, isThereResults) )
 });
 
 
@@ -36,7 +38,8 @@ const SearchBar = ({
     setSearchProjectsList,
     setSearchCampusesList,
     setSearchLanguagesList,
-    setSearchStudentsList
+    setSearchStudentsList,
+    setSearchCategorieListResults
 }) => {
 
     const [research, setResearch] = useState('')
@@ -47,11 +50,11 @@ const SearchBar = ({
         e.target.value && 
 
         searchCategorieList.map((categorie, i) => {
-            categorie.isSelected 
-            && axios.get(`http://localhost:5000/${categorie.name}/search=${e.target.value}`)
+            axios.get(`http://localhost:5000/${categorie.name}/search=${e.target.value}`)
                 .then(res => {
                     const setSearchCategorie = setSearchCategories[i]
                     setSearchCategorie(res.data)
+                    setSearchCategorieListResults(categorie.name, res.data.length > 0 || (res.data.projects && res.data.projects.length > 0))
                 })   
         })
     }  
@@ -85,7 +88,10 @@ const SearchBar = ({
                     return (
                     <button 
                         key={i}
-                        className={categorie.isSelected ? 'button-selected' : 'button-unselected'}
+                        className={`
+                            ${categorie.isSelected ? 'button-selected' : 'button-unselected'}
+                            ${!categorie.isThereResults && ' no-result-for-categorie'}
+                        `}
                         onClick={()=>setSearchCategorieList(categorie.name)}
                     >
                         {categorie.name}

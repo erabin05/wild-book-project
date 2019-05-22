@@ -76,6 +76,10 @@
     width: 10px;
 }
 
+.search-bar-buttons > div > button {
+    transition: 0.3s;
+}
+
 .button-selected {
     border : solid 1px $red;
     background : $red;
@@ -99,6 +103,10 @@
         display: flex;
         justify-content: center;
     }
+}
+
+.no-result-for-categorie {
+    opacity: 0.5;
 }
 
 // .research-result
