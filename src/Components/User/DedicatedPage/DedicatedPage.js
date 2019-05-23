@@ -16,7 +16,7 @@ const DedicatedPage = () => {
 
     useEffect(()=>{
 
-        axios.get(`http://localhost:5000/projects/${categorie}=${idInCategorie}`)
+        axios.get(`http://localhost:5000/project/${categorie}=${idInCategorie}`)
             .then(res => {
                 setprojetcsInCategorie(res.data.projects)
                 setProjectsCategorie(res.data.categorie)

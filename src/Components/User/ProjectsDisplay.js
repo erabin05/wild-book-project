@@ -10,31 +10,28 @@ const mapStateToProps = state => ({
   });
 
 const ProjectDisplay = ({isSearchBarFocus}) => {
-    const [projectsRows, setProjectRows] = useState([])
 
-    useEffect(()=> {
-        setProjectRows([
+        const rowsCategories = ([
             {
                 categorie : 'campus',
-                idInCategorie : 1
+                searchParam : 'random'
+            },
+            {
+                categorie : 'campus',
+                searchParam : 'random'
             },
             {
                 categorie : 'language',
-                idInCategorie : 4
-            },
-            {
-                categorie : 'session',
-                idInCategorie : 1
+                searchParam : 'random'
             }
         ])
-    })
 
     return (
         <section className='project-display'>
             <SearchBar/>
             { isSearchBarFocus
             ? <ResearchResult/>
-            :<div>{projectsRows.map((categorie, id) => <RowsProjects key={id} rowId={id} {...categorie}/>)}</div>
+            :<div>{rowsCategories.map((categorie, id) => <RowsProjects key={id} rowId={id} {...categorie}/>)}</div>
             }
         </section>
     )

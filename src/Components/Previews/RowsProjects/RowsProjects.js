@@ -18,7 +18,7 @@ const RowsProjects = ({
                         rowId,
                         screenSize,
                         categorie,
-                        idInCategorie
+                        searchParam
                     }) => {
 
     //PROJECTS
@@ -31,20 +31,24 @@ const RowsProjects = ({
 
     const [rowHeight, setRowHeight] = useState(0)
 
+    // Get projects
+    useEffect(()=>{
+        axios.get(`http://localhost:5000/${categorie}/${searchParam}`)
+            .then(categRes => {
+                axios.get(`http://localhost:5000/project/${categorie}=${categRes.data[0].id}`)
+                    .then(projectsRes => {
+                        setProjects(projectsRes.data.projects)
+                        setProjectsCategorie(projectsRes.data.categorie)
+                })
+            })
+    },[])
+
     // All projects in rows of 4 or 3 or 2
     const numberOfProjectsInRow = numberOfprojectByRow(screenSize)
     const projectsInRow = projectsInRowOfNumber(numberOfProjectByScreenSize(projects, screenSize), numberOfProjectsInRow)
     const isOnDesktop = screenSize === 'desktop' 
 
     const setRowHeightFromProjectPreview =  projectPreviewHeight => setRowHeight(projectPreviewHeight + 40)
-
-    useEffect(()=>{
-        axios.get(`http://localhost:5000/projects/${categorie}=${idInCategorie}`)
-            .then(res => {
-                setProjects(res.data.projects)
-                setProjectsCategorie(res.data.categorie)
-            })
-    },[])
 
     return (
     <article className='rows-projects'>
