@@ -59,6 +59,7 @@ app.get('/projects/search=:project_title', (request, response) => {
   connectionGet(`get projects with research ='${project_title}'`,querysProject.getByProjectResearch, `${project_title}%`, response, 'search', sortProjects)
 })
 
+
 // ------------------ CAMPUSES -------------------------
 
 // GET RESEARCH BY CAMPUS TITLE
@@ -66,6 +67,11 @@ app.get('/campuses/search=:project_title', (request, response) => {
   const project_title = request.params.project_title;
   connectionGet(`get campuses with research ='${project_title}'`,querysCampus.getByNameResearch, `${project_title}%`, response, 'search', sortCampuses)
 })
+
+app.get('/campuses/random', (request, response) => {
+  connectionGet(`get campuses randomly'`,querysCampus.getRandomly, '', response, 'random', sortCampuses)
+})
+
 
 // ------------------ STUDENTS -------------------------
 
@@ -81,6 +87,10 @@ app.get('/students/search=:project_title', (request, response) => {
 app.get('/languages/search=:project_title', (request, response) => {
   const project_title = request.params.project_title;
   connectionGet(`get campuses with research ='${project_title}'`,querysLanguages.getByNameResearch, `${project_title}%`, response, 'search', data=>data)
+})
+
+app.get('/languages/random', (request, response) => {
+  connectionGet(`get languages randomly'`,querysLanguages.getRandomly, '', response, 'random', sortCampuses)
 })
 
 

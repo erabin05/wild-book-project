@@ -8,7 +8,10 @@ FROM campuses
 `
 const getByNameResearch = `${getAll} WHERE campuses.campus_name LIKE ?`
 
+const getRandomly = `${getAll} ORDER BY RAND() LIMIT 1;`
+
  module.exports = {
     getAll,
-    getByNameResearch
+    getByNameResearch,
+    getRandomly
  }
