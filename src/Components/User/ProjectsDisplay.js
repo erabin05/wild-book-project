@@ -17,10 +17,6 @@ const ProjectDisplay = ({isSearchBarFocus}) => {
                 searchParam : 'random'
             },
             {
-                categorie : 'campus',
-                searchParam : 'random'
-            },
-            {
                 categorie : 'language',
                 searchParam : 'random'
             }
