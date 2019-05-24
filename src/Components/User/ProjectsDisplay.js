@@ -22,6 +22,15 @@ const ProjectDisplay = ({isSearchBarFocus}) => {
             }
         ])
 
+    useEffect(()=> {
+        navigator.geolocation
+        ? navigator.geolocation.getCurrentPosition(postion=>{
+            console.log(postion.coords.latitude)
+            console.log(postion.coords.longitude)
+        })
+        : console.log("can't get geolocalisation")
+    })
+
     return (
         <section className='project-display'>
             <SearchBar/>
