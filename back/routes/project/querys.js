@@ -12,7 +12,6 @@ SELECT
   sessions.date AS session_date,
   campuses.id AS campus_id,
   campuses.campus_name AS campus,
-  campuses.coordonates AS campus_coordonates,
   languages.id AS language_id,
   languages.language_name AS language,
   students.id AS student_id,

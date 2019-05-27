@@ -25,4 +25,10 @@ router.get('/random', (request, response) => {
     connectionGet(`get campuses randomly'`,querys.getRandomly, '', response, 'random', data=>data)
 })
 
+router.get('/lat=:lat/long=:long', (request, response) => {
+    const lat = request.params.lat
+    const long = request.params.long
+    connectionGet(`get campuses by distance'`,querys.getNearest(lat, long), '', response, 'random', data=>data)
+})
+
 module.exports = router
