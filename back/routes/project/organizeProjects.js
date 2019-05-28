@@ -1,14 +1,14 @@
-const sortProjects = (datas, researchCategorie) => {  
+const removeDouble = (arr, comp) => {
+  const unique = arr
+    .map(e => e[comp])
+     // store the keys of the unique objects
+    .map((e, i, final) => final.indexOf(e) === i && i)
+    // eliminate the dead keys & store unique objects
+    .filter(e => arr[e]).map(e => arr[e]);
+   return unique;
+}
 
-  const removeDouble = (arr, comp) => {
-    const unique = arr
-      .map(e => e[comp])
-       // store the keys of the unique objects
-      .map((e, i, final) => final.indexOf(e) === i && i)
-      // eliminate the dead keys & store unique objects
-      .filter(e => arr[e]).map(e => arr[e]);
-     return unique;
-  }
+const sortProjects = (datas, researchCategorie) => {  
     
 // List all students with project id
 let listOfstudents = datas.map(data => 
@@ -97,7 +97,8 @@ let listOfstudents = datas.map(data =>
           campus:{
             id : data.campus_id,
             name : data.campus,
-            coordonates : data.campus_coordonates
+            latitude : data.campus_latitude,
+            longitude : data.campus_longitude
           },
           languages,
           students
