@@ -3,22 +3,22 @@ import {SEARCH_CATEGORIE_LIST_RESULTS} from './action'
 
 const initialState = [
     {
-        name : 'projects',
+        name : 'project',
         isSelected : true,
         isThereResults : false
     },
     {
-        name : 'campuses',
+        name : 'campus',
         isSelected : false,
         isThereResults : false
     },
     {
-        name : 'students',
+        name : 'student',
         isSelected : false,
         isThereResults : false
     },
     {
-        name : 'languages',
+        name : 'language',
         isSelected : false,
         isThereResults : false
     },

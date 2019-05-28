@@ -179,7 +179,8 @@ exports.up = function(db, callback) {
   db.createTable('campuses', {
     id: { type: 'int', primaryKey: true, autoIncrement: true },
     campus_name: {type: 'string', notNull: true},
-    coordonates: 'string'
+    latitude: 'decimal',
+    longitude: 'decimal',
   }, callback);
 
 };
