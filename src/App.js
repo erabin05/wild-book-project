@@ -3,8 +3,11 @@ import { connect } from "react-redux";
 import './App.scss'
 import './Components/Pictos/_pictos.scss'
 
+import { Route } from 'react-router-dom'
+
 import Header from './Components/Header/Header'
 import User from './Components/User/User'
+import Admin from './Components/Admin/Admin'
 
 import {setScreenSize} from './Reducers/screenSize/action'
 
@@ -21,7 +24,8 @@ const App = ({setScreenSize}) => {
   return (
     <main>
       <Header/>
-      <User/>
+      <Route exact path='/' component={User}/>
+      <Route exact path='/Admin' component={Admin}/>
     </main>
   )
 }

@@ -1,8 +1,10 @@
 import React from 'react'
 import './_header.scss'
 
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import { connect } from "react-redux";
+
+import HeaderUser from './User'
 
 import { setSearchBarIsFocus } from '../../Reducers/searchBarIsFocus/action'
 
@@ -21,12 +23,7 @@ const Header = ({screenSize, setSearchBarIsFocus}) => (
                 <img src={require('./wild-logo.png')} alt='wild code school identity'/>
             </figure>
         </Link>
-        {screenSize !== 'phone' &&  
-        <a  className='outline-button'
-            href='https://wildcodeschool.fr/'
-            rel='noreferrer noopener'
-            target='_blank'
-        >About Wild Code School</a>}
+        <Route exact path='/' component={HeaderUser}/>
     </header>
 )
 
