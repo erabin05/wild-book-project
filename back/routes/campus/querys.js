@@ -48,7 +48,7 @@ const getNearest = (lat, long) =>
    JOIN sessions ON sessions.campuses_id=campuses.id
    JOIN projects ON projects.session_id=sessions.id
    WHERE projects.id IS NOT NULL
-   ORDER BY distance ASC
+   ORDER BY distance DESC
 `
 
  module.exports = {

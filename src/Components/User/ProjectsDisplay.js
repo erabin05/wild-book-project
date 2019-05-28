@@ -14,22 +14,16 @@ const ProjectDisplay = ({isSearchBarFocus}) => {
         const rowsCategories = ([
             {
                 categorie : 'campus',
-                searchParam : 'random'
+                searchParam : 
+                    navigator.geolocation 
+                    ? `lat=${navigator.geolocation.getCurrentPosition(postion=>postion.coords.latitude)}/long=${navigator.geolocation.getCurrentPosition(postion=>postion.coords.longitude)}`
+                    : 'random'
             },
             {
                 categorie : 'language',
                 searchParam : 'random'
             }
         ])
-
-    useEffect(()=> {
-        navigator.geolocation
-        ? navigator.geolocation.getCurrentPosition(postion=>{
-            console.log(postion.coords.latitude)
-            console.log(postion.coords.longitude)
-        })
-        : console.log("can't get geolocalisation")
-    })
 
     return (
         <section className='project-display'>
