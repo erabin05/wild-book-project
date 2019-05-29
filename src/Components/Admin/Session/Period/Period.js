@@ -10,9 +10,9 @@ const Period = ({name}) => {
     const projects = [
         {
             title : 'The title of my great project',
-            imgLink : '',
+            imgLink : 'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/32284078911705.5cb32bf636e7e.png',
             url : 'http://localhost:3000',
-            github : 'https://github.com/',
+            githubLink : 'https://github.com/',
             students : [
                 {
                     name : 'Clément Bechetoille'
@@ -22,6 +22,32 @@ const Period = ({name}) => {
                 },
                 {
                     name : 'Etienne Rabin'
+                },
+            ]
+        },
+        {
+            title : 'It is my project and not yours',
+            imgLink : 'https://blogcdn1.secureserver.net/wp-content/uploads/start-a-website-get-started-min.jpg',
+            url : 'http://localhost:3000',
+            githubLink : 'https://github.com/',
+            students : [
+                {
+                    name : 'Thomas Culdaut'
+                },
+                {
+                    name : 'Romain Guillemot'
+                },
+                {
+                    name : 'Etienne Rabin'
+                },
+                {
+                    name : 'Nicolas Lamirault'
+                },
+                {
+                    name : 'Fabian Samson'
+                },
+                {
+                    name : 'Marion Guillaume'
                 },
             ]
         },
