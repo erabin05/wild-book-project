@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './_student-preview.scss'
-import wildProfilPic from './wildProfilPic'
+import wildProfilPic from '../../Pictos/wildProfilPic'
 
 const StudentPreview = ({name, github, linkedin}) => {
     const [isMouseOver, setIsMouseOver] = useState(false)    

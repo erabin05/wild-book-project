@@ -25,13 +25,33 @@
     height: 100%;
  }
 
- header > a {
-    font-size: 0.8rem;
-    height: 2rem;
-    border-radius: 1.5rem;
-    text-transform: none;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    text-transform: uppercase;
+ header {
+    a, button{
+      font-size: 0.8rem;
+      height: 2rem;
+      border-radius: 1.5rem;
+      text-transform: none;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      p {
+         margin-right : 3rem;
+         font-size: 1.2rem;
+      }
+      .name {
+      }
+      .city {
+         color : $red;
+         text-transform: uppercase;
+         font-weight: 600;
+      }
+    }
  }
+
+
