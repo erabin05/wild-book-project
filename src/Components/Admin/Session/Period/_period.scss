@@ -40,8 +40,15 @@
             &:hover {
                 background: $red-hover;
                 border-color: $red-hover;
+                path, polygon, rect {
+                    opacity: 1;
+                }
             }
         }
+    }
+    path, polygon, rect {
+        fill : #fff;
+        opacity: 0.7;
     }
 }
 

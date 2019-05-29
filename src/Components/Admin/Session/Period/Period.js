@@ -2,6 +2,7 @@ import React, {useState, useRef} from 'react'
 import './_period.scss'
 
 import ProjectLine from './ProjectLine'
+import Plus from '../../../Pictos/Plus'
 
 const Period = ({name}) => {
     const [isSelected, setIsSelected] = useState(false)
@@ -61,7 +62,7 @@ const Period = ({name}) => {
             <section className='projects-list-container' style={{height : isSelected && `${inputEl.current.offsetHeight}px`}}>
                 <div className='projects-list'ref={inputEl} >
                     <div>
-                        <button className='outline-button'>Add project</button>
+                        <button className='outline-button'><div><Plus/></div>Add project</button>
                     </div>
                     {projects.map((project, index) => <ProjectLine key={index} {...project}/>)}
                 </div>

@@ -1,11 +1,11 @@
 import React from 'react'
 
 import StudentNamePreview from '../../../Previews/StudentNamePreview/StudentNamePreview'
+import Edit from '../../../Pictos/Edit'
 
 const ProjectLine = ({title, imgLink, students, url, githubLink}) => (
     <section className='admin-project-line'>
         <div className='infos'>
-            {console.log(imgLink)}
             <figure><img src={imgLink} alt={title}/></figure>
             <div>
                 <div className='go-to-buttons'>
@@ -29,7 +29,7 @@ const ProjectLine = ({title, imgLink, students, url, githubLink}) => (
             </div>
         </div>
         <div className='buttons'>
-            <button className='outline-button'>Edit</button>
+            <button className='outline-button'><div><Edit/></div>Edit</button>
             <button className='outline-button'>Delete</button>
         </div>
     </section>
