@@ -3,16 +3,61 @@
 
 
 .admin-period {
-    div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    > div {
+        display : flex;
+        justify-content : space-between;
+        align-items : center;
         padding : 1rem 2rem 1rem 2rem;
-        border-bottom: 1px solid $grey;
-        transition: 0.5s;
+        border-bottom : 1px solid $grey;
+        transition : 0.5s;
+        .unselect {
+            color : $typ-grey;
+        }
+        .select {
+            color : $red;
+        }
         &:hover {
             cursor: pointer;
             border-bottom-color: $red;
         }
+    }
+    .projects-list-container {
+        overflow : hidden;
+        background : $red;
+        height: 0;
+        transition: 0.6s;
+        .projects-list {
+            > div {
+                padding: 1rem 3rem 1rem 3rem;
+                border-bottom: 1px solid #fff;
+            }
+        }
+        .outline-button {
+            border-color : #fff;
+            background : none;
+            color : #fff;
+            border-radius: 0.7rem;
+            &:hover {
+                background: $red-hover;
+                border-color: $red-hover;
+            }
+        }
+    }
+}
+
+.admin-project-line {
+    padding : 0.7rem 2rem 0.7rem 2rem;
+    display: flex;
+    * {
+        color : #fff
+    }
+    figure {
+        margin: 0;
+        width: 6rem;
+        height: 3.8rem;
+        border-radius: 0.5rem;
+        border : solid 1px #fff;
+        background: $light-grey;
+        margin-right: 1rem;
     }
 }
