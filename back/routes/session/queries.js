@@ -1,17 +1,14 @@
 
-const getByCampusName = 
+const getByCampusId = 
 `
     SELECT 
     sessions.id AS id, 
     sessions.session_name AS name, 
-    sessions.date  AS date,
-    campuses.id AS campus_id,
-    campuses.campus_name AS campus_name
+    sessions.date AS date
     FROM sessions 
-    JOIN campuses ON sessions.campuses_id=campuses.id 
-    WHERE campuses.campus_name=?;
+    WHERE campuses_id=?;
 `
 
 module.exports = {
-    getByCampusName
+    getByCampusId
 }

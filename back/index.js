@@ -12,8 +12,6 @@ app.use('/project', project)
 app.use('/campus', campus)
 app.use('/language', language)
 app.use('/student', student)
-
-// Session
 app.use('/session', session)
 
 
