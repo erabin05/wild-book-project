@@ -21,7 +21,10 @@ const Header = ({screenSize, setSearchBarIsFocus}) => (
     <header>
         <Link to='/'>
             <figure onClick={()=>setSearchBarIsFocus(false)}>
-                <img src={require('./wild-logo.png')} alt='wild code school identity'/>
+                <img 
+                    src={require('./wild-logo.png')} 
+                    alt='wild code school identity'
+                />
             </figure>
         </Link>
         <Route exact path='/' component={HeaderUser}/>

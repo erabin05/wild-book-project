@@ -5,8 +5,11 @@ import wildProfilPic from '../../Pictos/wildProfilPic'
 const StudentPreview = ({name, github, linkedin}) => {
     const [isMouseOver, setIsMouseOver] = useState(false)    
     return (
-        <div className='student-preview' onMouseEnter={()=>setIsMouseOver(true)} onMouseLeave={()=>setIsMouseOver(false)}>
-        
+        <div 
+            className='student-preview' 
+            onMouseEnter={()=>setIsMouseOver(true)} 
+            onMouseLeave={()=>setIsMouseOver(false)}
+        >
             <span>{wildProfilPic()}</span>
             {isMouseOver
                 ?<div className='links'>
