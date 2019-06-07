@@ -46,7 +46,8 @@ const getNearest = (lat, long) =>
    campuses.campus_name AS name
    FROM campuses
    JOIN sessions ON sessions.campuses_id=campuses.id
-   JOIN projects ON projects.session_id=sessions.id
+   JOIN periods ON sessions.id=periods.session_id
+   JOIN projects ON projects.period_id=periods.id
    WHERE projects.id IS NOT NULL
    ORDER BY distance DESC
 `

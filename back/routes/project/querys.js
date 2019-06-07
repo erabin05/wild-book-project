@@ -21,7 +21,8 @@ SELECT
   students.githubLink AS student_github,
   students.linkedinLink AS student_linkedin
 FROM projects
-JOIN sessions ON sessions.id=projects.session_id
+JOIN periods ON periods.id=projects.period_id
+JOIN sessions ON sessions.id=periods.session_id
 JOIN sessions_has_languages ON sessions.id=sessions_has_languages.sessions_id
 JOIN languages ON sessions_has_languages.languages_id=languages.id
 JOIN campuses ON campuses.id=sessions.campuses_id
