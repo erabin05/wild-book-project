@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './_rows-projects.scss'
-import { numberOfprojectByRow, numberOfProjectByScreenSize, projectsInRowOfNumber} from '../../Previews/ListOfProjects/projectDistributionInRows'
+import { 
+    numberOfprojectByRow, 
+    numberOfProjectByScreenSize, 
+    projectsInRowOfNumber
+} from '../../Previews/ListOfProjects/projectDistributionInRows'
 
 import { Link } from 'react-router-dom'
 import { connect } from "react-redux";
@@ -82,7 +86,12 @@ const RowsProjects = ({
                                     opacity : isOnDesktop && isFocusedOn !== i ? '0.3': '1'}}
                     >
                         {projectsByfour.map((project, j) => (
-                            <ProjectPreview key={j} {...project} rowId={rowId} innerRowId={i} setRowHeight={setRowHeightFromProjectPreview}/>
+                            <ProjectPreview 
+                                key={j} {...project} 
+                                rowId={rowId} 
+                                innerRowId={i} 
+                                setRowHeight={setRowHeightFromProjectPreview}
+                            />
                         ))}
                     </div>
                     { screenSize === 'phone' && <FocusOnProject rowId={rowId} innerRowId={i}/>}

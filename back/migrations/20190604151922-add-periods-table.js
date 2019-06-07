@@ -14,7 +14,7 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-exports.up = function(db) {
+exports.up = function(db, callback) {
 
     // CREATE TABLE PERIODS
     db.createTable('periods', {
@@ -47,9 +47,9 @@ exports.up = function(db) {
     }, callback);
 
     // ADD COLUMN period_id IN projetcs
-    addColumn(
-      projects, 
-      period_id, 
+    db.addColumn(
+      'projects', 
+      'period_id', 
       {
         type: 'int',
         unsigned: true,
@@ -68,12 +68,35 @@ exports.up = function(db) {
       callback)
 
     // REMOVE COLUMN session_id IN projetcs
-    removeColumn(projects, session_id, callback)
+    db.removeColumn('projects', 'session_id', callback)
 
 };
 
-exports.down = function(db) {
-  return null;
+exports.down = function(db, callback) {
+
+  // DELETE TABLE period
+  db.dropTable('periods', callback)
+  // ADD column 
+  db.addColumn(
+    'projects', 
+    'session_id', 
+    {
+      type: 'int',
+      unsigned: true,
+      length: 10,
+      notNull: true,
+      foreignKey: {
+        name: 'projects_session_id_fk',
+        table: 'sessions',
+        rules: {
+          onDelete: 'CASCADE',
+          onUpdate: 'RESTRICT'
+        },
+        mapping: 'id'
+      }
+    }
+  , callback)
+
 };
 
 exports._meta = {
