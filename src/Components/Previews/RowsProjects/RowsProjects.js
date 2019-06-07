@@ -59,7 +59,7 @@ const RowsProjects = ({
         {/* TITLE */}
         <div className='row-title'>
             <h2>{projectsCategorie.name}</h2>
-            <Link to={`${projectsCategorie.name}_${projectsCategorie.type}_${projectsCategorie.id}`.replace(/ /g,"-")}>
+            <Link to={`of/${projectsCategorie.name}_${projectsCategorie.type}_${projectsCategorie.id}`.replace(/ /g,"-")}>
                 <button className='outline-button'>Voir plus ></button>
             </Link>
         </div>

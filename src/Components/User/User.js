@@ -10,7 +10,7 @@ import DedicatedPage from './DedicatedPage/DedicatedPage'
 const User = () => (
     <div>
         <Route exact path='/' component={ProjetcDisplay}/>
-        <Route path='/:id' component={DedicatedPage}/>
+        <Route path='/of/:id' component={DedicatedPage}/>
     </div>
 )
 

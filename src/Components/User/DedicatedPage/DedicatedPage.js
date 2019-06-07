@@ -31,7 +31,7 @@ const DedicatedPage = () => {
                 <h1>{
                     projectsCategorie !== undefined && projectsCategorie.name === title
                     ? projectsCategorie.name
-                    : title
+                    : title.substring(3, title.length)
                 }</h1>
                 <Link to='/'>
                     <button className='inline-button'>{'< Go Back'}</button>

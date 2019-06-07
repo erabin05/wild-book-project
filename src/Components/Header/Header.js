@@ -27,7 +27,7 @@ const Header = ({screenSize, setSearchBarIsFocus}) => (
                 />
             </figure>
         </Link>
-        <Route exact path='/' component={HeaderUser}/>
+        <Route exact path={['/','/of/:id']} component={HeaderUser}/>
         <Route exact path='/Admin' component={HeaderAdmin}/>
     </header>
 )
