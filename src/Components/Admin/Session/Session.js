@@ -7,14 +7,14 @@ import Period from './Period/Period'
 import Edit from '../../Pictos/Edit'
 import Plus from '../../Pictos/Plus'
 
-const Session = ({name, language, periods, students}) => (
+const Session = ({name, languages, periods, students}) => (
     <section className='admin-session'>
         <div className='header'>
             <div>
                 <div className='title'>
                     <div>
                         <h2>{name}</h2>
-                        <h3>{language}</h3>
+                        <h3>{languages.reduce((acc, language)=>(`${acc} / ${language.name}`).substring(1), '')}</h3>
                     </div>
                     <figure></figure>
                 </div>

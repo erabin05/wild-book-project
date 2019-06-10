@@ -1,45 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Session from './Session/Session'
+import axios from 'axios'
 
-const sessions = [
-    {
-        name : 'février 2019',
-        language : 'JavaScript',
-        periods : [
-            { 
-                name : 'Projet 1'
-            },
-            {
-                
-                name : 'Projet 2'
-            },
-            {
+const campusId = 1;
 
-                name : 'Projet 3'
-            }
-        ],
-        students : 23
-    },
-    {
-        name : 'Septembre 2018',
-        language : 'JavaScript',
-        periods : [
-            { 
-                name : 'Projet 1'
-            },
-            {
-                
-                name : 'Hackathon'
-            }
-        ],
-        students : 14
-    },
-]
+const Admin = () => {
+    const [sessions, setSessions] = useState([])
 
-const Admin = () => (
-    <div>
-        {sessions.map((session, index) => <Session key={index} {...session}/>)}
-    </div>
-)
+    useEffect(()=> {
+        axios.get(`http://localhost:5000/session/campus=${campusId}`)
+            .then(res => setSessions(res.data))
+    }, [])
+
+    return (
+        <div>
+            {sessions.map((session, index) => <Session key={index} {...session}/>)}
+        </div>
+    )
+}
 
 export default Admin
