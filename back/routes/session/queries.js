@@ -8,8 +8,9 @@ const getByCampusId =
     periods.id AS period_id,
     periods.name AS period_name
     FROM sessions
-    JOIN periods ON periods.session_id=sessions.id
-    WHERE campuses_id=?;
+    LEFT JOIN periods ON periods.session_id=sessions.id
+    WHERE campuses_id=?
+    ORDER BY date DESC;
 `
 
 module.exports = {

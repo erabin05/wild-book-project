@@ -1,13 +1,16 @@
 sortSessions = datas => (
-    datas.reduce((acc, currentValue, index) => (
+    datas.reduce((acc, currentValue) => (
         [
             ...acc.filter(data => data.id !== currentValue.id),
                 {
                     id : currentValue.id,
                     name : currentValue.name,
                     date : currentValue.date,
+                    students_nb : currentValue.students_nb,
                     periods : [
-                        ... (acc[acc.length-1]&& acc[acc.length-1].id === currentValue.id) ? acc[acc.length-1].periods : [],
+                        ... acc.filter(data => data.id === currentValue.id)[0]
+                            ? acc.filter(data => data.id === currentValue.id)[0].periods
+                            : [],
                         {
                             id : currentValue.period_id,
                             name : currentValue.period_name
