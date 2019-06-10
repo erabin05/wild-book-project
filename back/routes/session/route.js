@@ -2,8 +2,10 @@ const express = require('express')
 const router = express.Router()
 const connection = require('../../conf');
 
-const connectionGet = require('../connectionGet')
+const sortSessions = require('./organizeSession.js')
 const queries = require('./queries')
+
+const connectionGet = require('../connectionGet')
 
 router.use((req, res, next) => {
     next()
@@ -17,7 +19,7 @@ router.get('/campus=:name', (request, response)=> {
         `${campusId}%`, 
         response, 
         'session',
-        data=>data
+        sortSessions
     )
 })
 
