@@ -10,17 +10,17 @@ const ProjectLine = ({title, imgLink, students, url, githubLink}) => (
             <div>
                 <div className='go-to-buttons'>
                     <p className='title'>{title}</p>
-                    {url && <a  
-                                className='inline-button' 
-                                href={url}
-                                rel='noreferrer noopener'
-                                target='_blank'
+                        {url && <a  
+                            className='inline-button' 
+                            href={url}
+                            rel='noreferrer noopener'
+                            target='_blank'
                         >Go to website</a>}
                         {githubLink && <a   
-                                            className='inline-button'
-                                            href={githubLink}
-                                            rel='noreferrer noopener'
-                                            target='_blank'
+                            className='inline-button'
+                            href={githubLink}
+                            rel='noreferrer noopener'
+                            target='_blank'
                         >Go to Github</a>}
                 </div>
                 <div className='students'>

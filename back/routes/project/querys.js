@@ -33,6 +33,7 @@ JOIN students ON projects_has_students.students_id=students.id
 const getByCampus = `${getAll} WHERE campuses.id = ?`
 const getBySession = `${getAll} WHERE sessions.id = ?`
 const getByLanguage = `${getAll} WHERE languages.id = ?`
+const getByPeriod = `${getAll} WHERE periods.id = ?`
 
 const getByProjectResearch = `${getAll} WHERE projects.title LIKE ?`
 
@@ -41,5 +42,6 @@ const getByProjectResearch = `${getAll} WHERE projects.title LIKE ?`
     getByCampus,
     getBySession,
     getByLanguage,
+    getByPeriod,
     getByProjectResearch
  }

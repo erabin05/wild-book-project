@@ -30,6 +30,17 @@
                     font-weight: 300;
                     text-transform: capitalize;
                 }
+                form {
+                    input {
+                        background: $light-grey;
+                        border : none;
+                        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+                        font-size: 1rem; 
+                        border-radius: 0.5rem;
+                        font-weight: 500;
+                        font-size: 1.2rem;
+                    }
+                }
             }
             figure {
                 width: 100%;
@@ -41,6 +52,14 @@
         }
         .edit-buttons {
             display: flex;
+            .selected {
+                background: $red-hover;
+                border-color: $red-hover;
+                color : #fff;
+                path, rect, polygon {
+                    fill : #fff;
+                }
+            }
         }
     }
     .outline-button-edit {
@@ -98,6 +117,27 @@
                     stroke : #fff;
                 }
             }
+        }
+    }
+    .no-period {
+        padding: 0.7rem 1rem 0.7rem 1rem;
+        margin : 1rem 2rem 1rem 2rem;
+        color : $pink;
+        display: flex;
+        align-items: center;
+        border-radius: 0.5rem;
+        border : solid 1px $pink;
+        div {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 1rem;
+        }
+        span {
+            background : $light-grey;
+            color : $typ-grey;
+            padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+            border-radius: 0.3rem;
+            margin : 0 0.5rem 0 0.5rem;
         }
     }
 }

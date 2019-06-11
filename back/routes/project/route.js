@@ -27,6 +27,12 @@ router.use((req, res, next) => {
     const session_id = request.params.session_id;
     connectionGet(`get projects by session id(${session_id})`, querysProject.getBySession, session_id, response, 'session', sortProjects)
   })
+
+  // Get by period
+  router.get('/period=:period_id', (request, response) => {
+    const period_id = request.params.period_id;
+    connectionGet(`get projects by session id(${period_id})`, querysProject.getByPeriod, period_id, response, 'period', sortProjects)
+  })
   
   // Get by title search
   router.get('/search=:project_title', (request, response) => {
