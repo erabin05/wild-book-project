@@ -30,7 +30,10 @@
                     font-weight: 300;
                     text-transform: capitalize;
                 }
+                // Edit - date session
+                
                 form {
+                    display: flex;
                     input {
                         background: $light-grey;
                         border : none;
@@ -52,9 +55,16 @@
         }
         .edit-buttons {
             display: flex;
-            .selected {
-                background: $red-hover;
-                border-color: $red-hover;
+        }
+        .selected {
+            background: $red-hover;
+            border-color: $red-hover;
+            color : #fff;
+            path, rect, polygon {
+                fill : #fff;
+            }
+            &:hover {
+                background : $red-hover;
                 color : #fff;
                 path, rect, polygon {
                     fill : #fff;
@@ -119,6 +129,52 @@
             }
         }
     }
+    // Input add period
+    .add-period-container {
+        overflow: hidden;
+        height: 0px;
+        transition : 0.5s;
+    }
+    .add-period-container-selected{
+        height: 100px;
+    }
+    .add-period {
+        transition : 0.5s;
+        display: flex;
+        align-items: center;
+        padding : 1rem 2rem 1rem 2rem;
+        border-bottom: solid 1px $grey;
+        .buttons {
+            display: flex;
+            align-items: flex-end;
+            margin-top: 1rem;
+            justify-content: space-between;
+            .outline-button {
+                border-radius: 0.6rem;
+                border-color: $red;
+                margin-left: 1rem;
+                margin-right: 0.5rem;
+                div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .cross {
+                    height: 1rem;
+                    width: 1rem;
+                }
+            }
+        }
+        .input {
+            display : flex;
+            flex-direction: column;
+            max-width: 20%;
+        }
+    }
+    ::placeholder {
+        color : $grey;
+    }
+    // If not periods msg
     .no-period {
         padding: 0.7rem 1rem 0.7rem 1rem;
         margin : 1rem 2rem 1rem 2rem;
@@ -140,4 +196,22 @@
             margin : 0 0.5rem 0 0.5rem;
         }
     }
+}
+
+input {
+    background : $light-grey;
+    border : none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding : 0.4rem 0.5rem 0.4rem 0.5rem;
+    border-radius: 0.5rem;
+    border : $red 1px solid;
+    &:focus {
+        outline: none;
+        background : $light-grey-hover;
+    }
+}
+label {
+    color : $red;
+    margin-right: 0.5rem;
 }
