@@ -10,7 +10,7 @@ import { Cross } from '../../Pictos/Cross'
 
 import { Dropdown } from 'semantic-ui-react'
 
-const dropDownMonth = ['January', 'February', 'March', 'April', 'May'].map((month, index) => ({key: month, text : month, value : month}))
+const months = ['01', '02','03','04','05','06','07','08','09','10','11','12']
 
 const Session = ({
     id, 
@@ -25,6 +25,9 @@ const Session = ({
     
     const [newPeriodName, setNewPeriodName] = useState('')
 
+    const LanguagesTitle = languages.reduce((acc, language)=>(`${acc} / ${language.name}`).substring(1), '')
+    const [languageName, setLanguageName] = useState(LanguagesTitle)
+
     return (
     <section className='admin-session'>
         <div className='header'>
@@ -34,13 +37,37 @@ const Session = ({
                         !isEditSelected &&
                         <div>
                             <h2>{name}</h2>
-                            <h3>{languages.reduce((acc, language)=>(`${acc} / ${language.name}`).substring(1), '')}</h3>
+                            <h3>{LanguagesTitle}</h3>
                         </div>
                     }
                     {!isEditSelected && <figure></figure>}
                     {
-                        isEditSelected &&
-                        <Dropdown placeholder='Skills' fluid multiple selection options={dropDownMonth} />
+                        isEditSelected 
+                        && (
+                            <form className='edit-session-form'>
+                                <label>Date</label>
+                                <input 
+                                    className='month' 
+                                    placeholder='mm'
+                                    maxlength="2"
+                                />
+                                <input 
+                                    className='year' 
+                                    placeholder='yyyy' 
+                                    list="year"
+                                    maxlength="4"
+                                />
+                                <label>Languages</label>
+                                <input 
+                                    className='language'
+                                    placeholder='Language 1'
+                                />
+                                <input 
+                                    className='language'
+                                    placeholder='Language 2'
+                                />
+                            </form>
+                        )
                     }
                 </div>
                 <div className='edit-buttons'>

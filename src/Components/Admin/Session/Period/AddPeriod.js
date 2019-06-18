@@ -39,7 +39,8 @@ const AddPeriod = ({
                 <button 
                     className={`outline-button ${newPeriodName.length < 1 && 'button-lock'}`}
                     onClick={()=>{
-                        axios.post(`${process.env.REACT_APP_URL_API}/period`, {name : newPeriodName, session_id })
+                        newPeriodName.length > 0
+                        && axios.post(`${process.env.REACT_APP_URL_API}/period`, {name : newPeriodName, session_id })
                             .then(()=>{
                                 resetPeriodNameAndCloseCreationWindow(setIsAddPeriodSelected, setNewPeriodName)
                                 getAllSessions()
@@ -49,7 +50,7 @@ const AddPeriod = ({
                     <div>
                         <Selected color={'#39424e'}/>
                     </div>
-                    Valider
+                    Add
                 </button>
                 <button 
                     className='outline-button'

@@ -5,6 +5,7 @@ import axios from 'axios'
 
 import ProjectLine from './ProjectLine'
 import Plus from '../../../Pictos/Plus'
+import Bin from '../../../Pictos/Bin'
 
 const Period = ({
     id, 
@@ -28,7 +29,7 @@ const Period = ({
                 {
                     isEditSelected 
                     && <div
-                            className = 'outline-button'
+                            className = 'outline-button delete'
                             onClick={()=>{
                                 axios.delete(`${process.env.REACT_APP_URL_API}/period/${id}`)
                                     .then(()=> getAllSessions())
