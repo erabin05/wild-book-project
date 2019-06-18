@@ -11,8 +11,6 @@ router.post("/", (req, res) => {
     const { name, session_id } = req.body
     const query = 'INSERT INTO periods (name, session_id) VALUES (?,?)'
 
-    res.header("Access-Control-Allow-Origin", "*");
-
     connection.query(query, [name, session_id],  err => {
 
         if (err) {

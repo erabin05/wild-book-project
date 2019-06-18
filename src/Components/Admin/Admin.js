@@ -8,7 +8,7 @@ const Admin = () => {
     const [sessions, setSessions] = useState([])
 
     useEffect(()=> {
-        axios.get(`http://localhost:5000/session/campus=${campusId}`)
+        axios.get(`${process.env.REACT_APP_URL_API}/session/campus=${campusId}`)
             .then(res => setSessions(res.data))
     }, [])
 

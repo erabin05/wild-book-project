@@ -12,7 +12,7 @@ const Period = ({id, name, isEditSelected}) => {
     const inputEl = useRef(null);
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/project/period=${id}`)
+        axios.get(`${process.env.REACT_APP_URL_API}/project/period=${id}`)
             .then(res => setProjects(res.data.projects))
     }, [])
 
