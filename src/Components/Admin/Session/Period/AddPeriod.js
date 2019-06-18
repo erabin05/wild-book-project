@@ -11,7 +11,8 @@ const AddPeriod = ({
     setNewPeriodName, 
     isAddPeriodSelected, 
     resetPeriodNameAndCloseCreationWindow, 
-    setIsAddPeriodSelected
+    setIsAddPeriodSelected,
+    getAllSessions
 }) => {
 
     const addPeriod = useRef({});    
@@ -38,9 +39,11 @@ const AddPeriod = ({
                 <button 
                     className={`outline-button ${newPeriodName.length < 1 && 'button-lock'}`}
                     onClick={()=>{
-                        newPeriodName.length < 1 &&
                         axios.post(`${process.env.REACT_APP_URL_API}/period`, {name : newPeriodName, session_id })
-                            .then(()=>resetPeriodNameAndCloseCreationWindow(setIsAddPeriodSelected, setNewPeriodName))
+                            .then(()=>{
+                                resetPeriodNameAndCloseCreationWindow(setIsAddPeriodSelected, setNewPeriodName)
+                                getAllSessions()
+                            })
                     }}
                 >
                     <div>

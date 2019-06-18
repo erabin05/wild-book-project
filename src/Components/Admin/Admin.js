@@ -7,14 +7,18 @@ const campusId = 1;
 const Admin = () => {
     const [sessions, setSessions] = useState([])
 
-    useEffect(()=> {
+    const getAllSessions = () => {
         axios.get(`${process.env.REACT_APP_URL_API}/session/campus=${campusId}`)
             .then(res => setSessions(res.data))
+    }
+
+    useEffect(()=> {
+        getAllSessions()
     }, [])
 
     return (
         <div>
-            {sessions.map((session, index) => <Session key={index} {...session}/>)}
+            {sessions.map((session, index) => <Session key={index} {...session} getAllSessions={getAllSessions}/>)}
         </div>
     )
 }

@@ -12,7 +12,14 @@ import { Dropdown } from 'semantic-ui-react'
 
 const dropDownMonth = ['January', 'February', 'March', 'April', 'May'].map((month, index) => ({key: month, text : month, value : month}))
 
-const Session = ({id, name, languages, periods, students}) => {
+const Session = ({
+    id, 
+    name, 
+    languages, 
+    periods, 
+    students,
+    getAllSessions
+}) => {
     const [isEditSelected, setIsEditSelected] = useState(false)
     const [isAddPeriodSelected, setIsAddPeriodSelected] = useState(false)
     
@@ -66,12 +73,13 @@ const Session = ({id, name, languages, periods, students}) => {
                 setNewPeriodName, 
                 isAddPeriodSelected, 
                 resetPeriodNameAndCloseCreationWindow, 
-                setIsAddPeriodSelected
+                setIsAddPeriodSelected,
+                getAllSessions
                 }
             }/>
         {
             periods[0].name !== null 
-            ? periods.map((period, index)=><Period key={index} {...period} isEditSelected={isEditSelected}/> )
+            ? periods.map((period, index)=><Period key={index} {...period} isEditSelected={isEditSelected} getAllSessions={getAllSessions}/> )
             : <div className='no-period'><div><Cross color='#F79797'/></div>No period for this session - Click on <span>Add Projects Period</span>to add one</div> 
         }
     </section>

@@ -6,7 +6,12 @@ import axios from 'axios'
 import ProjectLine from './ProjectLine'
 import Plus from '../../../Pictos/Plus'
 
-const Period = ({id, name, isEditSelected}) => {
+const Period = ({
+    id, 
+    name, 
+    isEditSelected, 
+    getAllSessions
+}) => {
     const [isSelected, setIsSelected] = useState(false)
     const [projects, setProjects] = useState([])
     const inputEl = useRef(null);
@@ -18,9 +23,20 @@ const Period = ({id, name, isEditSelected}) => {
 
     return (
         <section className='admin-period'>
-            <div onClick={() => setIsSelected(isSelected => !isSelected)}>
+            <div onClick={() => !isEditSelected && setIsSelected(isSelected => !isSelected)}>
                 <p className={isSelected ? 'select': 'unselect'}>{name}</p>
-                {isEditSelected && <p>Delete</p>}
+                {
+                    isEditSelected 
+                    && <div
+                            className = 'outline-button'
+                            onClick={()=>{
+                                axios.delete(`${process.env.REACT_APP_URL_API}/period/${id}`)
+                                    .then(()=> getAllSessions())
+                            }}
+                        >
+                            Delete
+                        </div>
+                }
             </div>
             <section className='projects-list-container' style={{height : isSelected && `${inputEl.current.offsetHeight}px`}}>
                 <div className='projects-list'ref={inputEl} >
