@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 const connection = require('../../conf');
 
+const connectionDelete = require('../connectionDelete')
+const connectionPost = require('../connectionPost')
+
 router.use((req, res, next) => {
     next()
 });
@@ -11,15 +14,23 @@ router.post("/", (req, res) => {
     const { name, session_id } = req.body
     const query = 'INSERT INTO periods (name, session_id) VALUES (?,?)'
 
-    connection.query(query, [name, session_id],  err => {
-
-        if (err) {
-            res.status(500).send(`error when trying to create period ${name} : ${err}`);
-        } else {
-            res.send(200);
-        }
-
-    })
+    connectionPost(
+        query,
+        res,
+        [name, session_id]
+    )
 });
+
+// Delete a period
+router.delete("/:period_id",(req,res) => {
+    const period_id = req.params.period_id
+    const query = 'DELETE FROM periods WHERE id=?'
+
+    connectionDelete(
+        query,
+        res,
+        period_id
+    )
+})
   
 module.exports = router
