@@ -7,6 +7,13 @@ const Log = () => {
 
     return (
         <main className='log'>
+            <figure>
+                <img 
+                    src={require('../../logo-wild-white.png')} 
+                    alt='wild code school'
+                />
+            </figure>
+            <h1>Students projects</h1>
             <form>
                 <label for="username">User</label>
                 <input 
