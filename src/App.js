@@ -8,6 +8,7 @@ import { Route } from 'react-router-dom'
 import Header from './Components/Header/Header'
 import User from './Components/User/User'
 import Admin from './Components/Admin/Admin'
+import Log from './Components/Authentification/Log'
 
 import {setScreenSize} from './Reducers/screenSize/action'
 
@@ -26,6 +27,7 @@ const App = ({setScreenSize}) => {
       <Header/>
       <Route path='/' component={User}/>
       <Route exact path='/Admin' component={Admin}/>
+      <Route exact path='/log' component={Log}/>
     </main>
   )
 }

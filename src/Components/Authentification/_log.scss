@@ -1,0 +1,43 @@
+@import '../../Style/color.scss';
+
+.log {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $red;
+    form {
+        display: flex;
+        flex-direction : column;
+        align-items: center;
+        width: 15rem;
+        label {
+            color : #fff;
+            align-self: flex-start
+        }
+        input {
+            width : 95%;
+            margin-bottom: 1rem;
+            background-color: $light-grey;
+            &:focus {
+                background-color : #fff;
+            }
+        }
+        .log-button {
+            width : 100%;
+            background : none;
+            color : #fff;
+            border : solid 1px #fff;
+            font-size: 0.8rem;
+            border-radius: 2rem;
+            padding : 0.6rem;
+            margin-top: 1rem;
+            transition: 0.5s;
+            &:hover {
+                background-color : $red-hover;
+                border-color: $red-hover;
+            }
+        }
+    }
+}
