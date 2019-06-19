@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Session from './Session/Session'
 import axios from 'axios'
 
+import Header from '../Header/Header'
+
 const campusId = 1;
 
 const Admin = () => {
@@ -18,6 +20,7 @@ const Admin = () => {
 
     return (
         <div>
+            <Header/>
             {sessions.map((session, index) => <Session key={index} {...session} getAllSessions={getAllSessions}/>)}
         </div>
     )
