@@ -47,9 +47,9 @@ exports.up = function(db, callback) {
       },
   }, callback);
 
-  db.inserts(
+  db.insert(
     'admins',
-    [username, password, all_rights, campus_id],
+    ['username', 'password', 'all_rights', 'campus_id'],
     ['admin', 'admin', false, 1]
   )
 

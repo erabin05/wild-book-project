@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const port = 5000
 
 const passport = require('passport')
-const auth = require('./routes/auth')
 
 const project = require('./routes/project/route')
 const campus = require('./routes/campus/route')
@@ -12,12 +11,12 @@ const language = require('./routes/language/route')
 const student = require('./routes/student/route')
 const session = require('./routes/session/route')
 const period = require('./routes/period/route')
-const login
+const login = require('./routes/login')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// app.use('/auth', auth);
+require('./passport-strategy')
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');

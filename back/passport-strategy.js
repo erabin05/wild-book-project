@@ -6,6 +6,8 @@ const ExtractJWT = passportJWT.ExtractJwt;
 const LocalStrategy = require('passport-local').Strategy
 const JWTStrategy   = passportJWT.Strategy;
 
+const connection = require('./conf');
+
 require('dotenv').config()
 
 passport.use(new LocalStrategy(
@@ -15,7 +17,7 @@ passport.use(new LocalStrategy(
     }, 
     (username, password, done) => {
 
-        query = `SELECT FROM WHERE`
+    const query = `SELECT id, username FROM admins WHERE username=? AND password=?`
 
         connection.query(query, [username, password], (err, user) => {
             if (err) {
@@ -36,13 +38,6 @@ passport.use(new JWTStrategy(
         secretOrKey   : process.env.JWT_SECRET_KEY
     },
     (jwtPayload, done) => {
-        //find the user in db if needed. This functionality may be omitted if you store everything you'll need in JWT payload.
-        return UserModel.findOneById(jwtPayload.id)
-            .then(user => {
-                return done(null, user);
-            })
-            .catch(err => {
-                return done(err);
-            });
+        return done(null, { ...jwtPayload });      
     }
 ));

@@ -7,7 +7,7 @@ const passport = require('passport');
 require('dotenv').config()
 
 /* POST login. */
-router.post('/login', (req, res, next) => {
+router.post('/', (req, res, next) => {
 
     passport.authenticate('local', {session: false}, (err, user, info) => {
         console.log(err);
@@ -22,8 +22,8 @@ router.post('/login', (req, res, next) => {
             if (err) {
                 res.send(err);
             }
-
-            const token = jwt.sign(user, process.env.JWT_SECRET_KEY);
+            
+            const token = jwt.sign({user}, process.env.JWT_SECRET_KEY);
 
             return res.json({user, token});
         })
