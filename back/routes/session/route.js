@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const connection = require('../../conf');
 
 const sortSessions = require('./organizeSession.js')
 const queries = require('./queries')
@@ -12,6 +11,7 @@ router.use((req, res, next) => {
 });
 
 router.get('/campus=:name', (request, response)=> {
+
     const campusId = request.params.name
     connectionGet(
         `get sessions when campus_id='${campusId}'`,

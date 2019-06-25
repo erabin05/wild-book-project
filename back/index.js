@@ -20,8 +20,8 @@ require('./passport-strategy')
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Methods', 'HEAD, GET, POST, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     next();
@@ -31,7 +31,7 @@ app.use('/project', project)
 app.use('/campus', campus)
 app.use('/language', language)
 app.use('/student', student)
-app.use('/session', session)
+app.use('/session',passport.authenticate('jwt', {session: false}), session)
 app.use('/period', period)
 app.use('/login', login)
 

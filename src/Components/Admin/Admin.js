@@ -10,7 +10,13 @@ const Admin = () => {
     const [sessions, setSessions] = useState([])
 
     const getAllSessions = () => {
-        axios.get(`${process.env.REACT_APP_URL_API}/session/campus=${campusId}`)
+        axios.get(
+            `${process.env.REACT_APP_URL_API}/session/campus=${campusId}`, 
+            { headers : { 
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${localStorage.getItem('wildPortfolioToken')}`
+                } 
+            })
             .then(res => setSessions(res.data))
     }
 

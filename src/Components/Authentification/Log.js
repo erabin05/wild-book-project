@@ -16,23 +16,23 @@ const Log = () => {
             </figure>
             <h1>Students projects</h1>
             <form>
-                <label for="username">User</label>
+                <label htmlFor="username">User</label>
                 <input 
                     id ='username'
-                    type='email'
+                    type='text'
                     placeholder='User'
-                    autocomplete="off"
+                    autoComplete="off"
                     value={username}
                     onChange={e => 
                         setUsername(e.target.value)
                     }
                 />
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input 
                     id='password'
                     type='password'
                     placeholder='Password'
-                    autocomplete="off"
+                    autoComplete="off"
                     value={password}
                     onChange={e => 
                         setPassword(e.target.value)
@@ -40,9 +40,12 @@ const Log = () => {
                 />
                 <button 
                     className='log-button'
+                    type="button"
                     onClick={()=>{
                         axios.post(`${process.env.REACT_APP_URL_API}/login`, {username, password})
-                            .then(res => console.log(res))
+                            .then(res => {
+                                localStorage.setItem('wildPortfolioToken', JSON.stringify(res.data.token));
+                            })
                     }}
                 >Log in</button>
             </form>
