@@ -7,10 +7,8 @@ import ProjetcDisplay from './ProjectsDisplay'
 import DedicatedPage from './DedicatedPage/DedicatedPage'
 import Header from '../Header/Header'
 
-
 const User = () => (
     <div>
-        
         <Route exact path='/' component={Header}/>
         <Route path='/of/:id' component={Header}/>
         <Route exact path='/' component={ProjetcDisplay}/>

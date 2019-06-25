@@ -1,7 +1,10 @@
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 const port = 5000
+
+const passport = require('passport')
+const auth = require('./routes/auth')
 
 const project = require('./routes/project/route')
 const campus = require('./routes/campus/route')
@@ -9,19 +12,20 @@ const language = require('./routes/language/route')
 const student = require('./routes/student/route')
 const session = require('./routes/session/route')
 const period = require('./routes/period/route')
+const login
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(function (req, res, next) {
+// app.use('/auth', auth);
 
+app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', '*');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
 
     next();
-    
 });
 
 app.use('/project', project)
@@ -30,6 +34,7 @@ app.use('/language', language)
 app.use('/student', student)
 app.use('/session', session)
 app.use('/period', period)
+app.use('/login', login)
 
 
 app.listen(port, () => {

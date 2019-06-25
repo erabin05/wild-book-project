@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import axios from 'axios'
 import './_log.scss'
 
 const Log = () => {
@@ -37,7 +38,13 @@ const Log = () => {
                         setPassword(e.target.value)
                     }
                 />
-                <button className='log-button'>Log in</button>
+                <button 
+                    className='log-button'
+                    onClick={()=>{
+                        axios.post(`${process.env.REACT_APP_URL_API}/login`, {username, password})
+                            .then(res => console.log(res))
+                    }}
+                >Log in</button>
             </form>
         </main>
     )
