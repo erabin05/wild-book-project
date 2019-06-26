@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const port = 5000
 
 const passport = require('passport')
+const cors = require('cors');
 
 const project = require('./routes/project/route')
 const campus = require('./routes/campus/route')
@@ -15,17 +16,9 @@ const login = require('./routes/login')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors())
 
 require('./passport-strategy')
-
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'HEAD, GET, POST, PUT, PATCH, DELETE, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token, Authorization');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-    next();
-});
 
 app.use('/project', project)
 app.use('/campus', campus)

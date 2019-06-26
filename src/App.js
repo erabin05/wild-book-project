@@ -26,7 +26,7 @@ const App = ({setScreenSize}) => {
     <main>
       <Route path='/' component={User}/>
       <Route exact path='/Admin' component={Admin}/>
-      <Route exact path='/log' component={Log}/>
+      <Route exact path='/login' component={Log}/>
     </main>
   )
 }

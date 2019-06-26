@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const numberOfprojectByRow = screenSize => {
     switch (screenSize) {
         case 'desktop': 
@@ -8,6 +6,8 @@ export const numberOfprojectByRow = screenSize => {
             return 3
         case 'phone': 
             return 2
+        default :
+            return 4
     }
 }
 

@@ -19,7 +19,14 @@
         color : white;
         text-transform: uppercase;
         font-weight: 100;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+    }
+    .log-msg {
+        background: $pink;
+        padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+        border-radius: 0.3rem;
+        color : #fff;
+        font-size: 0.9rem;
     }
     form {
         display: flex;

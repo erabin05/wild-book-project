@@ -5,6 +5,7 @@ import './_log.scss'
 const Log = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [logMsg, setLogMsg] = useState({})
 
     return (
         <main className='log'>
@@ -38,6 +39,9 @@ const Log = () => {
                         setPassword(e.target.value)
                     }
                 />
+                {
+                    logMsg.message && <div className={`log-msg`}>{logMsg && logMsg.message}</div>
+                }
                 <button 
                     className='log-button'
                     type="button"
@@ -45,6 +49,8 @@ const Log = () => {
                         axios.post(`${process.env.REACT_APP_URL_API}/login`, {username, password})
                             .then(res => {
                                 localStorage.setItem('wildPortfolioToken', res.data.token);
+                                console.log(res.data)
+                                setLogMsg(res.data)
                             })
                     }}
                 >Log in</button>
