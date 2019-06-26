@@ -25,9 +25,8 @@ router.get('/random', (request, response) => {
     connectionGet(`get campuses randomly'`,querys.getRandomly, '', response, 'random', data=>data)
 })
 
-router.get('/lat=:lat/long=:long', (request, response) => {
-    const lat = request.params.lat
-    const long = request.params.long
+router.get('/near', (request, response) => {
+    const { lat, long } = request.query
     connectionGet(`get campuses by distance'`,querys.getNearest(lat, long), '', response, 'random', data=>data)
 })
 

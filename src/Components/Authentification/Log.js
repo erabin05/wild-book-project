@@ -44,7 +44,7 @@ const Log = () => {
                     onClick={()=>{
                         axios.post(`${process.env.REACT_APP_URL_API}/login`, {username, password})
                             .then(res => {
-                                localStorage.setItem('wildPortfolioToken', JSON.stringify(res.data.token));
+                                localStorage.setItem('wildPortfolioToken', res.data.token);
                             })
                     }}
                 >Log in</button>

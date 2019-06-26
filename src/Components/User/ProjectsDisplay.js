@@ -16,7 +16,7 @@ const ProjectDisplay = ({isSearchBarFocus}) => {
                 categorie : 'campus',
                 searchParam : 
                     navigator.geolocation 
-                    ? `lat=${navigator.geolocation.getCurrentPosition(postion=>postion.coords.latitude)}/long=${navigator.geolocation.getCurrentPosition(postion=>postion.coords.longitude)}`
+                    ? `near?lat=${navigator.geolocation.getCurrentPosition(postion=>postion.coords.latitude)}&long=${navigator.geolocation.getCurrentPosition(postion=>postion.coords.longitude)}`
                     : 'random'
             },
             {
